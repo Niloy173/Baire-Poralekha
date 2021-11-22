@@ -8,6 +8,11 @@ function plusDivs(n)
   showEventImage(slideIndex +=n);
 }
 
+document.getElementById("logo_click").addEventListener('click',function(e){
+
+  window.location = "../index.html";
+})
+
 
 
 
