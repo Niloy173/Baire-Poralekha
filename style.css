@@ -17,11 +17,15 @@
 #navbar .logo {
   font-size: 30px;
   font-weight: 600;
-  color: black;
   justify-content: left;
   padding-left: 100px;
   padding-right: 100px;
   cursor: pointer;
+}
+.logo a{
+
+  text-decoration: none;
+  color: #000;
 }
 
 #navbar ul {
