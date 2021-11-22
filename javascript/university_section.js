@@ -218,7 +218,8 @@ function GoToUniversitySection()
     window.scrollTo(500,600);
 }
 
-document.getElementById("logo").addEventListener('click',function(e){
+document.getElementById("logo_click").addEventListener('click',function(e){
 
-    location.href = "../home.html"
+    location.href = "../index.html"
 })
+

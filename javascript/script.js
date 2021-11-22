@@ -97,3 +97,9 @@ function closeNav(){
     timecount =2;
 
 }
+
+document.getElementById("logo_click").addEventListener('click',function(e){
+
+    window.location = "../index.html";
+  })
+  
