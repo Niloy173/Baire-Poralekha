@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link rel="stylesheet" type="text/css" href="./s_university.css" />
+    <!-- <link rel="stylesheet" type="text/css" href="./style.css" /> -->
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+  </head>
+  <body>
+    <nav id="navbar">
+      <div class="logo">LOGO</div>
+      <!-- <input type="checkbox" id="click" /> -->
+      <label id="show_nav" for="click" class="menu-btn">
+        <i class="fas fa-bars"></i>
+      </label>
+
+      <ul id="nav_menu_item">
+        <li>
+          <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"
+            >&times; close</a
+          >
+        </li>
+        <li><a class="hover_effect" href="./UniversityPage.html">University</a></li>
+        <li><a class="hover_effect" href="#">Guide</a></li>
+        <li><a class="hover_effect" href="#">About Us</a></li>
+        <li id="box_sign">
+          <a href="./registration_login.html"> <i class="fas fa-user"></i> Sign In </a>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- /* first div -->
+
+    <div class="container_">
+      <img src="./images/cambridge.jpg" alt="canada" style="width: 100%" />
+      <div class="top-left_">
+        <p class="thead">University Name</p>
+        <p class="para">
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quidem,
+          iste! jjdjdjdjdsw ncjncjdcj soxsjszj sijisjijsixjsij jcjdxdjcjd
+          sjsjnjsn jjnnn jnjnnjn jnjnjn ijiji
+        </p>
+        <button class="key_Factor">
+          <a style="text-decoration: none; " href="#"
+            >Official website</a
+          >
+        </button>
+      </div>
+
+      <div class="top-right_">
+        <h3>University Name</h3>
+        <p class="loco">Location</p>
+
+        <div class="sub_container">
+          <div class="university_type">
+            <i style="color: black; font-size: 22px;"" class="fas fa-home"></i><span> Type</span>
+            <p>private</p>
+          </div>
+
+          <div class="university_rank">
+            <i
+              style="color: black; font-size: 22px"
+              class="far fa-thumbs-up"
+            ></i
+            ><span> Rank</span>
+            <p class="rank_num">1204</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- first div ends here -->
+
+    <!-- <div class="section3">
+
+        <div class="first">
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ab, illo laborum. Obcaecati, rem omnis! Sapiente nisi, provident consectetur adipisci molestias eaque mollitia fuga nesciunt perspiciatis eveniet accusantium eos? Ea, dicta.</p>
+
+        </div>
+    </div> -->
+
+
+    <!-- second div -->
+    <div class="uinversity_details">
+      <div class="university_profile">
+        <h2>Study Abroad at Particular University</h2> 
+      </div>
+      <!-- particular will be changed -->
+
+      <div class="university_data">
+
+        <div class="university_logo">
+
+          <img  src="./images/canada.jpg" alt="canada"/>
+          <p>University Name</p>
+        </div>
+
+        <div class="university_intro">
+
+          <p class="para-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum placeat cumque atque quod rerum nulla autem officia, dolores tempora aspernatur sunt obcaecati vero, laborum aperiam? Velit nostrum delectus similique harum.</p>
+          <p class="para-2">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cum sunt omnis mollitia aperiam. Exercitationem corrupti praesentium, quo nemo perspiciatis harum?</p>
+          <p class="para-3">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laboriosam, sed error optio itaque quam autem tempora, odit voluptatem nemo officia facere rerum dolorum quae dolore doloremque impedit, distinctio odio facilis!</p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- third div -->
+    <div class="popular_subjects">
+      <h2>Popular Subjects in this University</h2>
+
+      <div class="row_subjects">
+        
+        <div class="col">
+          <button class="btn txt">Math</button>
+        </div>
+        <div class="col">
+
+          <button class="btn txt">Economics</button>
+        </div>
+        <div class="col">
+          <button class="btn txt">Physics</button>
+        </div>
+        <div class="col">
+          <button class="btn txt">Biology</button>
+        </div>
+
+
+        <div class="col">
+          <button class="btn txt">Arts</button>
+        </div>
+        <div class="col">
+
+          <button class="btn txt">Accounting</button>
+        </div>
+        <div id="liter" class="col">
+          <button class="btn txt">Literature</button>
+        </div>
+        <div id="finance"  class="col">
+          <button class="btn txt">Finance</button>
+        </div>
+
+
+        <div id="history" style="display: none;" class="col">
+          <button class="btn txt">History</button>
+        </div>
+        <div id="Law" style="display: none;"  class="col">
+
+          <button class="btn txt">LAW</button>
+        </div>
+        <div id="socio" style="display: none;" class="col">
+          <button class="btn txt">Sociology</button>
+        </div>
+        <div id="music" style="display: none;" class="col">
+          <button class="btn txt">Music</button>
+        </div>
+        
+      </div>
+
+      
+    </div>
+
+    <!-- <div class="clear"></div> -->
+
+      <div class="more_suggestion">
+        <button id="see_more">See more subjects</button>
+        <button  style="display: none" id="see_less">See less subjects</button>
+      </div>
+
+    <!-- third div -->
+
+    <div class="student_facility">
+      <h2>Student Life & Facility</h2>
+
+      <div class="facility">
+        <div class="chapter">
+
+          <div class="head_part">
+            <i class="fas fa-book"> Library</i>
+          </div>
+
+          <div class="child_part">
+            <li>
+              <i class="fas fa-check-circle"></i>
+              <span>Individual Study Rooms</span>
+            </li>
+            <li>
+              <i class="fas fa-check-circle"></i>
+              <span> Computer Labs</span>
+            </li>
+            <li>
+              <i class="fas fa-check-circle"></i>
+              <span> Group Study Rooms</span>
+            </li>
+          </div>
+        </div>
+
+
+        
+
+
+        <div class="chapter">
+
+          <div class="head_part">
+            <i class="fas fa-dumbbell"> Fitness Centre</i>
+          </div>
+
+          <div class="child_part">
+            <li>
+              <i class="fas fa-check-circle"></i>
+              <span> Machines
+              </span>
+            </li>
+            <li>
+              <i class="fas fa-check-circle"></i>
+              <span> Free Weights</span>
+            </li>
+            <li>
+              <i class="fas fa-check-circle"></i>
+              <span> Swimming Pool</span>
+            </li>
+
+            <li>
+              <i class="fas fa-check-circle"></i>
+              <span>Personal Trainer</span>
+            </li>
+          </div>
+        </div>
+
+
+        <div class="chapter">
+
+          <div class="head_part">
+            <i class="fas fa-notes-medical"> HealthCare & medical</i>
+          </div>
+
+          <div class="child_part">
+            <li>
+              <i class="fas fa-check-circle"></i>
+              <span> Maternity Care
+
+              </span>
+            </li>
+            <li>
+              <i class="fas fa-check-circle"></i>
+              <span> Family Planning
+              </span>
+            </li>
+            <li>
+              <i class="fas fa-check-circle"></i>
+              <span> Campus Doctor
+              </span>
+            </li>
+
+            <li>
+              <i class="fas fa-check-circle"></i>
+              <span> Emergency Contraception
+                <!-- <p  style="padding-left: 30px;">Contraception</p> -->
+              </span>
+            </li>
+          </div>
+        </div>
+
+
+        <div class="chapter">
+
+          <div class="head_part">
+            <i class="fas fa-hands-helping"> Tutoring Support</i>
+          </div>
+
+          <div class="child_part">
+            <li>
+              <i class="fas fa-check-circle"></i>
+              <span> Student Tutoring 
+                <p style="padding-left: 30px;">& Support</p> 
+              </span>
+            </li>
+            <li>
+              <i class="fas fa-check-circle"></i>
+              <span> Academic Tutoring 
+                <p style="padding-left: 30px;">& Support</p> 
+
+              </span>
+            </li>
+            
+             
+          </div>
+        </div>
+
+       
+      
+        <div class="chapter">
+
+          <div class="head_part">
+            <i class="fas fa-utensils"> Food & Restrurant</i>
+          </div>
+
+          <div class="child_part">
+            <li>
+              <i class="fas fa-check-circle"></i>
+              <span>Restaurants  
+              </span>
+            </li>
+            <li>
+              <i class="fas fa-check-circle"></i>
+              <span> Cafe’s
+              </span>
+            </li>
+            
+             
+          </div>
+        </div>
+
+
+        <div class="chapter">
+
+          <div class="head_part">
+            <i class="fas fa-people-carry"> Other Support</i>
+          </div>
+
+          <div class="child_part">
+            <li>
+              <i class="fas fa-check-circle"></i>
+              <span> Loan Laptops
+
+              </span>
+            </li>
+            <li>
+              <i class="fas fa-check-circle"></i>
+              <span> Campus Wireless
+                    <p  style="padding-left: 30px;">Connectivity</p> 
+              </span>
+            </li>
+            
+             
+          </div>
+        </div>
+      
+      
+      
+      </div>
+    </div>
+
+
+    <!-- fourth div -->
+
+    <div class="location">
+
+      <h2> Location </h2>
+      <p class="uname"> Particular University</p>
+      <p class="uaddress">42/1, shiraj road, Azimpur Dhaka,Bangladesh</p>
+      <p class="udetails">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+         Cum labore voluptates quam quas architecto quidem delectus unde at. 
+         Repellendus quis molestiae magnam debitis ipsam. Sint laboriosam illo
+          distinctio consequuntur nulla Lorem ipsum dolor sit amet consectetur 
+          adipisicing elit. In quisquam deleniti iste. Adipisci molestias pariatur
+           recusandae, aut fugiat vitae ea.? Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus eum 
+           tempora repellendus placeat iste nihil amet iusto veniam! Ipsum, debitis!</p>
+
+
+      <div class="find_more">
+
+        <h3 > Contact Us For More Information </h3>
+        <br>
+        <div class="sub_btn">
+          <button style="cursor: pointer;" class="btn_more">Find More <i class="fas fa-arrow-right"></i></button>
+        </div>
+     
+      </div>
+
+      <button style="cursor: pointer; " class="btn_more2">Find More <i class="fas fa-arrow-right"></i></button>
+     
+     
+    </div>
+    
+  
+
+    <script src="./javascript/s_university.js"></script>
+  </body>
+</html>
