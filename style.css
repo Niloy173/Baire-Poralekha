@@ -1,4 +1,6 @@
 * {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
   scroll-behavior: smooth;
 }
@@ -19,6 +21,7 @@
   justify-content: left;
   padding-left: 100px;
   padding-right: 100px;
+  cursor: pointer;
 }
 
 #navbar ul {

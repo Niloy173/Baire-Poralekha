@@ -23,6 +23,7 @@
   justify-content: left;
   padding-left: 100px;
   padding-right: 100px;
+  cursor: pointer;
 }
 
 #navbar ul {
