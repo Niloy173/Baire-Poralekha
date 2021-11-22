@@ -220,6 +220,6 @@ function GoToUniversitySection()
 
 document.getElementById("logo_click").addEventListener('click',function(e){
 
-    location.href = "../index.html"
+    location.href = "./index.html"
 })
 

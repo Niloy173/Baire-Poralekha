@@ -29,5 +29,5 @@ document.getElementById('sign_in_btn').addEventListener('click',function(){
 
 document.getElementById("logo_click").addEventListener('click',function(e){
 
-  window.location = "../index.html";
+  window.location = "./index.html";
 })
