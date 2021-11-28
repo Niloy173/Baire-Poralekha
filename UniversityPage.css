@@ -706,20 +706,35 @@ input[type="checkbox"] {
 
 }
 
+.checkout_btn :hover{
+
+  background-color: rgba(22, 7, 22, 0.258);
+
+  
+}
+
 .checkout_btn p{
 
   font-size: 1.23555rem;
   padding: 10px 14px;
   text-align: center;
   font-weight: 550;
+  
  
 }
 
 .checkout_btn a{
   text-decoration: none;
   color: #000000;
+ 
+  
 
 }
+.checkout_btn a:hover{
+
+  background: none;
+}
+
 
 @media screen and (max-width : 970px)
 {

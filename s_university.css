@@ -995,3 +995,200 @@ input[type="checkbox"] {
     display: none;
   }
 }
+
+/* scholarship */
+
+.scholarship{
+
+  padding: 80px 100px 80px 100px;
+}
+
+.scholarship .head_topic{
+
+  display: flex;
+}
+
+.head_topic .left_scholar{
+
+  width: 45%;
+}
+
+.left_scholar h2{
+
+  margin :10px 0px;
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 1.755rem;
+}
+
+.left_scholar img{
+
+  display: block;
+  float: left;
+  margin: 20px 0;
+  /* border: 1px solid black; */
+ 
+
+}
+
+.head_topic .right_scholar{
+
+  width: 50%;
+  display: block;
+  margin: 20px auto;
+}
+
+.right_scholar .first_topic{
+
+  display: flex;
+
+}
+
+.first_topic p:nth-child(1)
+{
+  margin-right: 20px;
+}
+
+.first_topic p:nth-child(2)
+{
+  margin-left: 20px;
+}
+
+.first_topic p{
+
+  font-size: 1.455rem;
+  padding-bottom: 8px;
+  cursor: pointer;
+}
+
+
+
+ .active{
+
+  border-bottom: 4px solid red;
+  cursor: pointer;
+  
+}
+
+.right_scholar .fee_info{
+
+  display: block;
+  margin: 40px auto;
+}
+
+.fee_info li{
+
+  
+  margin: 20px 0;
+  font-size: 1.22rem;
+}
+
+.right_scholar .funding{
+
+  display: none;
+  margin: 40px auto;
+}
+
+.funding h4{
+
+  font-weight: normal;
+  font-size: 1.333rem;
+}
+
+.funding li{
+
+
+  margin: 10px 0;
+  font-size: 1.22rem;
+  text-align: justify;
+}
+
+@media screen and (max-width :1040px)
+{
+  .scholarship .head_topic{
+
+    display: block;
+  }
+
+  .head_topic .left_scholar{
+
+    width: 50%;
+   padding-bottom: 30px;
+  }
+
+  .left_scholar img{
+
+    float: none;
+    width: 700px;
+    
+  }
+
+  .head_topic .right_scholar{
+
+    width: 100%;
+    margin: 30px 0px 20px 0;
+  }
+}
+
+@media screen and (max-width :900px)
+{
+
+  .head_topic .left_scholar{
+
+    width: 70%;
+  }
+  .left_scholar img{
+
+    width: 450px;
+  }
+}
+
+@media screen and (max-width :600px)
+{
+
+  .scholarship{
+
+    padding: 20px 35px;
+  }
+
+  
+
+  .fee_info li{
+
+    font-size: 1rem;
+  }
+  .funding li{
+
+    font-size: 1rem;
+  }
+  .funding h4{
+
+    font-size: 1.125rem;
+  }
+
+  .left_scholar img{
+
+    width: 350px;
+  }
+
+  .first_topic p{
+
+    font-size: 1rem;
+  }
+
+  .left_scholar h2{
+
+    font-size: 1rem;
+  }
+}
+@media screen and (max-width :490px)
+{
+  .left_scholar img{
+
+    width: 300px;
+  }
+  .head_topic .left_scholar{
+
+    width: 100%;
+    
+  }
+}
