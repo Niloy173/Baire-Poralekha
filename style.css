@@ -326,7 +326,7 @@ input[type="checkbox"] {
 
   .country_details .chead {
     font-weight: bold;
-    padding-top: 10px;
+    padding: 15px 0;
   }
   .country_picture img {
     width: 85%;
@@ -338,7 +338,7 @@ input[type="checkbox"] {
   .country_details .para-1,
   .country_details .para-2 {
     text-align: justify;
-    padding: 0 40px 0 0;
+    padding: 5px 40px 5px 0;
   }
 }
 @media (min-width: 900px) {
@@ -363,6 +363,7 @@ input[type="checkbox"] {
   }
   .country_info .country_details {
     flex: 1;
+    padding: 25px 0;
   }
   .country_info_copy .country_details {
     flex: 1;
@@ -370,9 +371,11 @@ input[type="checkbox"] {
   }
   .country_details .para-1,
   .country_details .para-2 {
-    padding: 0 60px 0 0;
+    padding: 10px 60px 10px 0;
   }
 }
+
+
 @media (min-width: 1500px) {
   .country_details {
     padding: 0 60px 0 0;
@@ -389,13 +392,10 @@ input[type="checkbox"] {
 }
 
 @media (min-width: 1100px) {
-  .country_details .para-1,
-  .country_details .para-2 {
-    line-height: 1.7333;
-  }
+ 
   .country_details .chead {
     font-size: 1.533rem;
-    padding: 0;
+    padding: 20px 0;
   }
 }
 
@@ -438,6 +438,7 @@ input[type="checkbox"] {
   .key_factor .khead {
     text-align: center;
     font-size: 22px;
+    padding-bottom: 20px;
   }
   .key_factor .column_key {
     width: 35%;
@@ -466,6 +467,7 @@ input[type="checkbox"] {
     font-size: 22px;
     font-weight: 600;
     text-align: center;
+    padding-bottom: 20px;
   }
   .key_factor .row_key {
     padding: 0;
@@ -504,12 +506,13 @@ input[type="checkbox"] {
 /* fifth div *********/
 
 .university {
-  padding-left: 100px;
-  padding-right: 100px;
+  
+  padding: 40px 100px;
 }
 .university .uhead {
   font-size: 22px;
   font-weight: 500;
+  padding-bottom: 20px;
 }
 .university .parent_university {
   padding: 0 6px;
@@ -525,7 +528,8 @@ input[type="checkbox"] {
   height: auto;
 }
 .child_university p {
-  padding-left: 10px;
+  
+  padding: 5px 10px 8px 10px;
 }
 
 .more_suggestion {

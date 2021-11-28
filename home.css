@@ -232,16 +232,84 @@ input[type="checkbox"] {
 .dynamic{
 
   width: 100%;
-  height: 75vh;
+  height: 70vh;
   background-color: #ddd;
+  
 }
 
+.slideshow_container{
+
+  
+  position: relative;
+  margin: auto;
+}
+
+.slideshow_container .singleSlide{
+  display: none;
+}
+.singleSlide img{
+  vertical-align: middle;
+  height: 70vh;
+}
+ .dot {
+  height: 15px;
+  width: 15px;
+  margin: 0 5px;
+  background-color: #cfcece;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+  padding-bottom: 20px;
+}
+
+.active {
+  background-color: #444444;
+}
+
+/* getting ready for animation */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+@media screen and (max-width :600px)
+{
+  .dynamic{
+    height: 50vh;
+    margin-bottom: 20px;
+  }
+  .singleSlide img{
+
+    height: 50vh;
+  }
+  .dot{
+    width: 15px;
+    height: 6px;
+    border-radius: 80%;
+  }
+}
+@media screen and (max-width :400px)
+{
+  
+}
 
 /* second div */
 
 .help_section{
 
-  padding: 30px 100px;
+  padding: 40px 100px;
 
 }
 
@@ -345,7 +413,7 @@ input[type="checkbox"] {
 {
   .help_section {
 
-    padding: 20px 15px;
+    padding: 40px 15px;
   }
   .help_section .header_part{
 
@@ -408,40 +476,49 @@ input[type="checkbox"] {
   
  
 }
-.event_banner .mySlides{
-  display: none;
-}
 
-
-
-.event_banner img{
-
-  display: block;
-  margin: 20px auto;
-  height: 500px;
-  width: 80%;
- 
- 
-}
-
- .events_btn{
+.events .event_article{
 
   display: flex;
-  justify-content: center;
-}
-.events_btn .btn{
+  flex-wrap: wrap;
+  justify-content: space-between;
+ 
 
-  padding: 8px 20px;
-  font-size: 1rem;
-  font-weight: 550;
-  background-color: rgb(255, 255, 255);
-  margin: 10px 12px;
+
+}
+.event_article .article{
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  width: 30%;
+  margin: 20px 0;
   cursor: pointer;
+ 
+ 
 }
 
-.events_btn .btn:hover{
 
-  background-color: #ddd;
+.article .heading{
+
+  margin: 20px 10px 10px 10px;
+}
+
+.article .child_heading{
+
+  margin: 5px 10px 10px 10px;
+ 
+}
+
+.child_heading p{
+
+  font-size: 1.22rem;
+  font-weight: 550;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
+}
+.article .date_part{
+
+  margin: 5px 10px 10px 10px;
+  color: rgb(61, 61, 61);
+  float: right;
 }
 
 @media screen and (max-width :769px)
@@ -452,9 +529,7 @@ input[type="checkbox"] {
   .events_part p{
     margin: 10px 0px;
   }
-  .event_banner img{
-    width: 100%;
-  }
+  
 }
 
 @media screen and (max-width :450px)
@@ -463,9 +538,30 @@ input[type="checkbox"] {
 
     font-size: 1rem;
   }
-  .events_btn .btn{
-    padding: 8px 10px;
-    font-size: 13px;
+ 
+}
+
+@media screen and (max-width :800px)
+{
+ 
+  .child_heading p{
+
+    font-size: 1rem;
+  }
+}
+@media screen and (max-width :800px)
+{
+  .event_article .article{
+     
+    width: 49%;
+  }
+}
+
+@media screen and (max-width :400px)
+{
+  .event_article .article{
+     
+    width: 100%;
   }
 }
 /* browse country */
