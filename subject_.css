@@ -1,0 +1,920 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+#navbar {
+  font-family: Arial, Helvetica, sans-serif;
+  display: flex;
+  height: 90px;
+  width: 100%;
+  align-items: center;
+  flex-wrap: wrap;
+  /* background-color: #909090; */
+  background-color: #747070;;
+  box-shadow: 0 3px 4px rgba(146, 161, 175, 0.15);
+}
+#navbar .logo {
+  font-size: 30px;
+  font-weight: 600;
+  justify-content: left;
+  padding-left: 100px;
+  padding-right: 100px;
+  cursor: pointer;
+}
+.logo a{
+
+  text-decoration: none;
+  color: #000;
+}
+
+#navbar ul {
+  display: flex;
+  flex-wrap: wrap;
+  list-style-type: none;
+
+  margin-left: 25%;
+
+  justify-content: center;
+}
+
+@media (min-width : 1400px)
+{
+  #navbar ul{
+    margin-left: 35%;
+  }
+}
+
+@media (min-width : 1800px)
+{
+  #navbar ul{
+    margin-left: 50%;
+  }
+}
+
+#navbar ul li:nth-child(2),
+#navbar ul li:nth-child(3),
+#navbar ul li:nth-child(4) {
+  margin: 20px 15px 20px 15px;
+}
+#navbar ul li:last-child a {
+  border: 1px groove #f2f2f2;
+  padding: 10px;
+  background-color: beige;
+  width: 100%;
+ 
+}
+
+#navbar ul li:last-child a:hover{
+
+  border: 1px solid red;
+}
+@media screen and (min-width : 1300px)
+{
+  #navbar ul li:last-child a{
+    margin-left: 30px;
+  }
+}
+
+#navbar ul li:last-child {
+  margin: 20px 5px 20px 13px;
+}
+#navbar ul li:last-child a {
+  color: rgb(0, 0, 0);
+}
+#navbar ul li a {
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 500;
+  padding: 10px 15px;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+}
+#navbar ul li:not(:last-child) a {
+  color: #000000;
+}
+
+/* nav ul li:nth-child(3) a:hover {
+    background-color: rgb(241, 245, 248);
+    padding: 15px;
+  } */
+
+#navbar .menu-btn {
+  color: #000000;
+  font-size: 22px;
+  cursor: pointer;
+  border: 1px solid rgb(0, 0, 0);
+  padding: 10px;
+  border-radius: 4px;
+  display: none;
+  margin-right: 20px;
+}
+
+input[type="checkbox"] {
+  display: none;
+}
+
+.closebtn {
+  display: none;
+}
+@media (max-width: 600px) {
+  #navbar .logo {
+    padding-left: 15px;
+  }
+  #navbar {
+    padding: 0;
+  }
+}
+
+@media (min-width: 700px) {
+  #navbar {
+    padding: 0px 40px 0px 0px;
+  }
+}
+
+@media (max-width: 1190px) {
+  #navbar {
+    justify-content: space-between;
+  }
+  #navbar .menu-btn {
+    display: block;
+  }
+  #navbar ul li:last-child a {
+    border: none;
+    background: none;
+  }
+
+  #navbar ul {
+    position: fixed;
+    top: 90px;
+    right: -100%;
+    color: rgb(19, 18, 18);
+    background-color: rgb(230, 230, 216);
+    height: 45vh;
+    width: 100%;
+    text-align: center;
+    display: block;
+    transition: all 0.4s ease;
+    z-index: 1;
+  }
+
+  #navbar ul li:not(:first-child) {
+    width: 100%;
+    margin: 30px 0;
+  }
+
+  #navbar ul li a {
+    font-size: 20px;
+    color: #000000;
+    /* transition: 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55); */
+  }
+
+  .closebtn {
+    display: block;
+    text-align: right;
+    font-size: 18px;
+  }
+  #navbar ul li:not(:first-child) a:hover {
+    border: 1px groove #f2f2f2;
+    padding: 10px;
+    background-color: beige;
+    width: 100%;
+    
+  }
+  #navbar ul li:last-child {
+    background: none;
+  }
+  #navbar ul li:last-child a {
+    color: #000000;
+  }
+
+  #box_sign {
+    border: none;
+  }
+  #click:checked ~ ul {
+    right: 0;
+  }
+
+
+
+}
+
+@media screen and (min-width : 1190px)
+{
+  #navbar ul li:not(:last-child) a:hover{
+
+    background-color: #e7f0ebd7;
+    font-weight: 500;
+    transition: 0.5s;
+  }
+}
+
+/* first div */
+
+.container{
+
+  position: relative;
+  width: 100%;
+}
+.container img{
+
+  background-repeat: no-repeat;
+  width: 100%;
+}
+
+.container .left_div{
+
+  width: 60%;
+  padding: 0px 0px 0px 100px;
+  position: absolute;
+  top: 30%;
+  left: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.left_div .head{
+
+  padding: 10px 5px;
+}
+
+.head p{
+
+  font-size: 2.3333rem;
+  font-weight: 400;
+  color: #f2f2f2;
+  
+}
+
+.left_div .child{
+  padding: 10px 5px;
+}
+.child p{
+
+  font-size: 1.2555rem;
+  text-align: justify;
+  color: #f2f2f2;
+
+}
+
+.left_div button
+{
+  padding: 20px 45px;
+  background-color: rgba(30, 20, 42, 0.762);
+  border-radius: 10px;
+}
+
+.left_div a{
+
+  text-decoration: none;
+  font-size: 1.22rem;
+  color: #f2f2f2;
+  font-weight: 550;
+}
+
+@media screen and (max-width :900px)
+{
+  
+  .container .left_div{
+
+     width: 90%;
+     
+  }
+}
+
+@media screen and (max-width : 769px)
+{
+  .container .left_div{
+
+    top: 13%;
+
+  }
+}
+
+@media screen and (max-width :600px)
+{
+
+  .container .left_div{
+
+    padding: 10px 5px;
+  }
+
+  .container img{
+
+    height: 350px;
+  }
+
+  .head p{
+
+    font-size: 1.22rem;
+  }
+  .child p{
+
+    font-size: 13px;
+  }
+  .left_div button{
+
+    padding: 10px 15px;
+  }
+
+  .left_div a{
+    font-size: 1rem;
+    font-weight: normal;
+  }
+}
+
+
+
+
+
+/* programs div */
+
+.programs{
+
+  padding: 50px 0;
+  background-color: #ddd;
+}
+
+.programs h3{
+
+  font-weight: normal;
+  text-align: center;
+  font-size: 1.7555rem;
+}
+
+.programs p{
+
+  text-align: center;
+  
+}
+
+.programs .three_section{
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+}
+
+.three_section .study_section{
+
+  box-shadow: 0 4px 4px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  width: 300px;
+  margin: 20px 15px;
+  cursor: pointer;
+  background-color: #f2f2f2;
+  
+}
+.three_section .study_section:hover{
+
+  border:  1px solid rgb(82, 26, 113);
+}
+
+
+
+.study_section img{
+
+  width: 100%;
+  height: 200px;
+}
+.study_section p{
+
+  font-size: 1.4442rem;
+  margin: 5px 15px;
+  font-weight: 550;
+  
+}
+.study_section i{
+
+  display: flex;
+  justify-content: center;
+  font-size: 1.442rem;
+  margin-bottom: 20px;
+  
+}
+
+.study_section i:hover{
+
+  color: rgb(37, 35, 35);
+}
+
+
+
+/* subject description */
+.subject_description{
+
+  
+  padding: 40px 100px;
+  display: flex;
+}
+
+.subject_description .left_description{
+
+  float: left;
+  width: 50%;
+ 
+}
+
+.left_description .data{
+
+
+
+  margin: 80px 0;
+}
+
+.data h3{
+
+  font-size: 1.7555rem;
+  font-weight: 550;
+}
+.data p{
+
+  text-align: justify;
+  font-size: 1.444rem;
+}
+
+.subject_description .right_image{
+
+  float: right;
+  width: 50%;
+}
+
+.right_image img{
+
+  display: block;
+  margin: 20px auto;
+  width: 500px;
+}
+
+@media screen and (max-width: 1080px)
+{
+
+  .subject_description {
+
+    display: block;
+  }
+  .subject_description .left_description{
+
+    width: 100%;
+  }
+
+  .left_description .data{
+
+    margin-bottom: 50px;
+  }
+
+  .subject_description .right_image{
+
+    float: none;
+    width: 100%;
+  }
+
+  .right_image img{
+
+    margin: 0 auto;
+  }
+
+
+}
+
+@media screen and (max-width : 690px)
+{
+  .subject_description{
+
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .right_image img{
+
+    width: 100%;
+  }
+}
+
+@media screen and (max-width : 500px )
+{
+
+  .data h3{
+
+    font-size: 1.22rem;
+  }
+
+  .data p{
+
+    font-size: 1rem;
+  }
+
+  .subject_description .data{
+
+    margin: 20px 0;
+  }
+}
+
+
+
+/* type categories */
+
+.type_category{
+
+  padding: 80px 100px;
+}
+
+.type_category p{
+
+  font-size: 1.755rem;
+  font-weight: 450;
+  
+}
+
+.type_category .categories{
+
+  display: flex;
+  justify-content: start;
+ 
+}
+
+.categories p{
+
+  padding:  25px 55px;
+  font-size: 1.322222rem;
+  font-weight: 400;
+  border: 1px solid rgb(174, 174, 174);
+  background-color: rgb(221, 218, 218);
+  color: #000;
+  margin: 20px 0;
+}
+
+.categories .type
+{
+
+  margin-left: 30px;
+}
+
+@media screen and (max-width: 800px)
+{
+
+  .categories p{
+
+    padding: 20px 40px;
+  }
+
+}
+
+@media screen and (max-width : 690px)
+{
+
+  .type_category {
+
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .categories p{
+
+    font-size: 1.12222rem;
+    padding: 15px 20px;
+  }
+}
+
+@media screen and (max-width :400px)
+{
+  .categories p{
+
+    padding: 10px 12px;
+    font-size: 1rem;  }
+}
+
+
+/* study program */
+
+.study_program{
+
+  padding: 40px 100px;
+  background-color: rgb(235, 234, 234);
+}
+
+.study_program h2{
+
+  font-size: 1.75555rem;
+  font-weight: 450;
+
+}
+
+.study_program h4{
+
+  font-size: 1.4333rem;
+  font-weight: 400;
+}
+
+.study_program .bachelor_program{
+
+  margin: 10px 0;
+  
+}
+
+.study_program .master_program{
+
+  margin: 10px 0;
+}
+
+.study_program .phd_program{
+
+  margin: 10px 0;
+}
+.bachelor_program p{
+
+  color: #5e5c5c;
+  font-size: 1.125rem;
+  
+
+}
+
+
+.master_program p{
+
+  color: #5e5c5c;
+  font-size: 1.125rem;
+}
+
+.phd_program p{
+
+  color: #5e5c5c;
+  font-size: 1.125rem;
+}
+.bachelor_program hr{
+
+  border: 1px solid rgb(244, 52, 31);
+  width: 180px;
+  padding: 0;
+  margin: 5px 0;
+
+}
+
+.master_program hr{
+
+  border: 1px solid rgb(244, 52, 31);
+  width: 170px;
+  padding: 0;
+  margin: 5px 0;
+}
+.phd_program hr{
+
+  
+  border: 1px solid rgb(244, 52, 31);
+  width: 180px;
+  padding: 0;
+  margin: 5px 0;
+}
+
+
+
+.bachelor_program .program_card{
+
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+  border-radius: 5px;
+  margin: 20px 0;
+  background-color: white;
+  
+}
+
+.master_program .program_card{
+
+
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+  border-radius: 5px;
+  margin: 20px 0;
+  background-color: white;
+}
+
+.phd_program .program_card{
+
+
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+  border-radius: 5px;
+  margin: 20px 0;
+  background-color: white;
+
+}
+
+.program_card .card_header{
+
+  display: flex;
+  margin: 20px 15px 0 15px;
+}
+
+.card_header .university_logo
+{
+
+  width: 20%;
+  padding-bottom: 30px;
+
+}
+.university_logo img{
+
+  display: block;
+  margin: 0 auto;
+  border: 1px solid black;
+  
+}
+
+.card_header .university_details{
+
+  width: 80%;
+  margin: 20px 0;
+}
+.university_details h3{
+
+  font-size: 1.5333rem;
+  margin: 10px 0 0 0;
+  font-weight: 400;
+
+}
+.university_details p{
+
+  font-size: 1rem;
+  margin: 10px 0 0 0;
+
+}
+.program_card hr{
+
+  display: block;
+  height: 1px;
+  border: 0;
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+
+.program_card .university_program_details{
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+.university_program_details .size{
+
+  width: 20%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+  border-radius: 5px;
+  height: 80px;
+  margin-bottom: 20px;
+  background-color: #b5afaf;
+
+}
+
+.program_type h3{
+
+  text-align: center;
+  margin: 10px 0 8px 0;
+  font-size: 1.122rem;
+  font-weight: 400;
+}
+.program_type p{
+
+  text-align: center;
+  margin: 5px 0;
+  color: #000000;
+  font-size: 1rem;
+  font-weight: 550;
+}
+
+.fee h3{
+
+  text-align: center;
+  margin: 10px 0 8px 0;
+  font-size: 1.122rem;
+  font-weight: 400;
+
+}
+
+.fee p{
+
+  text-align: center;
+  margin: 5px 0;
+  color: #000000;
+  font-size: 1rem;
+  font-weight: 550;
+
+}
+
+.duration h3{
+
+
+  text-align: center;
+  margin: 10px 0 8px 0;
+  font-size: 1.122rem;
+  font-weight: 400;
+}
+
+.duration p{
+
+  text-align: center;
+  margin: 5px 0;
+  color: #000000;
+  font-size: 1rem;
+  font-weight: 550;
+}
+
+.start h3{
+
+  text-align: center;
+  margin: 10px 0 8px 0;
+  font-size: 1.122rem;
+  font-weight: 400;
+
+}
+
+.start p{
+
+  text-align: center;
+  margin: 5px 0;
+  color: #000000;
+  font-size: 1rem;
+  font-weight: 550;
+}
+
+
+
+.program_card .program_details{
+
+  border: 4px solid rgba(73, 4, 73, 0.478);
+  padding: 20px 0;
+  
+ 
+}
+
+.program_card .program_details:hover{
+
+ background-color: rgb(237, 232, 232);
+  
+  border-top: none;
+}
+
+.program_details p{
+
+  text-align: center;
+  
+
+}
+
+.program_details a{
+
+  padding-bottom: 5px;
+  text-decoration: none;
+  border-bottom: 3px solid red;
+  cursor: pointer;
+  font-size: 1.22rem;
+  color: #000000;
+  font-weight: 500;
+  
+
+}
+
+
+
+@media screen and (max-width : 1080px)
+{
+
+  .program_card .card_header{
+
+    display: block;
+  }
+
+  .card_header .university_logo{
+
+    padding-bottom: 15px;
+  }
+
+  .university_program_details .size{
+
+    width: 40%;
+  }
+
+  .program_card hr{
+
+    margin: 10px 0;
+    width: 100%;
+  }
+
+  
+}
+
+
+
+@media screen and (max-width :690px)
+{
+
+  .study_program{
+
+    padding: 40px 15px;
+  }
+
+
+}
