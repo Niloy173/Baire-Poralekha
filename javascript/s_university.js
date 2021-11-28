@@ -96,4 +96,8 @@ window.addEventListener('resize',function(){
     }
 })
 
-  
+document.getElementById("Accounting").addEventListener('click',function(e){
+
+
+    window.location.href = "./single_subject.html";
+})

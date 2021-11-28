@@ -1,33 +1,4 @@
 
-// for the event slider
-let slideIndex = 1;
-showEventImage(slideIndex);
-
-function plusDivs(n)
-{
-  showEventImage(slideIndex +=n);
-}
-
-
-
-
-
-
-
-function showEventImage(index)
-{
-  var i;
-  var x = document.getElementsByClassName("mySlides");
-  if (index > x.length) {slideIndex = 1};
-  if (index < 1) {slideIndex = x.length};
-
-  for(i=0;i<x.length;i++)
-  {
-    x[i].style.display = "none";
-  }
-
-  x[slideIndex - 1].style.display = "block";
-}
 
 
 
@@ -69,3 +40,31 @@ document.getElementById("australia").addEventListener('click',function(e){
    location.href = "./country.html";
 
 })
+
+// image slider in every 2 seconds 
+
+var SLideInd = 0;
+showSlide();
+
+function showSlide()
+{
+  var i;
+  var slides_img = document.getElementsByClassName("singleSlide");
+  var dot_img = document.getElementsByClassName("dot");
+
+  for(i=0;i<slides_img.length;i++)
+  {
+    slides_img[i].style.display = "none";
+  }
+  SLideInd +=1;
+  if (SLideInd > slides_img.length) SLideInd = 1;
+
+  for(i=0;i<dot_img.length;i++)
+  {
+    dot_img[i].className = dot_img[i].className.replace("active","");
+  }
+
+  slides_img[SLideInd-1].style.display = "block";
+  dot_img[SLideInd-1].className += " active";
+  setTimeout(showSlide,3000);
+}
