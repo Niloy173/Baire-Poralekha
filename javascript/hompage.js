@@ -35,7 +35,7 @@ function closeNav(){
 //   window.open("http://www.google.com");
 // })
 
-document.getElementById("australia").addEventListener('click',function(e){
+document.getElementById("canada").addEventListener('click',function(e){
 
    location.href = "./country.html";
 

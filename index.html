@@ -1,664 +1,545 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>HomePage</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HomePage</title>
 
+    <link rel="stylesheet" type="text/css" href="./home.css" />
+    <link rel="stylesheet" type="text/css" href="./footer_.css" />
 
-<link rel="stylesheet" type="text/css" href="./home.css"/>
-<link rel="stylesheet" type="text/css" href="./footer_.css"/>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
 
-<link
-rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-/>
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+  </head>
+  <body>
+    <nav id="navbar">
+      <div class="logo"><a href="./index.html">LOGO</a></div>
+      <!-- <input type="checkbox" id="click" /> -->
+      <label id="show_nav" for="click" class="menu-btn">
+        <i class="fa fa-bars"></i>
+      </label>
 
+      <ul id="nav_menu_item">
+        <li>
+          <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"
+            >&times; close</a
+          >
+        </li>
+        <li><a href="./UniversityPage.html">University</a></li>
+        <li><a href="./guide.html">Guide</a></li>
+        <li><a href="#">About Us</a></li>
+        <li id="box_sign">
+          <a href="./registration_login.html">
+            <i class="fa fa-user"></i> Sign In
+          </a>
+        </li>
+      </ul>
+    </nav>
 
+    <!-- dynamic content goes here -->
 
-<script src="https://kit.fontawesome.com/a076d05399.js"></script>
-</head>
-<body>
-  
-  <nav id="navbar">
-    <div  class="logo"><a  href="./index.html">LOGO</a></div>
-    <!-- <input type="checkbox" id="click" /> -->
-    <label id="show_nav" for="click" class="menu-btn">
-      <i class="fas fa-bars"></i>
-    </label>
-
-    <ul id="nav_menu_item">
-      <li>
-        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"
-          >&times; close</a
-        >
-      </li>
-      <li><a href="./UniversityPage.html">University</a></li>
-      <li><a href="./guide.html">Guide</a></li>
-      <li><a href="#">About Us</a></li>
-      <li id="box_sign">
-        <a href="./registration_login.html"> <i class="fas fa-user"></i> Sign In </a>
-      </li>
-    </ul>
-  </nav>
-
-
-  <!-- dynamic content goes here -->
-
-  <div class="dynamic">
-
-    <div class="slideshow_container">
-
-      <div class="singleSlide fade">
-
-       <a target="_blank" href="https://www.google.com/"> <img src="./images/nature1.jpg" style="width:100%"></a>
-
-      </div>
-      <div class="singleSlide">
-
-        <img src="./images/nature2.jpg" style="width: 100%;">
-      </div>
-
-      <div class="singleSlide fade">
-
-        <img src="./images/nature3.jpg" style="width:100%">
-
-      </div>
-
-      <div class="singleSlide fade">
-
-        <img src="./images/nature4.jpg" style="width:100%">
-
-      </div>
-
-      <div class="singleSlide fade">
-
-        <img src="./images/nature5.jpg" style="width:100%">
-
-      </div>
-
-    </div>
-    <br>
-
-    <div style="text-align:center">
-      <span class="dot"></span> 
-      <span class="dot"></span> 
-      <span class="dot"></span> 
-      <span class="dot"></span> 
-      <span class="dot"></span> 
-    </div>
-   
-
-
-
-  </div>
-
-
-  <!-- how this site will help you -->
-
-  <div class="help_section">
-
-    
-
-     <div class="header_part">
-      <p> How Poralekha Can Help You</p>
-     </div>
-    
-
-    <div class="heading">
-
-      <div class="child">
-
-        <img src="./images/house.png" width="100%"/><br>
-        
-        <div class="content">
-          <h3>Heading 1</h3>
-
+    <div class="dynamic">
+      <div class="slideshow_container">
+        <div class="singleSlide fade">
+          <a target="_blank" href="https://www.google.com/">
+            <img src="./images/nature1.jpg" style="width: 100%"
+          /></a>
+        </div>
+        <div class="singleSlide">
+          <img src="./images/nature2.jpg" style="width: 100%" />
         </div>
 
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam rem dolores vel temporibus quisquam quo.</p>
-
-      </div>
-
-      <div class="child">
-        
-        <img src="./images/house.png" width="100%"/><br>
-        
-        <div class="content">
-          <h3>Heading 2</h3><br>
-
+        <div class="singleSlide fade">
+          <img src="./images/nature3.jpg" style="width: 100%" />
         </div>
 
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam rem dolores vel temporibus quisquam quo.</p>
-
-      </div>
-
-      <div class="child">
-        
-        <img src="./images/house.png" width="100%"/><br>
-        
-        <div class="content">
-          <h3>Heading 3</h3>
+        <div class="singleSlide fade">
+          <img src="./images/nature4.jpg" style="width: 100%" />
         </div>
 
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam rem dolores vel temporibus quisquam quo.</p>
+        <div class="singleSlide fade">
+          <img src="./images/nature5.jpg" style="width: 100%" />
+        </div>
+      </div>
+      <br />
 
+      <div style="text-align: center">
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
       </div>
     </div>
 
-  </div>
+    <!-- how this site will help you -->
 
-  <!-- upcoming events -->
-
-  <div class="events">
-
-    <h2> Article </h2>
-
-    <div class="events_part">
-
-      <p> Lorem, ipsum dolor sit amet consectetur adipisicing elit. Similique nam ipsam modi obcaecati perferendis aut explicabo doloremque, fugit minus tenetur asperiores, magni ea eius totam deserunt iste dolore natus in? Suscipit itaque nostrum quis dignissimos nemo debitis laboriosam ipsum obcaecati quia iure, sapiente velit fugit hic ducimus eligendi, magnam atque minima porro facilis, maxime laborum assumenda fugiat veniam. Quod excepturi modi aliquid quidem suscipit atque dolore recusandae debitis eligendi enim!</p>
-  </div>
-
-  <div class="event_article">
-
-    <div class="article">
-      <img src="./images/cambridge.jpg" alt="head imag" width="100%"/>
+    <div class="help_section">
+      <div class="header_part">
+        <p>How Poralekha Can Help You</p>
+      </div>
 
       <div class="heading">
-        <h4> Topic Name </h4>
-      </div>
-
-      <div class="child_heading">
-
-        <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla, nesciunt!</p>
-      </div>
-
-      <div class="date_part">
-        <p> 25 Nov 2018</p>
-      </div>
-    </div>
-
-
-    <div class="article">
-      <img src="./images/university1.jpg" alt="head imag" width="100%"/>
-
-      <div class="heading">
-        <h4> Topic Name </h4>
-      </div>
-
-      <div class="child_heading">
-
-        <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla, nesciunt!</p>
-      </div>
-
-      <div class="date_part">
-        <p> 25 Nov 2018</p>
-      </div>
-    </div>
-
-
-
-    <div class="article">
-      <img src="./images/cambridge.jpg" alt="head imag" width="100%"/>
-
-      <div class="heading">
-        <h4> Topic Name </h4>
-      </div>
-
-      <div class="child_heading">
-
-        <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla, nesciunt!</p>
-      </div>
-
-      <div class="date_part">
-        <p> 25 Nov 2018</p>
-      </div>
-    </div>
-
-
-    <div class="article">
-      <img src="./images/university1.jpg" alt="head imag" width="100%"/>
-
-      <div class="heading">
-        <h4> Topic Name </h4>
-      </div>
-
-      <div class="child_heading">
-
-        <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla, nesciunt!</p>
-      </div>
-
-      <div class="date_part">
-        <p> 25 Nov 2018</p>
-      </div>
-    </div>
-
-
-
-    <div class="article">
-      <img src="./images/cambridge.jpg" alt="head imag" width="100%"/>
-
-      <div class="heading">
-        <h4> Topic Name </h4>
-      </div>
-
-      <div class="child_heading">
-
-        <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla, nesciunt!</p>
-      </div>
-
-      <div class="date_part">
-        <p> 25 Nov 2018</p>
-      </div>
-    </div>
-
-
-    
-    <div class="article">
-      <img src="./images/university.jpg" alt="head imag" width="100%"/>
-
-      <div class="heading">
-        <h4> Topic Name </h4>
-      </div>
-
-      <div class="child_heading">
-
-        <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla, nesciunt! </p>
-      </div>
-
-      <div class="date_part">
-        <p> 25 Nov 2018</p>
-      </div>
-    </div>
-
-  </div>
-  </div>
-
-  <!-- browse your country -->
-
-  <div class="country">
-
-    <h2>Browse Your Favourite Country</h2>
-
-    <div class="country_banner">
-
-      <div class="country_container">
-
-        <img src="./images/auses.png">
-        <div class="country_name">
-          <p id="australia">Australia</p>
-        </div>
-        
-
-      </div>
-
-
-      <div class="country_container">
-
-        <img src="./images/canadalogo.png">
-        <div class="country_name">
-          <p>Canada</p>
-        </div>
-        
-
-      </div>
-
-
-
-      <div class="country_container">
-
-        <img src="./images/finland.png">
-        <div class="country_name">
-          <p>Finland</p>
-        </div>
-        
-
-      </div>
-
-
-
-      <div class="country_container">
-
-        <img src="./images/korea.jpg">
-        <div class="country_name">
-          <p>Korea</p>
-        </div>
-        
-
-      </div>
-
-
-      <div class="country_container">
-
-        <img src="./images/japan.png">
-        <div class="country_name">
-          <p>Japan</p>
-        </div>
-        
-
-      </div>
-    </div>
-
-
-    <div class="country_banner2">
-
-
-      
-      <div class="country_container">
-
-        <img src="./images/france.png">
-        <div class="country_name">
-          <p>France</p>
-        </div>
-        
-
-      </div>
-
-     
-
-
-      <div class="country_container">
-
-        <img src="./images/germany.png">
-        <div class="country_name">
-          <p>Germany</p>
-        </div>
-        
-
-      </div>
-
-
-      
-      <div class="country_container">
-
-        <img src="./images/belgium.png">
-        <div class="country_name">
-          <p>Belgium</p>
-        </div>
-        
-
-      </div>
-      
-
-
-    
-
-      <div class="country_container">
-
-        <img src="./images/india.jpg">
-        <div class="country_name">
-          <p>India</p>
-        </div>
-        
-
-      </div>
-
-
-
-      <div class="country_container">
-
-        <img src="./images/america.jpg">
-        <div class="country_name">
-          <p>America</p>
-        </div>
-        
-
-      </div>
-
-
-      
-    </div>
-
-
-
-    <div class="country_banner3">
-
-      <div class="country_container">
-
-        <img src="./images/cambridge.jpg">
-        <div class="country_name">
-          <p>China</p>
-        </div>
-        
-
-      </div>
-
-
-      <div class="country_container">
-
-        <img src="./images/cambridge.jpg">
-        <div class="country_name">
-          <p>Portugal</p>
-        </div>
-        
-
-      </div>
-
-
-      <div class="country_container">
-
-        <img src="./images/cambridge.jpg">
-        <div class="country_name">
-          <p>Brazil</p>
-        </div>
-        
-
-      </div>
-
-
-      <div class="country_container">
-
-        <img src="./images/cambridge.jpg">
-        <div class="country_name">
-          <p>New Zeeland</p>
-        </div>
-        
-
-      </div>
-
-
-      <div class="country_container">
-
-        <img src="./images/cambridge.jpg">
-        <div class="country_name">
-          <p>Russia</p>
-        </div>
-        
-
-      </div>
-    </div>
-
-
-    <div class="see_more">
-      <p>see more countries</p>
-    </div>
-
-
-    
-  </div>
-
-  <!-- comment or post section -->
-
-  <div class="comment">
-
-    <div class="first_comment">
-
-      <div class="first_comment_card">
-
-        <div class="profile_left">
-          <img src="./images/person1.jpg"/>
-        </div>
-        <div class="profile_right">
-          <h3>Jenifer Lorren</h3>
-          <p class="place"> Servia </p>
-          <p class="university"> Texus university</p>
-        </div>
-      </div>
-
-
-      <div class="paragraph">
-        <p>"Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione, 
-          dolor similique esse et voluptate velit? Non expedita porro tempora, 
-          temporibus accusantium, harum ratione sapiente, dolores numquam quam 
-          ipsa consequatur nemo repellat delectus adipisci impedit quod. 
-          Aspernatur earum sequi eveniet blanditiis labore, inventore quaerat 
-          officiis hic atque nam natus eligendi reiciendis at temporibus, asperiores 
-          perferendis a reprehenderit ex, unde animi ipsum! Voluptatibus quia nemo 
-          reiciendis et beatae dolore optio quaerat voluptate veritatis, consequuntur 
-          magni consequatur. Sint delectus ad accusantium voluptatem consectetur."</p>
-      </div>
-    </div>
-
-
-   <div class="more_comment">
-
-    <div class="left_comment">
-
-          <div class="second_comment">
-
-              
-                <div class="second_comment_card">
-
-                  <div class="profile_left2">
-                    <img src="./images/person2.jpg"/>
-                  </div>
-                  <div class="profile_right2">
-                    <h3>Marcus Rashford</h3>
-                    <p class="place2"> Manchester  </p>
-                    <p class="university2"> Bringham  university</p>
-                  </div>
-                </div>
-
-                <div class="paragraph">
-                  <p>"Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione, 
-                    dolor similique esse et voluptate velit? Non expedita porro tempora, 
-                    temporibus accusantium, harum ratione sapiente, dolores numquam quam 
-                    ipsa consequatur nemo repellat delectus adipisci impedit quod. 
-                    Aspernatur earum sequi eveniet blanditiis labore."</p>
-                </div>
+        <div class="child">
+          <img src="./images/house.png" width="100%" /><br />
+
+          <div class="content">
+            <h3>Heading 1</h3>
           </div>
 
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam rem
+            dolores vel temporibus quisquam quo.
+          </p>
+        </div>
 
+        <div class="child">
+          <img src="./images/house.png" width="100%" /><br />
 
+          <div class="content">
+            <h3>Heading 2</h3>
+            <br />
+          </div>
+
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam rem
+            dolores vel temporibus quisquam quo.
+          </p>
+        </div>
+
+        <div class="child">
+          <img src="./images/house.png" width="100%" /><br />
+
+          <div class="content">
+            <h3>Heading 3</h3>
+          </div>
+
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam rem
+            dolores vel temporibus quisquam quo.
+          </p>
+        </div>
+      </div>
     </div>
 
-    <div class="right_comment">
+    <!-- upcoming events -->
 
-      <div class="second_comment">
+    <div class="events">
+      <h2>Article</h2>
 
-              
-        <div class="second_comment_card">
+      <div class="events_part">
+        <p>
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Similique
+          nam ipsam modi obcaecati perferendis aut explicabo doloremque, fugit
+          minus tenetur asperiores, magni ea eius totam deserunt iste dolore
+          natus in? Suscipit itaque nostrum quis dignissimos nemo debitis
+          laboriosam ipsum obcaecati quia iure, sapiente velit fugit hic ducimus
+          eligendi, magnam atque minima porro facilis, maxime laborum assumenda
+          fugiat veniam. Quod excepturi modi aliquid quidem suscipit atque
+          dolore recusandae debitis eligendi enim!
+        </p>
+      </div>
 
-          <div class="profile_left2">
-            <img src="./images/person2.jpg"/>
+      <div class="event_article">
+        <div class="article">
+          <img src="./images/cambridge.jpg" alt="head imag" width="100%" />
+
+          <div class="heading">
+            <h4>Topic Name</h4>
           </div>
-          <div class="profile_right2">
-            <h3 id="name">Hugh Jackman</h3>
-            <p class="place2"> Jakarta  </p>
-            <p class="university2"> State polite  university</p>
+
+          <div class="child_heading">
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla,
+              nesciunt!
+            </p>
+          </div>
+
+          <div class="date_part">
+            <p>25 Nov 2018</p>
+          </div>
+        </div>
+
+        <div class="article">
+          <img src="./images/university1.jpg" alt="head imag" width="100%" />
+
+          <div class="heading">
+            <h4>Topic Name</h4>
+          </div>
+
+          <div class="child_heading">
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla,
+              nesciunt!
+            </p>
+          </div>
+
+          <div class="date_part">
+            <p>25 Nov 2018</p>
+          </div>
+        </div>
+
+        <div class="article">
+          <img src="./images/cambridge.jpg" alt="head imag" width="100%" />
+
+          <div class="heading">
+            <h4>Topic Name</h4>
+          </div>
+
+          <div class="child_heading">
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla,
+              nesciunt!
+            </p>
+          </div>
+
+          <div class="date_part">
+            <p>25 Nov 2018</p>
+          </div>
+        </div>
+
+        <div class="article">
+          <img src="./images/university1.jpg" alt="head imag" width="100%" />
+
+          <div class="heading">
+            <h4>Topic Name</h4>
+          </div>
+
+          <div class="child_heading">
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla,
+              nesciunt!
+            </p>
+          </div>
+
+          <div class="date_part">
+            <p>25 Nov 2018</p>
+          </div>
+        </div>
+
+        <div class="article">
+          <img src="./images/cambridge.jpg" alt="head imag" width="100%" />
+
+          <div class="heading">
+            <h4>Topic Name</h4>
+          </div>
+
+          <div class="child_heading">
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla,
+              nesciunt!
+            </p>
+          </div>
+
+          <div class="date_part">
+            <p>25 Nov 2018</p>
+          </div>
+        </div>
+
+        <div class="article">
+          <img src="./images/university.jpg" alt="head imag" width="100%" />
+
+          <div class="heading">
+            <h4>Topic Name</h4>
+          </div>
+
+          <div class="child_heading">
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla,
+              nesciunt!
+            </p>
+          </div>
+
+          <div class="date_part">
+            <p>25 Nov 2018</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- browse your country -->
+
+    <div class="country">
+      <h2>Browse Your Favourite Country</h2>
+
+      <div class="country_banner">
+        <div class="country_container">
+          <img src="./images/auses.png" />
+          <div class="country_name">
+            <p id="australia">Australia</p>
+          </div>
+        </div>
+
+        <div class="country_container">
+          <img src="./images/canadalogo.png" />
+          <div class="country_name">
+            <p style="font-weight: bold" id="canada">Canada</p>
+          </div>
+        </div>
+
+        <div class="country_container">
+          <img src="./images/finland.png" />
+          <div class="country_name">
+            <p>Finland</p>
+          </div>
+        </div>
+
+        <div class="country_container">
+          <img src="./images/korea.jpg" />
+          <div class="country_name">
+            <p>Korea</p>
+          </div>
+        </div>
+
+        <div class="country_container">
+          <img src="./images/japan.png" />
+          <div class="country_name">
+            <p>Japan</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="country_banner2">
+        <div class="country_container">
+          <img src="./images/france.png" />
+          <div class="country_name">
+            <p>France</p>
+          </div>
+        </div>
+
+        <div class="country_container">
+          <img src="./images/germany.png" />
+          <div class="country_name">
+            <p>Germany</p>
+          </div>
+        </div>
+
+        <div class="country_container">
+          <img src="./images/belgium.png" />
+          <div class="country_name">
+            <p>Belgium</p>
+          </div>
+        </div>
+
+        <div class="country_container">
+          <img src="./images/india.jpg" />
+          <div class="country_name">
+            <p>India</p>
+          </div>
+        </div>
+
+        <div class="country_container">
+          <img src="./images/america.jpg" />
+          <div class="country_name">
+            <p>America</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="country_banner3">
+        <div class="country_container">
+          <img src="./images/cambridge.jpg" />
+          <div class="country_name">
+            <p>China</p>
+          </div>
+        </div>
+
+        <div class="country_container">
+          <img src="./images/cambridge.jpg" />
+          <div class="country_name">
+            <p>Portugal</p>
+          </div>
+        </div>
+
+        <div class="country_container">
+          <img src="./images/cambridge.jpg" />
+          <div class="country_name">
+            <p>Brazil</p>
+          </div>
+        </div>
+
+        <div class="country_container">
+          <img src="./images/cambridge.jpg" />
+          <div class="country_name">
+            <p>New Zeeland</p>
+          </div>
+        </div>
+
+        <div class="country_container">
+          <img src="./images/cambridge.jpg" />
+          <div class="country_name">
+            <p>Russia</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="see_more">
+        <p>see more countries</p>
+      </div>
+    </div>
+
+    <!-- comment or post section -->
+
+    <div class="comment">
+      <div class="first_comment">
+        <div class="first_comment_card">
+          <div class="profile_left">
+            <img src="./images/person1.jpg" />
+          </div>
+          <div class="profile_right">
+            <h3>Jenifer Lorren</h3>
+            <p class="place">Servia</p>
+            <p class="university">Texus university</p>
           </div>
         </div>
 
         <div class="paragraph">
-          <p>"Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione, 
-            dolor similique esse et voluptate velit? Non expedita porro tempora, 
-            temporibus accusantium, harum ratione sapiente, dolores numquam quam 
-            ipsa consequatur nemo repellat delectus adipisci impedit quod. 
-            Aspernatur earum sequi eveniet blanditiis labore. Lorem ipsum dolor, sit amet consectetur adipisicing elit. 
-            Autem in omnis recusandae itaque aliquam illum corrupti excepturi asperiores commodi maiores. "</p>
+          <p>
+            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione,
+            dolor similique esse et voluptate velit? Non expedita porro tempora,
+            temporibus accusantium, harum ratione sapiente, dolores numquam quam
+            ipsa consequatur nemo repellat delectus adipisci impedit quod.
+            Aspernatur earum sequi eveniet blanditiis labore, inventore quaerat
+            officiis hic atque nam natus eligendi reiciendis at temporibus,
+            asperiores perferendis a reprehenderit ex, unde animi ipsum!
+            Voluptatibus quia nemo reiciendis et beatae dolore optio quaerat
+            voluptate veritatis, consequuntur magni consequatur. Sint delectus
+            ad accusantium voluptatem consectetur."
+          </p>
         </div>
-  </div>
+      </div>
 
+      <div class="more_comment">
+        <div class="left_comment">
+          <div class="second_comment">
+            <div class="second_comment_card">
+              <div class="profile_left2">
+                <img src="./images/person2.jpg" />
+              </div>
+              <div class="profile_right2">
+                <h3>Marcus Rashford</h3>
+                <p class="place2">Manchester</p>
+                <p class="university2">Bringham university</p>
+              </div>
+            </div>
+
+            <div class="paragraph">
+              <p>
+                "Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Ratione, dolor similique esse et voluptate velit? Non expedita
+                porro tempora, temporibus accusantium, harum ratione sapiente,
+                dolores numquam quam ipsa consequatur nemo repellat delectus
+                adipisci impedit quod. Aspernatur earum sequi eveniet blanditiis
+                labore."
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="right_comment">
+          <div class="second_comment">
+            <div class="second_comment_card">
+              <div class="profile_left2">
+                <img src="./images/person2.jpg" />
+              </div>
+              <div class="profile_right2">
+                <h3 id="name">Hugh Jackman</h3>
+                <p class="place2">Jakarta</p>
+                <p class="university2">State polite university</p>
+              </div>
+            </div>
+
+            <div class="paragraph">
+              <p>
+                "Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Ratione, dolor similique esse et voluptate velit? Non expedita
+                porro tempora, temporibus accusantium, harum ratione sapiente,
+                dolores numquam quam ipsa consequatur nemo repellat delectus
+                adipisci impedit quod. Aspernatur earum sequi eveniet blanditiis
+                labore. Lorem ipsum dolor, sit amet consectetur adipisicing
+                elit. Autem in omnis recusandae itaque aliquam illum corrupti
+                excepturi asperiores commodi maiores. "
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-   </div>
 
-   
-  </div>
+    <!-- footer section -->
 
+    <footer>
+      <div class="footer">
+        <div class="footer_section">
+          <div class="first_column">
+            <h3>PoraLekha</h3>
+            <p>
+              Help us to give you best outcome possibilities growth and that’s
+              all we care about.
+            </p>
+          </div>
 
-  <!-- footer section -->
+          <hr />
+          <div class="second_column">
+            <div class="container">
+              <button>About</button>
 
-  <footer>
+              <p>Our story</p>
+              <p>Discover</p>
+              <p>Career</p>
+            </div>
+          </div>
 
-    <div class="footer">
+          <hr />
+          <div class="third_column">
+            <div class="container">
+              <button>FAQ</button>
 
-      <div class="footer_section">
-  
-        <div class="first_column">
-  
-          <h3> PoraLekha </h3>
-          <p>Help us to give you best outcome possibilities 
-            growth and that’s all we care about.</p>
-  
-          
+              <p>Cookies</p>
+              <p>Privacy</p>
+              <p>Terms & Condition</p>
+            </div>
+          </div>
+
+          <hr />
+          <div class="fourth_column">
+            <div class="new_container">
+              <button>Contact Us</button>
+
+              <p>Phone Number : 443-443-4455</p>
+              <p>Mobile Number : 443-443-4455</p>
+            </div>
+            <div class="email_block">
+              <input
+                class="input"
+                type="text"
+                placeholder="Enter your email adress"
+              />
+              <i class="far fa-paper-plane"></i>
+            </div>
+          </div>
+
+          <!-- <hr> -->
         </div>
 
-        <hr>
-        <div class="second_column">
-          <div class="container">
-            <button> About </button>
-  
-          
-            <p> Our story</p>
-            <p> Discover </p>
-            <p> Career </p>
-          
-          </div>
+        <div class="social_media_icon">
+          <i class="fa fa-facebook-f"></i>
+          <i class="fa fa-twitter"></i>
+          <i class="fa fa-instagram"></i>
+          <i class="fa fa-linkedin"></i>
         </div>
 
-        <hr>
-        <div class="third_column">
-          <div class="container">
-            <button> FAQ </button>
-  
-          
-              <p> Cookies </p>
-              <p> Privacy  </p>
-              <p> Terms & Condition </p>
-            
-          </div>
+        <div class="ending_part">
+          <p>2021 Copyright Poralekha Ltd . All rights reserved</p>
         </div>
-
-        <hr>
-        <div class="fourth_column">
-          <div class="new_container">
-            <button> Contact Us</button>
-  
-            <p> Phone  Number : 443-443-4455 </p>
-            <p> Mobile Number : 443-443-4455 </p>
-          </div>
-          <div class="email_block">
-            
-            <input class="input" type="text" placeholder="Enter your email adress"  />
-            <i class="far fa-paper-plane"></i>
-            
-            
-          </div>
-        </div>
-
-        <!-- <hr> -->
       </div>
+    </footer>
 
-      <div class="social_media_icon">
-  
-        <i class="fab fa-facebook-f"></i>
-        <i class="fab fa-twitter"></i>
-        <i class="fab fa-instagram"></i>
-        <i class="fab fa-linkedin-in"></i>
-
-      </div>
-
-      <div class="ending_part">
-        <p>2021 Copyright Poralekha Ltd . All rights reserved</p>
-      </div>
-  
-    </div>
-  </footer>
-
-  
-
-  <script src="./javascript/hompage.js"></script>
-
-</body>
+    <script src="./javascript/hompage.js"></script>
+  </body>
 </html>

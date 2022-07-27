@@ -1,11 +1,9 @@
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   scroll-behavior: smooth;
 }
-
-
 
 #navbar {
   font-family: Arial, Helvetica, sans-serif;
@@ -26,8 +24,7 @@
   cursor: pointer;
 }
 
-.logo a{
-
+.logo a {
   text-decoration: none;
   color: #000;
 }
@@ -42,16 +39,14 @@
   justify-content: center;
 }
 
-@media (min-width : 1400px)
-{
-  #navbar ul{
+@media (min-width: 1400px) {
+  #navbar ul {
     margin-left: 35%;
   }
 }
 
-@media (min-width : 1800px)
-{
-  #navbar ul{
+@media (min-width: 1800px) {
+  #navbar ul {
     margin-left: 50%;
   }
 }
@@ -66,16 +61,13 @@
   padding: 10px;
   background-color: beige;
   width: 100%;
- 
 }
 
-#navbar ul li:last-child a:hover{
-
+#navbar ul li:last-child a:hover {
   border: 1px solid red;
 }
-@media screen and (min-width : 1300px)
-{
-  #navbar ul li:last-child a{
+@media screen and (min-width: 1300px) {
+  #navbar ul li:last-child a {
     margin-left: 30px;
   }
 }
@@ -198,36 +190,26 @@ input[type="checkbox"] {
   #click:checked ~ ul {
     right: 0;
   }
-
-
 }
 
-
-@media screen and (min-width : 1190px)
-{
-  #navbar ul li:not(:last-child) a:hover{
-
+@media screen and (min-width: 1190px) {
+  #navbar ul li:not(:last-child) a:hover {
     background-color: #e7f0ebd7;
     font-weight: 500;
     transition: 0.5s;
   }
 }
 
-
 /* first div */
 
-.container{
-
+.container {
   position: relative;
   color: #000000;
   width: 100%;
   height: 350px;
- 
- 
 }
 
- .left_container{
-
+.left_container {
   position: absolute;
   top: 10%;
   left: 0;
@@ -236,17 +218,14 @@ input[type="checkbox"] {
   height: 300px;
 }
 
-.right_container{
-
+.right_container {
   position: absolute;
   top: 15%;
   right: 0;
   width: 50%;
   float: right;
 }
- .right_card{
-
- 
+.right_card {
   position: absolute;
   top: 15%;
   right: 18%;
@@ -258,51 +237,42 @@ input[type="checkbox"] {
   transition: 0.3s;
   border-radius: 20px;
   background-color: #909090;
-  
 }
 
-.left_container h2{
-
+.left_container h2 {
   font-size: 2rem;
   margin: 60px 0 0 0;
   font-weight: 550;
 }
-.left_container span{
-
+.left_container span {
   font-size: 2rem;
   font-weight: 550;
 }
-.left_container p{
-
+.left_container p {
   font-size: 1.558rem;
   margin: 10px 0;
-
 }
 
-
-.right_card h3{
+.right_card h3 {
   text-align: center;
   padding: 10px 0;
   font-size: 1.33rem;
 }
-.right_card .text_para{
-
+.right_card .text_para {
   width: 80%;
   display: block;
   margin-left: auto;
   margin-right: auto;
-
 }
 
-.right_card p{
+.right_card p {
   text-align: justify;
   font-size: 1.15rem;
   margin: 10px 0 5px 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
-.right_card button{
-
+.right_card button {
   display: block;
   margin: 20px auto 10px auto;
   padding: 12px 20px;
@@ -312,151 +282,113 @@ input[type="checkbox"] {
   color: #f2f2f2;
   background-color: #000000;
   cursor: pointer;
-  
-
-
 }
-.right_card button:hover{
-
+.right_card button:hover {
   opacity: 0.7;
 }
 
-@media screen and (max-width :1200px)
-{
-  .right_card p{
-
+@media screen and (max-width: 1200px) {
+  .right_card p {
     font-size: 16px;
   }
 }
 
-@media screen and (max-width :969px)
-{
-  .right_card{
-
+@media screen and (max-width: 969px) {
+  .right_card {
     right: 5%;
     height: 230px;
   }
-  .right_card button{
-
+  .right_card button {
     width: 100%;
-    
   }
-  .right_card .text_para{
+  .right_card .text_para {
     width: 90%;
   }
-
-
 }
 
-
-
-@media screen and (max-width :900px)
-{
-  .left_container{
-
+@media screen and (max-width: 900px) {
+  .left_container {
     padding-left: 15px;
   }
 }
-@media screen and (max-width :769px)
-{
-  .container{
+@media screen and (max-width: 769px) {
+  .container {
     height: 500px;
   }
-  .left_container{
+  .left_container {
     width: 100%;
     top: 10%;
   }
 
-  .left_container h2{
-
+  .left_container h2 {
     margin-top: 30px;
     font-size: 2.666rem;
   }
-  .left_container span{
-
+  .left_container span {
     font-size: 2.666rem;
-
   }
 
-  .left_container p{
-
+  .left_container p {
     font-size: 2rem;
     margin: 10px 0 5px 0;
-    }
-  .right_container{
-
+  }
+  .right_container {
     top: 40%;
     width: 100%;
     margin-top: 60px;
-  
   }
-  .right_card{
-
+  .right_card {
     right: 0;
   }
 
-  .right_card button{
-
+  .right_card button {
     width: 60%;
-    
   }
 }
 
-@media screen and (max-width :480px)
-{
-
-  
-
-  .left_container h2{
-
+@media screen and (max-width: 480px) {
+  .left_container h2 {
     font-size: 1.633rem;
     margin-top: 15px;
   }
-  .left_container span{
+  .left_container span {
     font-size: 1.633rem;
   }
-  .left_container p{
+  .left_container p {
     font-size: 1.233rem;
   }
 
-  .right_container{
-
+  .right_container {
     margin-top: 10px;
   }
-  .right_card p{
+  .right_card p {
     font-size: 15px;
   }
 }
 
-
-
 /*second div */
 
-.two_btn{
-
+.two_btn {
   display: block;
   width: 100%;
   height: 150px;
   padding: 20px 100px;
 }
 
-.two_btn .first_btn{
-
+.two_btn .first_btn {
   width: 40%;
-  
+
   float: left;
   padding: 10px 20px;
 }
-.two_btn .second_btn{
-
+.two_btn .second_btn {
   width: 40%;
- 
+
   float: right;
   height: 70px;
 }
 
-.first_btn button{
-
+.first_btn button {
   width: 120px;
   height: 60px;
   padding: 10px 15px;
@@ -466,16 +398,12 @@ input[type="checkbox"] {
   border-radius: 15px;
 }
 
-.second_btn .dropdown{
-
- 
+.second_btn .dropdown {
   position: relative;
   display: inline-block;
   margin-bottom: 50%;
 }
-.dropdown p{
-
-
+.dropdown p {
   background-color: #474b49;
   color: white;
   padding: 1em 2em 1em 1.5em;
@@ -485,20 +413,18 @@ input[type="checkbox"] {
   cursor: pointer;
 }
 
-#drop{
-
+#drop {
   margin-left: 80px;
   float: right;
 }
 
-.dropdown-content{
-
+.dropdown-content {
   display: none;
   position: absolute;
   background-color: #f1f1f1;
   min-width: 360px;
   overflow: auto;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   right: 0;
   z-index: 99;
 }
@@ -512,299 +438,231 @@ input[type="checkbox"] {
   text-align: center;
 }
 
-.dropdown-content a:hover{
-
+.dropdown-content a:hover {
   background-color: #ddd;
 }
 
-.show{
+.show {
   display: block;
 }
 
-@media screen and (max-width :900px)
-{
-  .two_btn{
-
+@media screen and (max-width: 900px) {
+  .two_btn {
     padding-left: 0;
     padding-right: 10px;
   }
 
-  .two_btn .second_btn{
-
-   margin-right: 70px;
+  .two_btn .second_btn {
+    margin-right: 70px;
   }
- 
-  #drop{
 
+  #drop {
     display: block;
     margin: 0 auto;
     padding-left: 10px;
-    
   }
- 
 }
 
-@media screen and (max-width :769px)
-{
-  .first_btn{
-
+@media screen and (max-width: 769px) {
+  .first_btn {
     display: none;
   }
 
-  .two_btn{
-
+  .two_btn {
     padding-right: 0;
   }
-  .two_btn .second_btn{
-
+  .two_btn .second_btn {
     display: block;
     margin: 0 auto;
     float: none;
-   
   }
 
-  .dropdown p{
-
+  .dropdown p {
     min-width: 300px;
   }
 }
 
-@media screen and (max-width : 600px)
-{
-  .two_btn .second_btn{
+@media screen and (max-width: 600px) {
+  .two_btn .second_btn {
     float: left;
     margin-left: 10px;
   }
 }
 
-@media screen and (max-width :500px)
-{
-  .dropdown p{
-
+@media screen and (max-width: 500px) {
+  .dropdown p {
     margin-top: 20px;
     font-size: 1.22rem;
   }
 }
 /* third div*/
 
-.all_university{
-
+.all_university {
   padding: 20px 80px;
-  background-color: #DFD1D1;
+  background-color: #dfd1d1;
 }
 
-.university_list{
-
+.university_list {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   margin: 20px 20px;
 }
 
-.university{
-
+.university {
   width: 30%;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   border-radius: 10px;
   /* background-color: rgb(255, 126, 52); */
-  background-color:#A48888;
+  background-color: #a48888;
   padding-bottom: 10px;
   margin-bottom: 20px;
   font-family: Arial, Helvetica, sans-serif;
 }
 
-.university_image img{
-
+.university_image img {
   width: 100%;
   height: 300px;
   border-radius: 10px;
 }
 
-.university_profile{
-
+.university_profile {
   margin: 15px 20px;
 }
-.university_profile h3{
-
+.university_profile h3 {
   font-size: 1.3444rem;
   font-weight: 550;
-  
 }
-.university_profile p{
-
+.university_profile p {
   font-size: 1.2222rem;
   font-weight: 500;
   margin-top: 10px;
 }
 
-.university_data{
-
+.university_data {
   margin: 25px 10px 30px 10px;
   display: flex;
 }
 
-.university_data .rank_data{
-
-  
+.university_data .rank_data {
   flex: 50%;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  background-color:#C4C4C4;
+  background-color: #c4c4c4;
   margin: 10px;
   height: 100px;
-  box-shadow: 0 15px 10px rgba(0,0,0,0.2);
+  box-shadow: 0 15px 10px rgba(0, 0, 0, 0.2);
   border-radius: 10px;
 }
 
-.university_data .type_data{
-
+.university_data .type_data {
   flex: 50%;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  background-color: #C4C4C4;
+  background-color: #c4c4c4;
   margin: 10px;
-  box-shadow: 0 15px 10px rgba(0,0,0,0.2);
+  box-shadow: 0 15px 10px rgba(0, 0, 0, 0.2);
   border-radius: 10px;
-
 }
 
-.rank_data h4{
-
+.rank_data h4 {
   font-size: 1.33332rem;
   text-align: center;
   padding: 10px 0 15px 0;
 }
 
-.rank_data p{
-
+.rank_data p {
   font-size: 1.222rem;
   text-align: center;
   font-weight: 550;
 }
 
-.type_data h4{
-
+.type_data h4 {
   font-size: 1.33332rem;
   text-align: center;
   padding: 10px 0 15px 0;
-
 }
 
-.type_data p{
-
+.type_data p {
   font-size: 1.222rem;
   text-align: center;
   font-weight: 550;
-
 }
 
-.checkout_btn{
-
+.checkout_btn {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  background-color: #C4C4C4;
+  background-color: #c4c4c4;
   margin: 25px 15px 20px 15px;
   cursor: pointer;
-  
-
 }
-
-.checkout_btn :hover{
-
+#default {
   background-color: rgba(22, 7, 22, 0.258);
-
-  
 }
 
-.checkout_btn p{
+.checkout_btn :hover {
+  background-color: rgba(22, 7, 22, 0.258);
+}
 
+.checkout_btn p {
   font-size: 1.23555rem;
   padding: 10px 14px;
   text-align: center;
   font-weight: 550;
-  
- 
 }
 
-.checkout_btn a{
+.checkout_btn a {
   text-decoration: none;
   color: #000000;
- 
-  
-
 }
-.checkout_btn a:hover{
-
+.checkout_btn a:hover {
   background: none;
 }
 
-
-@media screen and (max-width : 970px)
-{
- 
-
-  .university{
-
+@media screen and (max-width: 970px) {
+  .university {
     width: 49%;
-    
   }
-  .all_university{
-
+  .all_university {
     padding: 20px 15px;
   }
 }
 
-@media screen and (max-width : 769px )
-{
-
- 
-  .all_university{
-
+@media screen and (max-width: 769px) {
+  .all_university {
     padding: 5px;
   }
 }
 
-@media screen and (max-width : 600px)
-{
-  .university{
-
+@media screen and (max-width: 600px) {
+  .university {
     width: 100%;
   }
-
-
 }
 
-
-.more_university{
-
+.more_university {
   width: 100%;
   height: 80px;
-  background: #DFD1D1 ;
+  background: #dfd1d1;
 }
 
-.more_university button{
-
+.more_university button {
   display: block;
   margin: 0 auto;
   padding: 12px 22px;
   font-size: 1.3333rem;
   border: 1px groove wheat;
-  background: #A48888;
+  background: #a48888;
   font-weight: 550;
   transition: 0.4s;
   scroll-behavior: smooth;
   cursor: pointer;
-
-  
 }
 
-.more_university button:hover{
-
+.more_university button:hover {
   background: #ac9292;
 }
 
-.university_show{
-
+.university_show {
   display: block;
 }
-.university_hidden{
-
+.university_hidden {
   display: none;
 }

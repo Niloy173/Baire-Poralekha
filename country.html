@@ -1,25 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-    />
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
 
     <link rel="stylesheet" type="text/css" href="./style.css" />
-    <link rel="stylesheet" type="text/css" href="./footer.css" />
+    <link rel="stylesheet" type="text/css" href="./footer_.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
   </head>
   <body>
     <nav id="navbar">
-      <div  class="logo"><a  href="./index.html">LOGO</a></div>
+      <div class="logo"><a href="./index.html">LOGO</a></div>
       <!-- <input type="checkbox" id="click" /> -->
       <label id="show_nav" for="click" class="menu-btn">
-        <i class="fas fa-bars"></i>
+        <i class="fa fa-bars"></i>
       </label>
 
       <ul id="nav_menu_item">
@@ -28,11 +28,13 @@
             >&times; close</a
           >
         </li>
-        <li><a href="#">University</a></li>
-        <li><a href="#">Guide</a></li>
+        <li><a href="./UniversityPage.html">University</a></li>
+        <li><a href="./guide.html">Guide</a></li>
         <li><a href="#">Gallery</a></li>
         <li id="box_sign">
-          <a href="./registration_login.html"> <i class="fas fa-user"></i> Sign In </a>
+          <a href="./registration_login.html">
+            <i class="fa fa-user"></i> Sign In
+          </a>
         </li>
       </ul>
     </nav>
@@ -121,22 +123,22 @@
           <div class="column_key">
             <img src="./images/curreny.jpg" alt="currency" width="100%" />
             <div class="column_data">
-              <p style="padding: 10px;" class="first_data">Currency</p>
-              <p style="padding-bottom: 10px;" class="second_data">$</p>
+              <p style="padding: 10px" class="first_data">Currency</p>
+              <p style="padding-bottom: 10px" class="second_data">$</p>
             </div>
           </div>
           <div class="column2 column_key">
             <img src="./images/curreny.jpg" alt="currency" width="100%" />
             <div class="column_data">
-              <p style="padding: 10px;" class="first_data">Language</p>
-              <p style="padding-bottom: 10px;" class="second_data">English</p>
+              <p style="padding: 10px" class="first_data">Language</p>
+              <p style="padding-bottom: 10px" class="second_data">English</p>
             </div>
           </div>
           <div class="column_key">
             <img src="./images/curreny.jpg" alt="currency" width="100%" />
             <div class="column_data">
-              <p style="padding: 10px;" class="first_data">1400+</p>
-              <p style="padding-bottom: 10px;" class="second_data">University</p>
+              <p style="padding: 10px" class="first_data">1400+</p>
+              <p style="padding-bottom: 10px" class="second_data">University</p>
             </div>
           </div>
         </div>
@@ -316,62 +318,69 @@
         </div>
       </div>
     </section>
-
-    <!-- <div class="main">FOOTER DESIGN IN HTML CSS</div> -->
-    <footer class="footer-distributed">
-      <div class="footer-left">
-        <h3>WebDev<span>Trick</span></h3>
-
-        <p class="footer-links">
-          <a href="#">Home</a>
-          ·
-          <a href="#">Blog</a>
-          ·
-          <a href="#">Pricing</a>
-          ·
-          <a href="#">About</a>
-          ·
-          <a href="#">Faq</a>
-          ·
-          <a href="#">Contact</a>
-        </p>
-
-        <p class="footer-company-name">webdevtrick &copy; 2019</p>
-      </div>
-
-      <div class="footer-center">
-        <div class="footer_center_container">
-          <div>
-            <i class="fa fa-map-marker"></i>
-            <p><span>21 Revolution Street</span> Delhi, India</p>
-          </div>
-
-          <div>
-            <i class="fa fa-phone"></i>
-            <p>+1 555 123456</p>
-          </div>
-
-          <div>
-            <i class="fa fa-envelope"></i>
+    <footer>
+      <div class="footer">
+        <div class="footer_section">
+          <div class="first_column">
+            <h3>PoraLekha</h3>
             <p>
-              <a href="mailto:support@company.com">contact@webdevtrick.com</a>
+              Help us to give you best outcome possibilities growth and that’s
+              all we care about.
             </p>
           </div>
+
+          <hr />
+          <div class="second_column">
+            <div class="container">
+              <button>About</button>
+
+              <p>Our story</p>
+              <p>Discover</p>
+              <p>Career</p>
+            </div>
+          </div>
+
+          <hr />
+          <div class="third_column">
+            <div class="container">
+              <button>FAQ</button>
+
+              <p>Cookies</p>
+              <p>Privacy</p>
+              <p>Terms & Condition</p>
+            </div>
+          </div>
+
+          <hr />
+          <div class="fourth_column">
+            <div class="new_container">
+              <button>Contact Us</button>
+
+              <p>Phone Number : 443-443-4455</p>
+              <p>Mobile Number : 443-443-4455</p>
+            </div>
+            <div class="email_block">
+              <input
+                class="input"
+                type="text"
+                placeholder="Enter your email adress"
+              />
+              <i class="far fa-paper-plane"></i>
+            </div>
+          </div>
+
+          <!-- <hr> -->
         </div>
-      </div>
 
-      <div class="footer-right">
-        <p class="footer-company-about">
-          <span>About the company</span>
-          Web Dev Trick is a blog for web designers, graphic designers, web
-          developers &amp; SEO Learner.
-        </p>
+        <div class="social_media_icon">
+          <i class="fa fa-facebook-f"></i>
+          <i class="fa fa-twitter"></i>
+          <i class="fa fa-instagram"></i>
+          <i class="fa fa-linkedin"></i>
+        </div>
 
-        <div class="footer-icons">
-          <a href="#"><i class="fa fa-facebook"></i></a>
-          <a href="#"><i class="fa fa-twitter"></i></a>
-          <a href="#"><i class="fa fa-linkedin"></i></a>
-          <a href="#"><i class="fa fa-github"></i></a>
+        <div class="ending_part">
+          <p>2021 Copyright Poralekha Ltd . All rights reserved</p>
         </div>
       </div>
     </footer>
