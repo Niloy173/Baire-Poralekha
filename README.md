@@ -13,9 +13,9 @@ Higher study
 A complete demonstration based project on which
 anyone might want to look up for the further development
 
-- (Hompage) Browse Your Favourite Counttry - Try only Canada for sample
-- (University) See more Details - only available for Brazil University as per the sample
-- (popular subject under Brazil University) Try using only (Accounting) for the idea of other subject
+- (Hompage) Browse Your Favourite Counttry - Try only ***Canada*** for sample
+- (University) See more Details - only available for ***Brazil University*** as per the sample
+- (popular subject under Brazil University) Try using only ***(Accounting)*** for the idea of other subject
 
 # Feature
 
