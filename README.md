@@ -15,7 +15,7 @@ anyone might want to look up for the further development
 
 - (Hompage) Browse Your Favourite Counttry - Try only ***Canada*** for [sample](https://niloy173.github.io/Baire-Poralekha/country.html).
 
-![Capture](https://user-images.githubusercontent.com/63700841/181393056-684472a9-6b30-4156-a7b4-978844b8d51e.PNG)![Capture](https://user-images.githubusercontent.com/63700841/181393277-c689f526-7ec7-4e84-93b6-a46077d1ca92.PNG)
+![Capture](https://user-images.githubusercontent.com/63700841/181393056-684472a9-6b30-4156-a7b4-978844b8d51e.PNG)
 
 
 - (University) See more Details - only available for ***Brazil University*** as per the sample or go from [Here](https://niloy173.github.io/Baire-Poralekha/single_university.html).
