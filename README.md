@@ -1,6 +1,6 @@
 # Baire-Poralekha
 
-Demo trial for ***Baire Poralekha***. A prototype based web design project for educational purpose.
+Demo trial for ***Baire Poralekha***. A prototype based ***web design*** project for educational purpose.
 
 # workflow
 
@@ -29,6 +29,6 @@ anyone might want to look up for the further development
 
 # Feature
 
-- Filter university based on user choice criteria
-- Country based architecture & detailed workflow
+- ***Filter university*** based on user choice criteria
+- ***Country*** based architecture & detailed workflow
 - Demolished a complete roadmap based on user point of view
