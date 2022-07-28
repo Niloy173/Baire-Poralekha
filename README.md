@@ -19,6 +19,9 @@ anyone might want to look up for the further development
 
 
 - (University) See more Details - only available for ***Brazil University*** as per the sample or go from [Here](https://niloy173.github.io/Baire-Poralekha/single_university.html).
+
+![Capture](https://user-images.githubusercontent.com/63700841/181393631-1cd60b0f-19ef-45b3-b6fc-4bf941424981.PNG)
+
 - (popular subject under Brazil University) Try using only ***(Accounting)*** for the idea of other subject.check this out [now](https://niloy173.github.io/Baire-Poralekha/single_subject.html).
 
 ![Capture](https://user-images.githubusercontent.com/63700841/181393303-e4d25872-1ac6-4f6a-914c-a7c789e181cb.PNG)
