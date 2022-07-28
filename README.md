@@ -1,6 +1,6 @@
 # Baire-Poralekha
 
-Demo trial for baire poralekha. A prototype based project for educational purpose.
+Demo trial for ***Baire Poralekha***. A prototype based web design project for educational purpose.
 
 # workflow
 
