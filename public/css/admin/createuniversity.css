@@ -1,0 +1,213 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+button {
+  cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+  color: #000;
+}
+
+input[type="submit"] {
+  cursor: pointer;
+}
+.headline {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0;
+}
+
+.headline p {
+  width: 300px;
+  height: auto;
+  text-align: center;
+  border-style: ridge;
+  padding: 12px 10px;
+  box-shadow: 0.8;
+  box-shadow: 0px 15px 10px -15px #111;
+}
+.form {
+  width: 100%;
+  height: auto;
+  margin: 30px 0;
+}
+
+.varsity-basic-details {
+  width: 100%;
+}
+.varsity-basic-details .cover-page {
+  width: 40%;
+  display: block;
+  margin: 30px auto;
+}
+
+.cover-page img {
+  width: 100%;
+}
+
+.cover-page input {
+  display: none;
+}
+.cover-page button {
+  width: 100%;
+  background: none;
+  padding: 8px 0;
+  border: 1px groove #ddd;
+  border-top: none;
+}
+
+.varsity-basic-details .information-details {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 50px 0;
+}
+
+.information-details .size {
+  width: 33.33%;
+  text-align: center;
+}
+.size h3 {
+  padding: 10px 0;
+}
+.size input {
+  padding: 5px 0;
+  text-align: center;
+  margin-bottom: 5px;
+}
+
+.introduction-part {
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+}
+.middle {
+  display: block;
+  margin: 20px auto;
+  text-align: center;
+}
+
+.introduction-part h3 {
+  margin-bottom: 20px;
+}
+
+.introduction-part input {
+  width: 30%;
+  padding: 8px 12px;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.introduction-part .intro {
+  resize: none;
+  overflow: hidden;
+  width: 80%;
+  height: 200px;
+  padding: 20px 20px;
+  text-align: justify;
+  border: 1px solid #ccc;
+}
+.middle select {
+  width: 40%;
+  padding: 0.875rem 1rem;
+  margin: 20px 0;
+  border: 1px solid black;
+  cursor: pointer;
+}
+.middle option {
+  text-align: center;
+  margin: 10px 0;
+}
+.upload-any-data {
+  text-align: center;
+}
+.upload-any-data h3 {
+  margin: 20px 0;
+}
+
+.upload-any-data .read-pdf {
+  width: 40%;
+  height: 200px;
+  margin: 20px auto;
+  resize: none;
+  overflow: hidden;
+  border: 1px solid #ccc;
+}
+
+.country_selection {
+  margin: 80px auto;
+  padding: 80px auto;
+  position: relative;
+  max-width: 500px;
+}
+
+.country_selection p {
+  text-align: center;
+  font-size: 1.33rem;
+}
+
+.countryData p {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.countryData input {
+  width: 100%;
+  padding: 10px 12px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.countryData .image-div {
+  width: 100%;
+}
+
+.image-div img {
+  width: 100%;
+}
+
+.image-div input {
+  display: none;
+}
+.image-div button {
+  width: 100%;
+  padding: 10px 12px;
+}
+
+.country_selection input[type="submit"] {
+  margin-top: 50px;
+}
+
+.country_selection .btn {
+  width: 100%;
+  padding: 10px 12px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.submit-option {
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.submit-option input {
+  width: 40%;
+  padding: 10px 12px;
+  margin-bottom: 20px;
+}
+.submit-option .btn {
+  width: 40%;
+  padding: 10px 12px;
+}
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
