@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/css/admin/createuniversity.css" />
+  </head>
+  <body>
+    <% if(typeof message != 'undefined') { %>
+
+    <label>
+      <span
+        id="msg"
+        style="
+          color: rgb(238, 0, 0);
+          margin: 1em 0;
+          padding: 0px 10px 25px 30px;
+          font-weight: bold;
+        "
+        ><%= message %></span
+      >
+      <br />
+      <br />
+    </label>
+
+    <% } %> <% if(typeof data != 'undefined'){ %>
+
+    <div class="prospectus_info middle">
+      <h3 style="margin: 20px 0">Prospectus</h3>
+
+      <form enctype="multipart/form-data" method="post">
+        <!-- <div class="line"></div>
+            <div class="category">
+              <button>previous</button>
+              <div class="vertical-line"></div>
+              <button>next</button>
+              <span id="pagecount"
+                >pages of <span id="count"></span>
+                <span style="margin: 0 5px">/</span>
+                <span id="totalpage"></span
+              ></span>
+            </div> -->
+
+        <div class="pdf-view">
+          <iframe
+            src="data:application/<%=data.prospectus.contentType%>;base64,
+                  <%=data.prospectus.data.toString('base64')%>"
+            title="<%= data.prospectus.filename %>"
+            id="pdf_viewer"
+          ></iframe>
+        </div>
+
+        <div class="prospectus_view">
+          <input type="file" id="file" name="avatar" accept=".pdf" /> <br />
+          <input id="submitBtn" type="submit" value="SUBMIT" />
+        </div>
+      </form>
+
+      <div style="margin: 20px 0; width: 100%" class="reminder">
+        <h3 style="text-align: center">Reminder</h3>
+        <p
+          style="
+            text-align: center;
+            font-style: italic;
+            color: red;
+            margin: 10px 0;
+          "
+        >
+          *** When you're submitting the form this means all the data you've
+          filled up until now will be considered for updating current
+          university***
+        </p>
+      </div>
+    </div>
+
+    <% } else { %>
+
+    <div class="prospectus_info middle">
+      <p>Upload the Required Prospectus</p>
+
+      <form enctype="multipart/form-data" method="post">
+        <div class="line"></div>
+        <div class="category">
+          <button>previous</button>
+          <div class="vertical-line"></div>
+          <button>next</button>
+          <span id="pagecount"
+            >pages of <span id="count"></span>
+            <span style="margin: 0 5px">/</span>
+            <span id="totalpage"></span
+          ></span>
+        </div>
+
+        <div class="prospectus_view">
+          <canvas id="pdf_viewer"></canvas> <br />
+
+          <input type="file" id="file" name="avatar" accept=".pdf" /> <br />
+          <input id="submitBtn" disabled type="submit" value="SUBMIT" />
+        </div>
+      </form>
+
+      <div style="margin: 20px 0; width: 100%" class="reminder">
+        <h3 style="text-align: center">Reminder</h3>
+        <p
+          style="
+            text-align: center;
+            font-style: italic;
+            color: red;
+            margin: 10px 0;
+          "
+        >
+          *** When you're submitting the form this means all the data you've
+          filled up until now will be considered for creating new university***
+        </p>
+      </div>
+    </div>
+
+    <% } %>
+
+    <script type="text/javascript">
+      const canvas = document.querySelector("#pdf_viewer");
+      const input_files = document.querySelector("#file");
+      const submit = document.querySelector("#submitBtn");
+
+      const checkEnableButton = () => {
+        submit.disabled = !input_files.files[0];
+      };
+
+      input_files.addEventListener("change", checkEnableButton);
+    </script>
+  </body>
+</html>

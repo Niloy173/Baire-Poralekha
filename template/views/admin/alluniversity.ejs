@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= title %></title>
+  <link rel="stylesheet" href="/css/admin/dashboard.css" />
+  <link rel="stylesheet" href="/css/admin/alluniversity.css" />
+</head>
+<body>
+
+  <div class="topnav">
+    <a href="/admin/dashboard">BairePoralekha</a>
+    <a href="/admin/all-university-dashboard">University</a>
+    <a onclick="logout()" href="#">Logout</a>
+  </div>
+
+  <div id="all_university" class="all_university">
+    <div id="university_list" class="university_list">
+
+      <% if(Object.keys(data).length !=0){ %>
+
+        <% data.forEach(element => { %>
+
+          <div class="university">
+            <div class="university_image">
+              <img 
+              src="data:image/<%=element.universityCover.contentType%>;base64,
+                  <%=element.universityCover.data.toString('base64')%>" alt="university-cover" />
+            </div>
+  
+            <div class="university_profile">
+              <h3><%= element.universityName %></h3>
+              <p id="country_name"><%= element.countryName %></p>
+            </div>
+  
+            <div class="university_data">
+              <div class="rank_data">
+                <h4>Rank</h4>
+                <p><%= element.rank %></p>
+              </div>
+  
+              <div class="type_data">
+                <h4>Type</h4>
+                <p><%= element.type %></p>
+              </div>
+            </div>
+  
+            <div id="default" class="checkout_btn">
+              <p><a href="/admin/all-university-dasboard/<%= element["_id"] %>">See more Details</a></p>
+            </div>
+          </div>
+          
+        <% }); %>
+
+     <% } %>
+
+     <script>
+
+      function logout() {
+        fetch("/admin/dashboard", {
+          method: "DELETE",
+        });
+
+        setTimeout(() => {
+          window.location.replace("/");
+        }, 1000);
+      }
+     </script>
+  
+</body>
+</html>

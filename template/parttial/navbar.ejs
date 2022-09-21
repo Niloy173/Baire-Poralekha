@@ -1,0 +1,172 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<% if(userInformation && userInformation.useremail){ %>
+
+<nav id="navbar">
+  <div class="logo"><a href="/">LOGO</a></div>
+  <!-- <input type="checkbox" id="click" /> -->
+
+  <div class="nav_menu_item">
+    <ul id="nav_menu_item">
+      <li>
+        <a href="#">University</a>
+      </li>
+
+      <li>
+        <i
+          onclick="openNotificationWindow(`<%=userInformation.userId%>`)"
+          class="ph-bell-ringing-fill notification"
+        ></i>
+      </li>
+
+      <li class="image" onclick="opennav()" id="box_sign">
+        <img
+          src="data:image/<%=profileImage.contentType%>;base64,
+            <%=profileImage.data.toString('base64')%>"
+          alt="user-profile"
+        />
+
+        <div id="menu-bar" class="menu-bar">
+          <div class="bar1"></div>
+          <div class="bar2"></div>
+          <div class="bar3"></div>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <label onclick="opennav()" for="click" class="menu-btn">
+    <div class="menu-bar">
+      <div class="bar1"></div>
+      <div class="bar2"></div>
+      <div class="bar3"></div>
+    </div>
+  </label>
+</nav>
+
+<div id="mySidenav" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn bold" onclick="closeUserNav()">
+    &times;
+  </a>
+  <% if(username != ""){ %>
+
+  <p style="font-size: 20px; font-weight: bold"><%= username %></p>
+
+  <% } %>
+
+  <hr />
+
+  <a class="article bold" href="/article/how_it_works.html">How it works</a>
+  <a class="article bold" href="/article/write_a_story.html"
+    >How to write a Story</a
+  >
+  <a class="article bold" href="/article/category_tips.html">Category Tips</a>
+
+  <hr />
+
+  <a href="#">News</a>
+
+  <a href="#">About Us</a>
+
+  <a href="#"> Account Settings</a>
+
+  <a href="#">Privacy & Policy</a>
+
+  <a onclick="logout()" href="#">Sign out</a>
+</div>
+
+<div id="notification_window" class="notification-window">
+  <span
+    style="
+      text-align: center;
+      font-size: 17px;
+      position: absolute;
+      top: 10px;
+      font-weight: bold;
+      left: 20px;
+      color: white;
+    "
+  >
+    Notifications
+  </span>
+
+  <span style="float: right">
+    <i
+      onclick="close_notification()"
+      class="ph-x-circle-fill close_notification"
+    ></i>
+  </span>
+
+  <div class="line_draw"></div>
+
+  <div id="status" class="product-status" style="display: block">
+    <p style="text-align: center" class="msg">
+      there is no notification for you
+    </p>
+  </div>
+
+  <div id="notification_messages" class="notification-container"></div>
+</div>
+<% } else { %>
+<nav id="navbar_">
+  <div class="logo"><a href="/">EasyFunD</a></div>
+  <!-- <input type="checkbox" id="click" /> -->
+  <label onclick="showNav()" id="show_nav" for="click" class="menu-btn">
+    <div class="menu-bar">
+      <div class="bar1"></div>
+      <div class="bar2"></div>
+      <div class="bar3"></div>
+    </div>
+  </label>
+  <div class="nav_menu_item">
+    <ul id="nav_menu_item">
+      <li>
+        <a href="javascript:void(0)" class="closebtn">&times; close</a>
+      </li>
+
+      <li><a href="#">University</a></li>
+      <li><a href="#">News</a></li>
+      <li><a href="#">Guide</a></li>
+      <li><a href="#">About Us</a></li>
+
+      <li id="box_sign">
+        <a href="/login">
+          <i class="fa fa-user" aria-hidden="true"></i>
+          Log In
+        </a>
+      </li>
+    </ul>
+  </div>
+</nav>
+<% } %>
+
+<script>
+  let timecount = 0;
+  function opennav() {
+    document.getElementById("mySidenav").classList.toggle("openNavbar");
+  }
+  function closeUserNav() {
+    document.getElementById("mySidenav").classList.remove("openNavbar");
+  }
+
+  function showNav() {
+    let nav_menu_item = document.getElementById("nav_menu_item");
+    let show_nav = document.getElementById("show_nav");
+
+    timecount += 1;
+    if (timecount % 2 == 0) {
+      nav_menu_item.style.right = "-100%";
+    } else {
+      nav_menu_item.style.right = "0";
+    }
+    // console.log(timecount);
+  }
+
+  function logout() {
+    fetch("/", {
+      method: "DELETE",
+    });
+
+    setTimeout(() => {
+      window.location.replace("/");
+    }, 1000);
+  }
+</script>

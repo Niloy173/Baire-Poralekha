@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= title %></title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link rel="stylesheet" href="/css/user/signup.css" />
+  </head>
+  <body>
+    <nav id="navbar">
+      <div class="logo"><a href="#">LOGO</a></div>
+    </nav>
+
+    <div class="" id="register_section">
+      <div id="secondContent" class="content_clone">
+        <div id="register2" class="register_page_clone">
+          <h2>Create Your Account</h2>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa
+            temporibus molestias consequatur ad voluptatem doloribus,
+            perspiciatis quidem dolorem ipsum fugiat corporis tempore iusto
+            omnis est laboriosam labore ducimus debitis. Iste!
+          </p>
+
+          <form class="regFrom" action="" method="post">
+            <% if(typeof message != 'undefined') { %>
+
+            <label>
+              <span
+                id="msg"
+                style="
+                  color: rgb(238, 0, 0);
+                  margin: 1em 0;
+                  padding: 0px 10px 25px 30px;
+                  font-weight: bold;
+                "
+                ><%= message %></span
+              >
+              <br />
+              <br />
+            </label>
+
+            <% } %>
+            <label for="name"><b class="name"> Name </b></label><br />
+            <input
+              id="uname"
+              type="text"
+              class="text"
+              placeholder="Enter Name"
+              name="uname"
+            /><br />
+
+            <label for="Email"><b class="email">Email Address</b></label>
+            <input
+              class="emailclass text"
+              type="text"
+              placeholder="Enter Email Address"
+              name="uemail"
+            /><br />
+            <span class="emailspan">
+              we will send a link to your email for verification </span
+            ><br />
+
+            <br />
+            <br />
+
+            <label for="Password"><b class="pass"> Create a Password</b></label>
+            <input
+              class="passclass text"
+              type="password"
+              placeholder="Enter Password"
+              name="upassword"
+            /><br />
+            <span class="pass_span">
+              Your password should contain 8 character minimum
+            </span>
+
+            <br />
+            <br />
+            <br />
+
+            <div class="submit">
+              <button type="submit">Register</button>
+            </div>
+          </form>
+        </div>
+
+        <div id="another2" class="another_page_clone">
+          <h2 id="yes_account">Already Have a account ?</h2>
+
+          <p id="sign_in_p">Sign in and Continue your journey</p>
+
+          <button id="sign_in_btn"><a href="/login">Sign in</a></button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

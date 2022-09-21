@@ -5,15 +5,72 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title><%= title %></title>
-    <link rel="stylesheet" href="/css/admin/adminHome.css" />
+    <link rel="stylesheet" href="/css/admin/dashboard.css" />
   </head>
   <body>
-    <p>I am admin</p>
+    <div class="topnav">
+      <a href="/admin/dashboard">BairePoralekha</a>
+      <a href="/admin/all-university-dashboard">University</a>
+      <a onclick="logout()" href="#">Logout</a>
+    </div>
+
+    <div class="banner">
+      <img src="/img/admin-banner.jpg" />
+    </div>
+
+    <div class="parent-btn">
+      <div class="create-country-btn btn">
+        <button class="creation">
+          <a href="#">Countries</a>
+          <span> 0</span>
+        </button>
+      </div>
+
+      <div class="create-country-btn btn">
+        <button class="creation">
+          <a href="#">Users</a>
+          <span> <%= usercount %></span>
+        </button>
+      </div>
+
+      <div class="create-country-btn btn">
+        <button class="creation">
+          <a href="#">Articles</a>
+          <span> 0</span>
+        </button>
+      </div>
+
+      <div class="create-country-btn btn">
+        <button class="creation">
+          <a href="/admin/all-university-dashboard">University</a>
+          <span> <%= universitycount %></span>
+        </button>
+      </div>
+
+      <div class="create-record-btn btn">
+        <button class="creation">
+          <a href="#">Record</a>
+          <span> 0</span>
+        </button>
+      </div>
+    </div>
 
     <div class="create-university-btn">
-      <button class="creation">
-        <a href="/admin/countryselection">Create a new University</a>
-      </button>
+      <a href="/admin/countryselection" class="creation">
+        <button>Create a new University</button>
+      </a>
     </div>
+
+    <script>
+      function logout() {
+        fetch("/admin/dashboard", {
+          method: "DELETE",
+        });
+
+        setTimeout(() => {
+          window.location.replace("/");
+        }, 1000);
+      }
+    </script>
   </body>
 </html>

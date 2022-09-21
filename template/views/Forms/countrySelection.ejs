@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/css/admin/createuniversity.css" />
+  </head>
+  <body>
+    <div class="country_selection">
+      <% if(typeof message != 'undefined') { %>
+
+        <label>
+          <span
+            id="msg"
+            style="
+              color: rgb(238, 0, 0);
+              margin: 1em 0;
+              padding: 0px 10px 25px 30px;
+              font-weight: bold;
+            "
+            ><%= message %></span
+          >
+          <br />
+          <br />
+        </label>
+    
+        <% } %>
+      <% if(typeof data != 'undefined'){ %>
+
+      <form class="countryData" enctype="multipart/form-data" method="post">
+        <p>Write the Counrty Name</p>
+        <input
+          id="countryName"
+          type="text"
+          placeholder="country name"
+          name="countryname"
+          value="<%= data.countryName %>"
+         
+        />
+
+        <div class="image-div">
+          <img
+            id="display_img"
+            src="data:image/<%=data.countryImage.contentType%>;base64,
+          <%=data.countryImage.data.toString('base64')%>"
+            alt="cover"
+          />
+          <input
+            
+            type="file"
+            accept="image/jpg, image/png, image/jpeg"
+            id="file"
+            name="avatar"
+          />
+          <button type="button">
+            <label for="file">Upload the country flag</label>
+          </button>
+        </div>
+
+        <input disabled id="submit-id" type="submit" value="SAVE" />
+        <button type="button" class="btn">
+          <a href="/admin/all-university-dashboard/<%=data["_id"]%>/universitydata-update">NEXT</a>
+        </button>
+      </form>
+
+      <script>
+        let image_input_clone = document.querySelector("#file");
+        let submitBtn_clone = document.querySelector("#submit-id");
+        let countryName_clone = document.querySelector("#countryName");
+  
+        let reader_clone = new FileReader();
+  
+        image_input_clone.addEventListener("change", function () {
+          if (this.files && this.files[0]) {
+            let display_image_clone = document.querySelector("#display_img");
+            reader_clone.addEventListener("load", function () {
+              display_image_clone.setAttribute("src", reader_clone.result);
+            });
+  
+            reader_clone.readAsDataURL(this.files[0]);
+          }
+        });
+  
+        const checkEnableButton_clone = () => {
+          submitBtn_clone.disabled = !(countryName_clone.value || image_input_clone.files[0]);
+        };
+  
+        countryName_clone.addEventListener("change", checkEnableButton_clone);
+        image_input_clone.addEventListener("change", checkEnableButton_clone);
+      </script>
+
+      <% } else {%>
+
+      <form class="countryData" enctype="multipart/form-data" method="post">
+        <p>Write the Counrty Name</p>
+        <input
+          id="countryName"
+          type="text"
+          placeholder="country name"
+          name="countryname"
+          required
+        />
+
+        <div class="image-div">
+          <img id="display_img" src="/img/image.jpg" alt="cover" />
+          <input
+            required
+            type="file"
+            accept="image/jpg, image/png, image/jpeg"
+            id="file"
+            name="avatar"
+          />
+          <button type="button">
+            <label for="file">Upload the country flag</label>
+          </button>
+        </div>
+
+        <input disabled id="submit-id" type="submit" value="SAVE" />
+      </form>
+
+      <script>
+        let image_input = document.querySelector("#file");
+        let submitBtn = document.querySelector("#submit-id");
+        let countryName = document.querySelector("#countryName");
+  
+        let reader = new FileReader();
+  
+        image_input.addEventListener("change", function () {
+          if (this.files && this.files[0]) {
+            let display_image = document.querySelector("#display_img");
+            reader.addEventListener("load", function () {
+              display_image.setAttribute("src", reader.result);
+            });
+  
+            reader.readAsDataURL(this.files[0]);
+          }
+        });
+  
+        const checkEnableButton = () => {
+          submitBtn.disabled = !(countryName.value && image_input.files[0]);
+        };
+  
+        countryName.addEventListener("change", checkEnableButton);
+        image_input.addEventListener("change", checkEnableButton);
+      </script>
+
+      <% } %>
+    </div>
+
+    
+  </body>
+</html>

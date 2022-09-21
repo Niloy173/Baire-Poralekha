@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= title %></title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+      crossorigin="anonymous"
+    />
+
+    <link rel="stylesheet" href="/css/admin/createuniversity.css" />
+  </head>
+  <body>
+   
+
+    <div class="form">
+      <% if(typeof error != 'undefined'){ %> <% error.forEach(element => { %>
+
+        <div
+          id="error-div"
+          class="alert alert-warning alert-dismissible fade show"
+          role="alert"
+        >
+          <%= element.msg %>
+          <button
+            id="error-btn"
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="alert"
+            aria-label="Close"
+          ></button>
+        </div>
+
+        <% }); %> <% } %>
+
+        <% if(typeof data != 'undefined'){ %>
+
+          <div class="headline">
+            <p>University Information</p>
+          </div>
+
+          <form enctype="multipart/form-data" action="" method="post">
+        
+            <div class="varsity-basic-details">
+              <div class="cover-page">
+                <div><img id="display_img" src="data:image/<%=data.universityCover.contentType%>;base64,
+                  <%=data.universityCover.data.toString('base64')%>" alt="cover" /></div>
+    
+                <input
+                  type="file"
+                  accept="image/jpg, image/png, image/jpeg"
+                  id="file"
+                  name="avatar"
+                />
+                <button type="button">
+                  <label for="file">Upload an image</label>
+                </button>
+              </div>
+    
+              <div class="information-details">
+                <div class="rank size">
+                  <h3>Rank</h3>
+                  <input
+                    id="rank"
+                    type="number"
+                    placeholder="rank number"
+                    autocomplete="off"
+                    name="rank"
+                    value="<%= data.rank %>"
+          
+                  />
+                </div>
+    
+                <div class="type size">
+                  <h3>Type</h3>
+                  <input
+                    id="type"
+                    type="text"
+                    placeholder="public or private"
+                    autocomplete="off"
+                    name="type"
+                    value="<%= data.type %>"
+               
+                  />
+                </div>
+    
+                <div class="location size">
+                  <h3>Location</h3>
+                  <input
+                    id="location"
+                    type="text"
+                    placeholder="full address"
+                    autocomplete="off"
+                    name="location"
+                    value="<%= data.location %>"
+               
+                  />
+                </div>
+              </div>
+            </div>
+    
+            <div class="introduction-part">
+              <h3>Introduction</h3>
+    
+              <input
+                id="universityName"
+                type="text"
+                placeholder="university name"
+                autocomplete="off"
+                value="<%= data.universityName %>"
+                name="universityname"
+              />
+    
+              <textarea
+                placeholder="write details about the university"
+                class="intro"
+                id="about"
+                autocomplete="off"
+                contenteditable="true"
+                name="universityintro"
+                
+              ><%= data.introduction %></textarea>
+            </div>
+    
+            <div class="program-for-graduate middle">
+              <h3>Program For Graduate</h3>
+    
+              <textarea
+                id="graduate-programs"
+                autocomplete="off"
+                name="graduate"
+              ><%=gradProgram %></textarea>
+            </div>
+    
+            <div class="program-for-undergraduate middle">
+              <h3>Program For UnderGraduate</h3>
+    
+              <textarea
+                id="undergraduate-programs"
+                autocomplete="off"
+                name="undergraduate"
+              ><%= undergradProgram %></textarea>
+            </div>
+    
+            <div class="submit-option">
+              <input disabled id="submit-id" type="submit" value="SAVE" />
+           
+              <div>
+                <button type="button" class="btn">
+                  <a href="/admin/all-university-dashboard/<%=data["_id"]%>/prospectus-update">NEXT</a>
+                </button>
+              </div>
+            </div>
+    
+         
+          </form>
+
+          <script defer>
+            window.setTimeout(function () {
+              document.getElementById("about").style.height =
+                document.getElementById("about").scrollHeight + "px";
+            });
+            
+            </script>
+
+            <script>
+              let coverImage_clone = document.querySelector("#file");
+              let rank_clone = document.querySelector("#rank");
+              let type_clone = document.querySelector("#type");
+              let address_clone = document.querySelector("#location");
+              let about_clone = document.querySelector("#about");
+              let u_name_clone = document.querySelector("#universityName");
+              let grad_program_clone = document.querySelector("#graduate-programs");
+              let under_grad_program_clone = document.querySelector(
+                "#undergraduate-programs"
+              );
+              let submitId_clone = document.querySelector("#submit-id");
+
+              let reader_clone = new FileReader();
+
+              coverImage_clone.addEventListener("change", function () {
+                if (this.files && this.files[0]) {
+                  let display_image_clone = document.querySelector("#display_img");
+                  reader_clone.addEventListener("load", function () {
+                    display_image_clone.setAttribute("src", reader_clone.result);
+                  });
+
+                  reader_clone.readAsDataURL(this.files[0]);
+                }
+              });
+
+              const CheckSubmitButton_clone = () => {
+                submitId_clone.disabled = !(
+                  (
+                    coverImage_clone.files[0] ||
+                    rank_clone.value ||
+                    type_clone.value ||
+                    address_clone.value ||
+                    u_name_clone.value ||
+                    about_clone.value ||
+                    under_grad_program_clone.value ||
+                    grad_program_clone.value
+                  )
+                  //  &&
+                  // under_grad_program.options[under_grad_program.selectedIndex].value
+                );
+              };
+
+              coverImage_clone.addEventListener("change", CheckSubmitButton_clone);
+              rank_clone.addEventListener("change", CheckSubmitButton_clone);
+              type_clone.addEventListener("change", CheckSubmitButton_clone);
+              address_clone.addEventListener("change",CheckSubmitButton_clone);
+              u_name_clone.addEventListener("change", CheckSubmitButton_clone);
+              about_clone.addEventListener("change", CheckSubmitButton_clone);
+              grad_program_clone.addEventListener("change", CheckSubmitButton_clone);
+              under_grad_program_clone.addEventListener("change", CheckSubmitButton_clone);
+
+  
+ 
+  
+</script>
+
+
+        <% } else { %>
+
+          <div class="headline">
+            <p>University Information </p>
+          </div>
+
+          <form enctype="multipart/form-data" action="" method="post">
+        
+            <div class="varsity-basic-details">
+              <div class="cover-page">
+                <div><img id="display_img" src="/img/image.jpg" alt="cover" /></div>
+    
+                <input
+                  type="file"
+                  accept="image/jpg, image/png, image/jpeg"
+                  id="file"
+                  name="avatar"
+                />
+                <button type="button">
+                  <label for="file">Upload an image</label>
+                </button>
+              </div>
+    
+              <div class="information-details">
+                <div class="rank size">
+                  <h3>Rank</h3>
+                  <input
+                    id="rank"
+                    type="number"
+                    placeholder="rank number"
+                    autocomplete="off"
+                    name="rank"
+                    required
+                  />
+                </div>
+    
+                <div class="type size">
+                  <h3>Type</h3>
+                  <input
+                    id="type"
+                    type="text"
+                    placeholder="public or private"
+                    autocomplete="off"
+                    name="type"
+                    required
+                  />
+                </div>
+    
+                <div class="location size">
+                  <h3>Location</h3>
+                  <input
+                    id="location"
+                    type="text"
+                    placeholder="full address"
+                    autocomplete="off"
+                    name="location"
+                    required
+                  />
+                </div>
+              </div>
+            </div>
+    
+            <div class="introduction-part">
+              <h3>Introduction</h3>
+    
+              <input
+                id="universityName"
+                type="text"
+                placeholder="university name"
+                autocomplete="off"
+                name="universityname"
+              />
+    
+              <textarea
+                placeholder="write details about the university"
+                class="intro"
+                id="about"
+                autocomplete="off"
+                contenteditable="true"
+                name="universityintro"
+              ></textarea>
+            </div>
+    
+            <div class="program-for-graduate middle">
+              <h3>Program For Graduate</h3>
+    
+              <textarea
+                id="graduate-programs"
+                autocomplete="off"
+                name="graduate"
+              ></textarea>
+            </div>
+    
+            <div class="program-for-undergraduate middle">
+              <h3>Program For UnderGraduate</h3>
+    
+              <textarea
+                id="undergraduate-programs"
+                autocomplete="off"
+                name="undergraduate"
+              ></textarea>
+            </div>
+    
+            <div class="submit-option">
+              <input disabled id="submit-id" type="submit" value="SAVE" />
+            </div>
+    
+            <!-- <div class="upload-any-data">
+              <h3>Upload Required Prospectus</h3>
+              <div class="read-pdf">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Repellendus, cumque nihil aspernatur quasi nam voluptatum maiores
+                aliquid modi ab? Doloribus sunt accusantium non alias fugiat eius ad
+                minus velit nihil!
+              </div>
+              <input type="file" accept=".pdf" />
+            </div> -->
+          </form>
+
+          <script>
+            let coverImage = document.querySelector("#file");
+            let rank = document.querySelector("#rank");
+            let type = document.querySelector("#type");
+            let address = document.querySelector("#location");
+            let about = document.querySelector("#about");
+            let u_name = document.querySelector("#universityName");
+            let grad_program = document.querySelector("#graduate-programs");
+            let under_grad_program = document.querySelector(
+              "#undergraduate-programs"
+            );
+            let submitId = document.querySelector("#submit-id");
+      
+            let reader = new FileReader();
+      
+            coverImage.addEventListener("change", function () {
+              if (this.files && this.files[0]) {
+                let display_image = document.querySelector("#display_img");
+                reader.addEventListener("load", function () {
+                  display_image.setAttribute("src", reader.result);
+                });
+      
+                reader.readAsDataURL(this.files[0]);
+              }
+            });
+      
+            const CheckSubmitButton = () => {
+              submitId.disabled = !(
+                (
+                  coverImage.files[0] &&
+                  rank.value &&
+                  type.value &&
+                  address.value &&
+                  u_name.value &&
+                  about.value &&
+                  under_grad_program.value &&
+                  grad_program.value
+                )
+                //  &&
+                // under_grad_program.options[under_grad_program.selectedIndex].value
+              );
+            };
+      
+            coverImage.addEventListener("change", CheckSubmitButton);
+            rank.addEventListener("change", CheckSubmitButton);
+            type.addEventListener("change", CheckSubmitButton);
+            address.addEventListener("change", CheckSubmitButton);
+            u_name.addEventListener("change", CheckSubmitButton);
+            about.addEventListener("change", CheckSubmitButton);
+            grad_program.addEventListener("change", CheckSubmitButton);
+            under_grad_program.addEventListener("change", CheckSubmitButton);
+      
+         
+            
+          </script>
+
+       <% } %>
+   
+    </div>
+
+   <script>
+       /* event click for closing the error related div */
+       const error_div = document.querySelectorAll("#error-btn");
+            for (let index = 0; index < error_div.length; index++) {
+              error_div[index].addEventListener("click", function () {
+                this.parentNode.remove();
+              });
+            }
+   </script>
+  </body>
+</html>
