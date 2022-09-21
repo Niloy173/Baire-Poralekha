@@ -1,0 +1,118 @@
+.all_university {
+  padding: 20px 80px;
+  background-color: #dfd1d1;
+}
+
+.university_list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 20px 20px;
+}
+
+.university {
+  width: 30%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  /* background-color: rgb(255, 126, 52); */
+  background-color: #a48888;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.university_image img {
+  width: 100%;
+  height: 300px;
+  border-radius: 10px;
+}
+
+.university_profile {
+  margin: 15px 20px;
+}
+.university_profile h3 {
+  font-size: 1.3444rem;
+  font-weight: 550;
+}
+.university_profile p {
+  font-size: 1.2222rem;
+  font-weight: 500;
+  margin-top: 10px;
+}
+
+.university_data {
+  margin: 25px 10px 30px 10px;
+  display: flex;
+}
+
+.university_data .rank_data {
+  flex: 50%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  background-color: #c4c4c4;
+  margin: 10px;
+  height: 100px;
+  box-shadow: 0 15px 10px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+}
+
+.university_data .type_data {
+  flex: 50%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  background-color: #c4c4c4;
+  margin: 10px;
+  box-shadow: 0 15px 10px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+}
+
+.rank_data h4 {
+  font-size: 1.33332rem;
+  text-align: center;
+  padding: 10px 0 15px 0;
+}
+
+.rank_data p {
+  font-size: 1.222rem;
+  text-align: center;
+  font-weight: 550;
+}
+
+.type_data h4 {
+  font-size: 1.33332rem;
+  text-align: center;
+  padding: 10px 0 15px 0;
+}
+
+.type_data p {
+  font-size: 1.222rem;
+  text-align: center;
+  font-weight: 550;
+}
+
+.checkout_btn {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  background-color: #c4c4c4;
+  margin: 25px 15px 20px 15px;
+  cursor: pointer;
+}
+#default {
+  background-color: rgba(22, 7, 22, 0.258);
+}
+
+.checkout_btn :hover {
+  background-color: rgba(22, 7, 22, 0.258);
+}
+
+.checkout_btn p {
+  font-size: 1.23555rem;
+  padding: 10px 14px;
+  text-align: center;
+  font-weight: 550;
+}
+
+.checkout_btn a {
+  text-decoration: none;
+  color: #000000;
+}
+.checkout_btn a:hover {
+  background: none;
+}

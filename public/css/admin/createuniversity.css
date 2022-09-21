@@ -7,6 +7,10 @@ button {
   cursor: pointer;
 }
 
+label {
+  cursor: pointer;
+}
+
 a {
   text-decoration: none;
   color: #000;
@@ -114,12 +118,11 @@ input[type="submit"] {
   text-align: justify;
   border: 1px solid #ccc;
 }
-.middle select {
+.middle textarea {
   width: 40%;
   padding: 0.875rem 1rem;
   margin: 20px 0;
   border: 1px solid black;
-  cursor: pointer;
 }
 .middle option {
   text-align: center;
@@ -190,6 +193,8 @@ input[type="submit"] {
   padding: 10px 12px;
   margin-bottom: 20px;
   text-align: center;
+  border: none;
+  background: none;
 }
 
 .submit-option {
@@ -207,7 +212,101 @@ input[type="submit"] {
   width: 40%;
   padding: 10px 12px;
 }
+
+/* .prospectus_view input {
+  display: none;
+} */
+.category {
+  border: 2px solid #ccc;
+  display: flex;
+  width: 40%;
+  margin: 0 auto;
+}
+.category #pagecount {
+  margin: 10px 12px;
+  width: 100%;
+  display: flex;
+  justify-content: right;
+  padding: 5px;
+  font-weight: bold;
+}
+.category #count {
+  margin-left: 5px;
+}
+.category #totalpage {
+  margin-left: 5px;
+}
+.category button {
+  background-color: transparent;
+  margin: 10px 12px;
+  cursor: pointer;
+  padding: 5px;
+}
+.line {
+  border-bottom: 4px solid #000;
+  display: block;
+  width: 40%;
+  margin: 20px auto 0 auto;
+}
+
+.vertical-line {
+  border-left: 3px solid black;
+  width: 1px;
+  display: block;
+  height: 45px;
+  margin: 0 10px;
+}
+
+.prospectus_view canvas {
+  width: 40%;
+  height: 300px;
+  margin: 0 0 30px 0;
+  border: 1px groove #ccc;
+}
+.prospectus_view button {
+  width: 40%;
+  padding: 10px 12px;
+  text-align: center;
+  background: #ddd;
+  border: none;
+}
+
+.prospectus_view input[type="submit"] {
+  width: 40%;
+  padding: 10px 12px;
+  margin: 10px 0;
+}
 select {
   -webkit-appearance: none;
   -moz-appearance: none;
+}
+
+.alert-warning {
+  text-align: center;
+}
+
+.pdf-view {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.pdf-view iframe {
+  width: 80%;
+  height: 600px;
+}
+.button_container {
+  width: 100%;
+  text-align: center;
+}
+
+.button_container button {
+  width: 60%;
+  background-color: rgb(0, 188, 188);
+  margin: 20px 0;
+  padding: 10px 0;
+  border: none;
+  border-radius: 8px;
+  cursor: default;
 }
