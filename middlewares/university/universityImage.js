@@ -14,7 +14,7 @@ function university_attachmentUpload(req, res, next) {
     __dirname + "/../" + "/../public/universityimage/"
   );
 
-  new ImageUploader(pathname, 2 * 1024 * 1024, [
+  new ImageUploader(pathname, 5 * 1024 * 1024, [
     "image/jpeg",
     "image/jpg",
     "image/png",

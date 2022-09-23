@@ -12,7 +12,7 @@ const mongoose = require("mongoose");
 function attachmentUpload(req, res, next) {
   const pathname = path.join(__dirname + "/../" + "/../public/countryimage/");
 
-  new ImageUploader(pathname, 2 * 1024 * 1024, [
+  new ImageUploader(pathname, 5 * 1024 * 1024, [
     "image/jpeg",
     "image/jpg",
     "image/png",
