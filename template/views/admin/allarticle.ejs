@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/css/admin/articlewriting.css" />
+  </head>
+  <body>
+    <div class="header">
+      <p>Articles</p>
+    </div>
+
+    <div class="all-listed-articles">
+      <div class="numbers">Numbers</div>
+      <div class="title">Description</div>
+      <div class="live-check">Check Out</div>
+    </div>
+
+    <% if(typeof data != 'undefined'){ %> <% for (let index = 0; index <
+    data.length; index++) { %>
+
+    <div class="main-content">
+      <div class="no-of-articles">
+        <p><%= index+1 %></p>
+      </div>
+
+      <div class="content-description">
+        <p><%= data[index].title %></p>
+      </div>
+
+      <div class="live-link">
+        <a href="/admin/articles/<%= data[index]._id%>/preview-article">Go</a>
+      </div>
+    </div>
+
+    <div class="single-line-border"></div>
+
+    <% } %> <% } %>
+
+    <div class="button-container">
+      <hr />
+
+      <button>
+        <a href="/admin/articles/create-article"> >> Write a new Article </a>
+      </button>
+    </div>
+  </body>
+</html>
