@@ -1,0 +1,246 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+input:focus,
+input:valid {
+  box-shadow: none;
+  outline: none;
+  background-position: 0 0;
+}
+.header {
+  width: 100%;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header p {
+  width: 300px;
+  height: auto;
+  text-align: center;
+  border-style: ridge;
+  padding: 12px 10px;
+  box-shadow: 0.8;
+  font-size: 22px;
+  box-shadow: 0px 15px 10px -15px #111;
+}
+
+.all-listed-articles {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  width: 100%;
+  margin: 80px 0 30px 0;
+}
+
+.main-content {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  width: 100%;
+  /* margin: 80px 0 30px 0; */
+  margin: 10px 0;
+}
+.all-listed-articles .numbers {
+  width: 30%;
+  text-align: center;
+  font-size: 20px;
+  padding: 12px 10px;
+  box-shadow: 0.8;
+  box-shadow: 0px 15px 10px -15px #111;
+}
+
+.single-line-border {
+  content: " ";
+  display: block;
+  width: 100%;
+  border-bottom: 0.5px dotted black;
+  opacity: 0.25;
+}
+
+.main-content .no-of-articles {
+  width: 30%;
+  text-align: center;
+  font-size: 20px;
+}
+
+.no-of-articles p {
+  color: #000;
+  border: 3px solid turquoise;
+  border-radius: 50%;
+  padding: 14px 12px;
+  width: 60px;
+  display: block;
+  margin: 0 auto;
+}
+
+.button-container {
+  width: 100%;
+  position: relative;
+  bottom: 0;
+  text-align: center;
+}
+
+.button-container button {
+  width: 30%;
+  background-color: rgb(0, 188, 188);
+  margin: 20px 0;
+  padding: 10px 0;
+  border: none;
+  border-radius: 8px;
+  cursor: default;
+}
+
+.button-container button a {
+  color: #000;
+  text-decoration: none;
+  font-size: 20px;
+}
+
+.all-listed-articles .title {
+  width: 50%;
+  text-align: center;
+  font-size: 20px;
+  padding: 12px 10px;
+  box-shadow: 0.8;
+  box-shadow: 0px 15px 10px -15px #111;
+}
+
+.main-content .content-description {
+  width: 50%;
+  text-align: center;
+  margin: 20px 0;
+}
+
+.content-description p {
+  font-size: 20px;
+  width: 100%;
+}
+
+.all-listed-articles .live-check {
+  width: 20%;
+  text-align: center;
+  font-size: 20px;
+  padding: 12px 10px;
+  box-shadow: 0.8;
+  box-shadow: 0px 15px 10px -15px #111;
+}
+
+.main-content .live-link {
+  width: 20%;
+  text-align: center;
+  margin: 20px 0;
+}
+
+.live-link a {
+  width: 100%;
+  font-size: 20px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/*---------------*/
+.main-container {
+  position: relative;
+  top: 0;
+  max-width: 700px;
+  margin: 50px auto;
+  padding: 50px auto;
+}
+
+.main-container .image-upload {
+  width: 100%;
+  margin: 20px 0;
+}
+
+.image-upload img {
+  width: 100%;
+  height: 70vh;
+}
+.image-upload input {
+  display: none;
+}
+.image-upload button {
+  width: 100%;
+  border: 0.5px dotted black;
+  cursor: pointer;
+  text-align: center;
+  padding: 14px 16px;
+  background: transparent;
+}
+
+.image-upload button label {
+  cursor: pointer;
+}
+
+.main-container .category {
+  width: 100%;
+  padding: 20px 0px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+.category p {
+  margin: 10px 0;
+  text-align: center;
+  font-size: 20px;
+}
+.category select {
+  width: 50%;
+  padding: 10px 12px;
+}
+.category select option {
+  padding: 10px 12px;
+}
+
+.main-container .title {
+  width: 100%;
+  text-align: center;
+}
+
+.title p {
+  margin: 10px 0;
+  font-size: 20px;
+}
+.title input {
+  width: 70%;
+  padding: 10px 12px;
+  font-size: 16px;
+  text-align: center;
+}
+
+.main-container .content {
+  width: 100%;
+  margin: 50px 0;
+  text-align: center;
+}
+
+.content p {
+  margin: 10px 0;
+  font-size: 20px;
+}
+
+.content textarea {
+  width: 100%;
+  overflow: hidden;
+  padding: 10px 12px;
+  font-size: 1rem;
+  height: 80vh;
+  text-align: justify;
+  resize: none;
+}
+
+.submit-option {
+  width: 100%;
+}
+.submit-option input {
+  padding: 12px 10px;
+  text-align: center;
+  font-weight: normal;
+  width: 100%;
+  border: none;
+  border-style: ridge;
+}

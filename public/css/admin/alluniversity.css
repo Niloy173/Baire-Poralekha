@@ -51,7 +51,6 @@
   background-color: #c4c4c4;
   margin: 10px;
   height: 100px;
-  box-shadow: 0 15px 10px rgba(0, 0, 0, 0.2);
   border-radius: 10px;
 }
 
@@ -60,7 +59,6 @@
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   background-color: #c4c4c4;
   margin: 10px;
-  box-shadow: 0 15px 10px rgba(0, 0, 0, 0.2);
   border-radius: 10px;
 }
 
