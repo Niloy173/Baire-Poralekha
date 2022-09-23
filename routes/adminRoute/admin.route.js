@@ -48,9 +48,16 @@ router.get(
   async (req, res, next) => {
     const user = await UserModel.find({ role: "user" });
     const university = await UniversityModel.find({});
+    const Article = await ArticleModel.find({});
+    const country = university
+      .map((item) => item.countryName)
+      .filter((value, position, array) => array.indexOf(value) === position);
+
     res.render("admin/adminPannel", {
       usercount: user.length,
       universitycount: university.length,
+      articlecount: Article.length,
+      countries: country.length,
     });
   }
 );
