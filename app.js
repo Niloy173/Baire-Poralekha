@@ -37,11 +37,13 @@ const resetpasswordRoute = require("./routes/resetpassword.route");
 const registerRoute = require("./routes/register.route");
 const adminRoute = require("./routes/adminRoute/admin.route");
 const alluniversity_under_adminRoute = require("./routes/adminRoute/alluniversity.route");
+const articles_under_adminRoute = require("./routes/adminRoute/article.route");
 
 /* middleware */
 app.enable("case sensitive routing");
 app.use(express.static(staticPath));
 app.use("/article", express.static(`${__dirname}` + "/public/article/"));
+app.use("/articleimg", express.static(`${__dirname} + "/public/articleimage/`));
 app.use("/css", express.static(`${__dirname}` + "/public/css/"));
 app.use("/img", express.static(`${__dirname}` + "/public/images/"));
 app.use("/js", express.static(`${__dirname}` + "/public/script/"));
@@ -60,8 +62,9 @@ app.use("/register", registerRoute.router);
 app.use("/reset", resetpasswordRoute.router);
 
 /* admin route goes here */
-app.use("/admin", adminRoute.router);
-app.use("/admin", alluniversity_under_adminRoute.router);
+app.use("/admin", adminRoute.router); // dashboard
+app.use("/admin", alluniversity_under_adminRoute.router); // universities
+app.use("/admin", articles_under_adminRoute.router); // articles
 
 /* error handler */
 app.use(NotFoundHandler);
