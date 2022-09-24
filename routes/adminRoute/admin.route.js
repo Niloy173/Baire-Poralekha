@@ -34,8 +34,14 @@ const {
   CreateUniversity,
 } = require("../../controller/createuniversity/createUniversity");
 
+const {
+  SaveCountryDetails,
+} = require("../../controller/adminController/countrydatafetch-admin");
+
 const { UniversityModel } = require("../../model/UniversitySchema");
 const { UserModel } = require("../../model/UserSchema");
+const { ArticleModel } = require("../../model/CreateArticleSchema");
+const { CountryModel } = require("../../model/CountrySchma");
 /*---------------------*/
 
 const router = express.Router();
@@ -62,6 +68,15 @@ router.get(
   }
 );
 
+// routing for countries
+router.get(
+  "/countries",
+  decorateHtmlResponse("All Countries"),
+  AuthCheck,
+  (req, res, next) => {}
+);
+
+// university-form
 router.get(
   "/universityform",
   decorateHtmlResponse("Create University"),
@@ -71,15 +86,23 @@ router.get(
   }
 );
 
+// country-form
 router.get(
   "/countryselection",
   decorateHtmlResponse("Create University"),
   AuthCheck,
-  (req, res, next) => {
-    res.render("Forms/countrySelection");
+  async (req, res, next) => {
+    const countryData = await CountryModel.find({});
+    const country = countryData
+      .map((item) => item.countryName)
+      .filter((value, position, array) => array.indexOf(value) === position);
+    res.render("Forms/countrySelection", {
+      country,
+    });
   }
 );
 
+//prospectus-form
 router.get(
   "/prospectusupdate",
   decorateHtmlResponse("Create University"),
@@ -87,6 +110,13 @@ router.get(
   (req, res, next) => {
     res.render("Forms/prospectusInfo");
   }
+);
+
+// routing for existing country
+router.post(
+  "/save-country-information/:country",
+  AuthCheck,
+  SaveCountryDetails
 );
 
 router.post(
@@ -114,7 +144,6 @@ router.post(
   CreateUniversity
 );
 
-router;
 router.delete("/dashboard", (req, res, next) => {
   res.clearCookie(process.env.COOKIE_NAME);
   res.send("signing out");

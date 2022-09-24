@@ -52,6 +52,7 @@ function attachmentUpload(req, res, next) {
                 },
 
                 countryName: req.body.countryname.trim(),
+                countryDetails: req.body.countryDetails.trim(),
               },
             },
             { new: true, useFindAndModify: false },
@@ -81,6 +82,7 @@ function attachmentUpload(req, res, next) {
             {
               $set: {
                 countryName: req.body.countryname.trim(),
+                countryDetails: req.body.countryDetails.trim(),
               },
             },
             {
@@ -101,6 +103,7 @@ function attachmentUpload(req, res, next) {
       } else {
         // For the University Creation
 
+        const ext_name = path.extname(req.file.filename);
         if (req.file === undefined) {
           res.render("Forms/countrySelection", {
             message: "please select an image",
@@ -124,6 +127,7 @@ function attachmentUpload(req, res, next) {
               },
 
               countryName: req.body.countryname.trim(),
+              countryDetails: req.body.countryDetails.trim(),
             },
           },
           { new: true, useFindAndModify: false },
@@ -132,9 +136,11 @@ function attachmentUpload(req, res, next) {
             if (!err) {
               // image uploaded
               // console.log("Image uploaded");
-              setTimeout(() => {
-                res.redirect("/admin/universityform");
-              }, 1000);
+              // setTimeout(() => {
+              //   res.redirect("/admin/universityform");
+              // }, 1000);
+
+              res.redirect("/admin/universityform");
             }
           }
         );

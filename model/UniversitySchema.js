@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 const UniversitySchema = mongoose.Schema(
   {
     countryName: String,
+    countryDetails: String,
     countryImage: {
       data: Buffer,
       contentType: String,
