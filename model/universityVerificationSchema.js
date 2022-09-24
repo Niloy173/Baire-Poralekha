@@ -4,6 +4,7 @@ const universityVerificationSchmea = new mongoose.Schema(
   {
     OwnerId: mongoose.Types.ObjectId,
     countryName: String,
+    countryDetails: String,
     countryImage: {
       data: Buffer,
       contentType: String,

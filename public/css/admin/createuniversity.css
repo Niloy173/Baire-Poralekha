@@ -19,11 +19,48 @@ a {
 input[type="submit"] {
   cursor: pointer;
 }
+
+.countries {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.head-countries {
+  text-align: center;
+  margin: 10px 0;
+  font-size: 22px;
+}
+.countries .all-countries {
+  display: flex;
+  justify-content: center;
+  width: 60%;
+  gap: 20px;
+  position: relative;
+  overflow: hidden;
+  resize: none;
+  white-space: nowrap;
+  background-color: #fff;
+}
+
+.all-countries button {
+  text-align: center;
+  background: none;
+  border: 0.75px dotted rgb(114, 114, 114);
+  padding: 6px 12px;
+  font-size: 18px;
+}
+
+.countries i {
+  cursor: pointer;
+  margin: 20px 10px;
+  display: none;
+}
 .headline {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 20px 0;
+  margin: 0 0 20px 0;
 }
 
 .headline p {
@@ -145,7 +182,7 @@ input[type="submit"] {
 }
 
 .country_selection {
-  margin: 80px auto;
+  margin: 40px auto;
   padding: 80px auto;
   position: relative;
   max-width: 500px;
@@ -166,6 +203,17 @@ input[type="submit"] {
   padding: 10px 12px;
   margin-bottom: 20px;
   text-align: center;
+}
+
+.countryData .countryabout {
+  resize: none;
+  overflow: hidden;
+  width: 100%;
+  height: 200px;
+  padding: 20px 20px;
+  text-align: justify;
+  border: 1px solid #ccc;
+  margin-bottom: 20px;
 }
 
 .countryData .image-div {

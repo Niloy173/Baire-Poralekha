@@ -6,6 +6,7 @@ const {
 } = require("../../model/universityVerificationSchema");
 
 const { UniversityModel } = require("../../model/UniversitySchema");
+const { CountryModel } = require("../../model/CountrySchma");
 
 async function CreateUniversity(req, res, next) {
   try {
@@ -33,6 +34,7 @@ async function CreateUniversity(req, res, next) {
 
     // all the data related to university
     universityInfo.countryName = CurrentUniversityData.countryName;
+    universityInfo.countryDetails = CurrentUniversityData.countryDetails;
     universityInfo.countryImage = CurrentUniversityData.countryImage;
     universityInfo.universityName = CurrentUniversityData.universityName;
     universityInfo.universityCover = CurrentUniversityData.universityCover;
@@ -47,6 +49,22 @@ async function CreateUniversity(req, res, next) {
     const newUniversityData = new UniversityModel().InsertUniversity(
       universityInfo
     );
+
+    // check out if this country already avaliable in country table
+    const findCountry = await CountryModel.findOne({
+      countryName: CurrentUniversityData.countryName,
+    });
+
+    if (findCountry == null) {
+      const newCountryData = new CountryModel({
+        countryName: CurrentUniversityData.countryName,
+        countryDetails: CurrentUniversityData.countryDetails,
+        countryImage: CurrentUniversityData.countryImage,
+      });
+
+      //save the country information
+      newCountryData.save();
+    }
 
     // delete the file
     fs.readdir(path_of_countryImage, (err, files) => {
