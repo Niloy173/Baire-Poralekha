@@ -4,6 +4,7 @@ const {
 } = require("../../model/universityVerificationSchema");
 
 const { UniversityModel } = require("../../model/UniversitySchema");
+const { CountryModel } = require("../../model/CountrySchma");
 
 const path = require("path");
 const fs = require("fs");
@@ -30,12 +31,12 @@ function attachmentUpload(req, res, next) {
         // check if already created university
         // havinfg any change with the file upload
 
-        const currentUniversityId = req.originalUrl.split("/").reverse()[1];
+        const currentCountryId = req.originalUrl.split("/").reverse()[1];
 
         if (req.file) {
           const ext_name = path.extname(req.file.filename);
-          UniversityModel.updateOne(
-            { _id: mongoose.Types.ObjectId(currentUniversityId) },
+          CountryModel.updateOne(
+            { _id: mongoose.Types.ObjectId(currentCountryId) },
             {
               $set: {
                 countryImage: {
@@ -66,18 +67,16 @@ function attachmentUpload(req, res, next) {
                   if (err) {
                     console.log(err);
                   } else {
-                    res.redirect(
-                      `/admin/all-university-dashboard/${currentUniversityId}/universitydata-update`
-                    );
+                    res.redirect(`/admin/countries`);
                   }
                 });
               }
             }
           );
         } else {
-          UniversityModel.updateOne(
+          CountryModel.updateOne(
             {
-              _id: mongoose.Types.ObjectId(currentUniversityId),
+              _id: mongoose.Types.ObjectId(currentCountryId),
             },
             {
               $set: {
@@ -91,11 +90,7 @@ function attachmentUpload(req, res, next) {
             },
             function (err, data) {
               if (!err) {
-                setTimeout(() => {
-                  res.redirect(
-                    `/admin/all-university-dashboard/${currentUniversityId}/universitydata-update`
-                  );
-                }, 1000);
+                res.redirect("/admin/countries");
               }
             }
           );

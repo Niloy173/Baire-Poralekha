@@ -16,13 +16,6 @@ const doUniversityFormValdiator = [
     .notEmpty()
     .isString()
     .trim(),
-
-  check("graduate", "graduation program required").notEmpty().isString().trim(),
-
-  check("undergraduate", "undergraduate program required")
-    .notEmpty()
-    .isString()
-    .trim(),
 ];
 
 const doUniversityFormHandler = function (req, res, next) {
