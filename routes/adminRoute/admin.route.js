@@ -1,4 +1,5 @@
 const express = require("express");
+const { default: mongoose } = require("mongoose");
 const fs = require("fs");
 const path = require("path");
 
@@ -27,7 +28,8 @@ const {
 } = require("../../controller/createuniversity/universityform");
 
 const {
-  prospectus_attachmentUpload,
+  prospectus_attachmentUpload_undergrad,
+  prospectus_attachmentUpload_grad,
 } = require("../../middlewares/university/propspectusPdf");
 
 const {
@@ -38,10 +40,19 @@ const {
   SaveCountryDetails,
 } = require("../../controller/adminController/countrydatafetch-admin");
 
+const {
+  Delete_particular_prospectus_undergrad,
+  Delete_particular_prospectus_grad,
+} = require("../../controller/adminController/prospectusDelete-admin");
+
 const { UniversityModel } = require("../../model/UniversitySchema");
 const { UserModel } = require("../../model/UserSchema");
 const { ArticleModel } = require("../../model/CreateArticleSchema");
 const { CountryModel } = require("../../model/CountrySchma");
+const {
+  universityVerificationModel,
+} = require("../../model/universityVerificationSchema");
+
 /*---------------------*/
 
 const router = express.Router();
@@ -55,7 +66,8 @@ router.get(
     const user = await UserModel.find({ role: "user" });
     const university = await UniversityModel.find({});
     const Article = await ArticleModel.find({});
-    const country = university
+    const country = await CountryModel.find({});
+    const numofCountries = country
       .map((item) => item.countryName)
       .filter((value, position, array) => array.indexOf(value) === position);
 
@@ -63,7 +75,7 @@ router.get(
       usercount: user.length,
       universitycount: university.length,
       articlecount: Article.length,
-      countries: country.length,
+      countries: numofCountries.length,
     });
   }
 );
@@ -73,7 +85,30 @@ router.get(
   "/countries",
   decorateHtmlResponse("All Countries"),
   AuthCheck,
-  (req, res, next) => {}
+  async (req, res, next) => {
+    const countryData = await CountryModel.find({});
+    res.render("admin/countrySection", {
+      countryData,
+    });
+  }
+);
+
+// routing for all universities under single country
+router.get(
+  "/countries/:country_id/:country_name",
+  decorateHtmlResponse("All University"),
+  AuthCheck,
+  async (req, res, next) => {
+    const countryinfo = await CountryModel.findOne({
+      _id: mongoose.Types.ObjectId(req.params.country_id),
+    }).populate("universities");
+
+    const { universities } = countryinfo;
+
+    res.render("admin/university_under_country", {
+      data: universities,
+    });
+  }
 );
 
 // university-form
@@ -102,21 +137,40 @@ router.get(
   }
 );
 
-//prospectus-form
+//prospectus-form-undergrad
 router.get(
-  "/prospectusupdate",
+  "/undergraduate-prospectus",
   decorateHtmlResponse("Create University"),
   AuthCheck,
   (req, res, next) => {
-    res.render("Forms/prospectusInfo");
+    res.render("Forms/undergraduateProspectus");
   }
 );
 
-// routing for existing country
-router.post(
-  "/save-country-information/:country",
+//prospectus-form-grad
+router.get(
+  "/graduate-prospectus",
+  decorateHtmlResponse("Create University"),
   AuthCheck,
-  SaveCountryDetails
+  (req, res, next) => {
+    res.render("Forms/graduateProspectus");
+  }
+);
+
+// create university page
+router.get(
+  "/create-university",
+  decorateHtmlResponse("Create University"),
+  AuthCheck,
+  async (req, res, next) => {
+    const data = await universityVerificationModel.findOne({
+      OwnerId: req.user.userid,
+    });
+
+    res.render("admin/confirmation", {
+      data,
+    });
+  }
 );
 
 router.post(
@@ -124,6 +178,13 @@ router.post(
   decorateHtmlResponse("Create University"),
   AuthCheck,
   attachmentUpload
+);
+
+// routing for existing country with button
+router.post(
+  "/save-country-information/:country",
+  AuthCheck,
+  SaveCountryDetails
 );
 
 router.post(
@@ -137,12 +198,30 @@ router.post(
 );
 
 router.post(
-  "/prospectusupdate",
-  decorateHtmlResponse("Create University"),
+  "/undergraduate-prospectus",
   AuthCheck,
-  prospectus_attachmentUpload,
-  CreateUniversity
+  prospectus_attachmentUpload_undergrad
 );
+
+router.post(
+  "/graduate-prospectus",
+  AuthCheck,
+  prospectus_attachmentUpload_grad
+);
+
+router.post(
+  "/undergraduate-prospectus/:dept_id",
+  AuthCheck,
+  Delete_particular_prospectus_undergrad
+);
+
+router.post(
+  "/graduate-prospectus/:dept_id",
+  AuthCheck,
+  Delete_particular_prospectus_grad
+);
+
+router.post("/create-university", AuthCheck, CreateUniversity);
 
 router.delete("/dashboard", (req, res, next) => {
   res.clearCookie(process.env.COOKIE_NAME);
