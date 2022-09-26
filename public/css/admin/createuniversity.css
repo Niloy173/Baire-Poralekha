@@ -209,11 +209,11 @@ input[type="submit"] {
   resize: none;
   overflow: hidden;
   width: 100%;
-  height: 200px;
+  height: 300px;
   padding: 20px 20px;
   text-align: justify;
   border: 1px solid #ccc;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 .countryData .image-div {
@@ -233,7 +233,7 @@ input[type="submit"] {
 }
 
 .country_selection input[type="submit"] {
-  margin-top: 50px;
+  margin-top: 10px;
 }
 
 .country_selection .btn {
@@ -254,7 +254,7 @@ input[type="submit"] {
 .submit-option input {
   width: 40%;
   padding: 10px 12px;
-  margin-bottom: 20px;
+  margin: 20px 0;
 }
 .submit-option .btn {
   width: 40%;
@@ -305,6 +305,17 @@ input[type="submit"] {
   margin: 0 10px;
 }
 
+.prospectus_info {
+  margin: 80px 0 40px 0;
+  padding: 40px 0;
+}
+.prospectus_info .next {
+  width: 40%;
+  border: none;
+  background: transparent;
+  margin: 5px 0;
+}
+
 .prospectus_view canvas {
   width: 40%;
   height: 300px;
@@ -317,12 +328,14 @@ input[type="submit"] {
   text-align: center;
   background: #ddd;
   border: none;
+  margin: 20px 0;
 }
 
-.prospectus_view input[type="submit"] {
+.prospectus_view input[type="text"] {
   width: 40%;
   padding: 10px 12px;
-  margin: 10px 0;
+  margin: 20px 0;
+  text-align: center;
 }
 select {
   -webkit-appearance: none;
@@ -357,4 +370,55 @@ select {
   border: none;
   border-radius: 8px;
   cursor: default;
+}
+
+/* for the DOM Creation element in prospectus page */
+.dept_child {
+  padding: 10px 12px;
+  display: flex;
+  justify-content: center;
+  margin: 10px 0;
+}
+
+.dept_child_update {
+  padding: 10px 12px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 10px 0;
+}
+
+.dept_child_update .dept_name {
+  padding: 9px 12px;
+  font-size: 18px;
+  width: 20%;
+  border: 0.75px dotted black;
+  border-style: ridge;
+}
+.dept_name {
+  padding: 9px 12px;
+  font-size: 18px;
+  width: 40%;
+  border: 0.75px dotted black;
+  border-style: ridge;
+}
+.dept_delete {
+  padding: 10px 12px;
+  text-decoration: none;
+  color: #000;
+  /* font-size: 18px; */
+  /* transform: rotate(90deg); */
+  margin-left: -35px;
+  cursor: pointer;
+}
+
+.dept_child_update .dept_delete {
+  padding: 10px 12px;
+  text-decoration: none;
+  color: #000;
+  /* font-size: 18px; */
+  /* transform: rotate(90deg); */
+  margin-left: -40px;
+  cursor: pointer;
 }
