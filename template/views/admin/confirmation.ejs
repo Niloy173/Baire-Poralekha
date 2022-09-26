@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= title %></title>
+    <style>
+      body {
+        font-size: 18px;
+        font-family: "Times New Roman", Times, serif;
+      }
+      div {
+        position: absolute;
+        top: 40%;
+        left: 30%;
+        transform: translate("-50%, -50%");
+      }
+
+      div.p {
+        margin: 15px 0;
+      }
+      div:nth-child(1) {
+        width: 50%;
+      }
+
+      div:nth-child(2) {
+        text-align: center;
+      }
+
+      button {
+        color: #f2f2f2;
+        box-shadow: 0 3px 6px -1px rgba(0, 0, 0, 0.12),
+          0 10px 36px -4px rgba(77, 96, 232, 0.3);
+        background: -webkit-linear-gradient(315deg, #73a5ff, #5477f5);
+        background: linear-gradient(135deg, #73a5ff, #5477f5);
+        padding: 10px 12px;
+        display: flex;
+        justify-content: center;
+        font-weight: bold;
+        cursor: pointer;
+      }
+    </style>
+    <link rel="stylesheet" href="/css/toastify.css" />
+
+    <script src="/js/toastify.js"></script>
+    <script src="/js/moment.js"></script>
+  </head>
+
+  <body>
+    <% if(typeof data != 'undefinded'){ %>
+
+    <div>
+      <p>
+        You Are Trying to Create a new university named
+        <b><%= data.universityName %></b> & also provided all the necessary
+        information regarding <b>introduction</b>, <b>prospectus</b>,
+        <b>images</b> and many more etc.
+      </p>
+
+      <p>Please press the button to complete procedure</p>
+
+      <button onclick="CreateUniversity()">Create University</button>
+    </div>
+
+    <script>
+      const FailureToast = Toastify({
+        text: "Error Occured",
+        duration: 2000,
+      });
+
+      async function CreateUniversity() {
+        const response = await fetch("/admin/create-university", {
+          method: "POST",
+        });
+
+        const statuscode = response.status;
+
+        if (statuscode === 200) {
+          window.location.replace("/admin/dashboard");
+        } else {
+          FailureToast.showToast();
+        }
+      }
+    </script>
+    <% } else { %>
+
+    <p>Invalid Request</p>
+
+    <% } %>
+  </body>
+</html>

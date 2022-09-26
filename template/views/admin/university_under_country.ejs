@@ -9,12 +9,6 @@
     <link rel="stylesheet" href="/css/admin/alluniversity.css" />
   </head>
   <body>
-    <div class="topnav">
-      <a href="/admin/dashboard">BairePoralekha</a>
-      <a href="/admin/all-university-dashboard">University</a>
-      <a onclick="logout()" href="#">Logout</a>
-    </div>
-
     <div id="all_university" class="all_university">
       <div id="university_list" class="university_list">
         <% if(Object.keys(data).length !=0){ %> <% data.forEach(element => { %>
@@ -55,36 +49,7 @@
         </div>
 
         <% }); %> <% } %>
-
-        <div
-          style="
-            display: block;
-            width: 100%;
-            border-bottom: 0.5px dotted black;
-            opacity: 0.5;
-            margin: 20px 0;
-          "
-          class="single-line"
-        ></div>
-
-        <div class="create-university-btn">
-          <a href="/admin/countryselection" class="creation">
-            <button>Create a new University</button>
-          </a>
-        </div>
       </div>
     </div>
-
-    <script>
-      function logout() {
-        fetch("/admin/dashboard", {
-          method: "DELETE",
-        });
-
-        setTimeout(() => {
-          window.location.replace("/");
-        }, 1000);
-      }
-    </script>
   </body>
 </html>

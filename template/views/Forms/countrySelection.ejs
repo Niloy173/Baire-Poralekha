@@ -12,7 +12,10 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="/css/admin/createuniversity.css" />
+    <link rel="stylesheet" href="/css/toastify.css" />
 
+    <script src="/js/toastify.js"></script>
+    <script src="/js/moment.js"></script>
     <script src="https://unpkg.com/phosphor-icons"></script>
   </head>
   <body>
@@ -127,9 +130,12 @@
 
         <input disabled id="submit-id" type="submit" value="SAVE" />
         <button type="button" class="btn">
-          <a
-            href='/admin/all-university-dashboard/<%=data["_id"]%>/universitydata-update'
-            >NEXT</a
+          <b
+            ><a
+              style="color: blue"
+              href="/admin/countries/<%=data._id %>/<%=data.countryName %>"
+              >Explore <%= data.countryName %> University</a
+            ></b
           >
         </button>
       </form>
@@ -241,45 +247,52 @@
         countryDetails.addEventListener("change", checkEnableButton);
       </script>
 
+      <script>
+        let right_side = document.querySelector("#right-panel");
+        let left_side = document.querySelector("#left-panel");
+        const countryDiv = document.querySelector(".all-countries");
+
+        const FailureToast = Toastify({
+          text: "Failed to update data",
+          duration: 1000,
+        });
+
+        if (countryDiv.children.length >= 5) {
+          right_side.style.display = "block";
+          left_side.style.display = "block";
+        }
+
+        const scrollWidth = countryDiv.scrollWidth;
+
+        right_side.addEventListener("click", function () {
+          countryDiv.scrollBy(30, 0);
+          console.log(countryDiv.scrollLeft);
+        });
+
+        left_side.addEventListener("click", function () {
+          countryDiv.scrollBy(countryDiv.scrollLeft + 20, 0);
+          console.log(countryDiv.scrollLeft);
+        });
+
+        async function saveCountryInformation(e) {
+          const response = await fetch(
+            `/admin/save-country-information/${e.innerHTML.trim()}`,
+            {
+              method: "POST",
+            }
+          );
+
+          const statuscode = response.status;
+
+          if (statuscode === 200) {
+            window.location.href = "/admin/universityform";
+          } else {
+            FailureToast.showToast();
+          }
+        }
+      </script>
+
       <% } %>
     </div>
-
-    <script>
-      let right_side = document.querySelector("#right-panel");
-      let left_side = document.querySelector("#left-panel");
-      const countryDiv = document.querySelector(".all-countries");
-
-      if (countryDiv.children.length >= 5) {
-        right_side.style.display = "block";
-        left_side.style.display = "block";
-      }
-
-      const scrollWidth = countryDiv.scrollWidth;
-
-      right_side.addEventListener("click", function () {
-        countryDiv.scrollBy(30, 0);
-        console.log(countryDiv.scrollLeft);
-      });
-
-      left_side.addEventListener("click", function () {
-        countryDiv.scrollBy(countryDiv.scrollLeft + 20, 0);
-        console.log(countryDiv.scrollLeft);
-      });
-
-      async function saveCountryInformation(e) {
-        const response = await fetch(
-          `/admin/save-country-information/${e.innerHTML.trim()}`,
-          {
-            method: "POST",
-          }
-        );
-
-        const statuscode = response.status;
-
-        if (statuscode === 200) {
-          window.location.href = "/admin/universityform";
-        }
-      }
-    </script>
   </body>
 </html>
