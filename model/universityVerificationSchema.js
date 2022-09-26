@@ -20,13 +20,26 @@ const universityVerificationSchmea = new mongoose.Schema(
     type: String,
     location: String,
     introduction: String,
-    UnderGradProgram: [],
-    GradProgram: [],
-    prospectus: {
-      data: Buffer,
-      contentType: String,
-      filename: String,
-    },
+    UnderGraduation: [
+      {
+        deptname: String,
+        pdf: {
+          data: Buffer,
+          contentType: String,
+          filename: String,
+        },
+      },
+    ],
+    Graduation: [
+      {
+        deptname: String,
+        pdf: {
+          data: Buffer,
+          contentType: String,
+          filename: String,
+        },
+      },
+    ],
   },
   {
     timestamps: true,

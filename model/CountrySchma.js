@@ -9,6 +9,13 @@ const CountrySchema = mongoose.Schema(
       contentType: String,
       filename: String,
     },
+
+    universities: [
+      {
+        type: mongoose.Types.ObjectId,
+        ref: "University",
+      },
+    ],
   },
   {
     timestamps: true,
