@@ -3,7 +3,7 @@ const fs = require("fs");
 const path = require("path");
 
 /* internal package */
-const {ArticleModel}= require("../../model/CreateArticleSchema")
+
 const {
   decorateHtmlResponse,
 } = require("../../middlewares/common/decorateHtmlResponse");

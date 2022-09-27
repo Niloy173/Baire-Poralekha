@@ -1,17 +1,49 @@
-.text-center {
+header {
+  background: transparent;
+  height: 107px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 0 20px;
+  z-index: 300;
+  width: -webkit-fill-available;
+}
+
+header a {
+  text-decoration: none;
+}
+article {
+  position: relative;
+  max-width: 1800px;
+  height: 100%;
+  margin: auto;
+  padding-top: 0;
+}
+
+.logo {
+  margin: 0;
+  display: inline-block;
+}
+
+nav {
+  position: static;
+  width: 50%;
   text-align: center;
+  height: 107px;
+  z-index: 20;
+  max-width: 1280px;
+  margin: 0 auto;
 }
 
-.background-yellow {
-  background-color: lightyellow;
+.login {
+  position: absolute;
+  right: 0;
 }
 
-.justify-end {
-  justify-content: flex-end;
-}
-
-.active,
-.btn:hover {
-  background-color: rgb(205, 255, 151);
-  color: white;
+.nav_list {
+  list-style: none;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
 }
