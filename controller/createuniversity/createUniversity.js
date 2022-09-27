@@ -30,25 +30,15 @@ async function CreateUniversity(req, res, next) {
 
     const countryFileName = CurrentUniversityData.countryImage.filename;
     const universityFilename = CurrentUniversityData.universityCover.filename;
-    const prospectusFilename = CurrentUniversityData.prospectus.filename;
+    const prospectusFilename_Grad =
+      CurrentUniversityData.Graduation[
+        CurrentUniversityData.Graduation.length - 1
+      ].pdf.filename;
 
-    // all the data related to university
-    universityInfo.countryName = CurrentUniversityData.countryName;
-    universityInfo.countryDetails = CurrentUniversityData.countryDetails;
-    universityInfo.countryImage = CurrentUniversityData.countryImage;
-    universityInfo.universityName = CurrentUniversityData.universityName;
-    universityInfo.universityCover = CurrentUniversityData.universityCover;
-    universityInfo.rank = CurrentUniversityData.rank;
-    universityInfo.type = CurrentUniversityData.type;
-    universityInfo.location = CurrentUniversityData.location;
-    universityInfo.introduction = CurrentUniversityData.introduction;
-    universityInfo.UnderGradProgram = CurrentUniversityData.UnderGradProgram;
-    universityInfo.GradProgram = CurrentUniversityData.GradProgram;
-    universityInfo.prospectus = CurrentUniversityData.prospectus;
-
-    const newUniversityData = new UniversityModel().InsertUniversity(
-      universityInfo
-    );
+    const prospectusFilename_underGrad =
+      CurrentUniversityData.UnderGraduation[
+        CurrentUniversityData.UnderGraduation.length - 1
+      ].pdf.filename;
 
     // check out if this country already avaliable in country table
     const findCountry = await CountryModel.findOne({
@@ -63,9 +53,24 @@ async function CreateUniversity(req, res, next) {
       });
 
       //save the country information
-      newCountryData.save();
+      const newCountry = await newCountryData.save();
+      universityInfo.country = newCountry._id;
+    } else {
+      universityInfo.country = findCountry._id;
     }
 
+    universityInfo.universityName = CurrentUniversityData.universityName;
+    universityInfo.universityCover = CurrentUniversityData.universityCover;
+    universityInfo.rank = CurrentUniversityData.rank;
+    universityInfo.type = CurrentUniversityData.type;
+    universityInfo.location = CurrentUniversityData.location;
+    universityInfo.introduction = CurrentUniversityData.introduction;
+    universityInfo.UnderGraduation = CurrentUniversityData.UnderGraduation;
+    universityInfo.Graduation = CurrentUniversityData.Graduation;
+
+    const newUniversityData = new UniversityModel().InsertUniversity(
+      universityInfo
+    );
     // delete the file
     fs.readdir(path_of_countryImage, (err, files) => {
       for (let file of files) {
@@ -91,9 +96,13 @@ async function CreateUniversity(req, res, next) {
       }
     });
 
+    // last file can be undergrad or grad based on the form fill up perspective
     fs.readdir(path_of_pdfData, (err, files) => {
       for (let file of files) {
-        if (file === prospectusFilename) {
+        if (
+          file === prospectusFilename_Grad ||
+          file === prospectusFilename_underGrad
+        ) {
           fs.unlink(path.join(path_of_pdfData, file), (err) => {
             if (err) {
               console.log(err.message);
@@ -119,9 +128,8 @@ async function CreateUniversity(req, res, next) {
             type: "",
             location: "",
             introduction: "",
-            UnderGradProgram: [],
-            GradProgram: [],
-            prospectus: {},
+            Graduation: [],
+            UnderGraduation: [],
           },
         },
         {
@@ -131,14 +139,28 @@ async function CreateUniversity(req, res, next) {
       );
 
     // save the newly created university
-    newUniversityData.save();
+    const newUniversity = await newUniversityData.save();
 
-    setTimeout(() => {
-      res.status(200).redirect("/admin/dashboard");
-    }, 1000);
+    // save the versity creation id into co-responding country table
+    CountryModel.updateOne(
+      { countryName: CurrentUniversityData.countryName },
+      {
+        $push: {
+          universities: newUniversity._id,
+        },
+      },
+      {
+        new: true,
+      },
+      function (err, data) {
+        if (!err) {
+          res.status(200).send("Success");
+        }
+      }
+    );
   } catch (error) {
-    console.log(error);
-    res.redirect("/admin/dashboard");
+    // console.log(error);
+    res.status(500).send("Failure");
   }
 }
 

@@ -4,24 +4,63 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title><%= title %></title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT"
+      crossorigin="anonymous"
+    />
+    <style>
+      img {
+        object-fit: cover;
+      }
+    </style>
   </head>
   <body>
-    <div class="country">
-      <h2>Browse Your Favourite Country</h2>
+    <h2 class="w-100 text-center text-monospace border-right-0 p-4">
+      Browse Your Favourite Country
+    </h2>
 
-      <div class="country_banner">
-        <div class="country_container">
-          <img src="./images/auses.png" />
-          <div class="country_name">
-            <p id="australia">Australia</p>
+    <% if(typeof countryData != 'undefined'){ %>
+    <div class="country container mx-auto">
+      <div
+        class="d-flex flex-lg-row justify-content-lg-center gap-3 flex-wrap mb-3 mt-lg-4 mb-lg-4"
+      >
+        <% countryData.forEach(element => { %>
+
+        <div class="card" style="width: 18rem">
+          <img
+            style="object-fit: cover; width: 100%; height: 200px"
+            src="data:image/<%= element.countryImage.contentType %>;base64,
+                    <%= element.countryImage.data.toString('base64') %>"
+            alt="cover"
+          />
+          <div class="card-body">
+            <h5 class="card-title"><%= element.countryName %></h5>
+            <p class="card-text"><%= element.countryDetails.substr(0,90) %></p>
+            <a
+              href="/admin/all-university-dashboard/<%= element._id %>/countrydata-update"
+              class="btn btn-primary"
+              >See more</a
+            >
           </div>
         </div>
-      </div>
 
-      <div class="see_more">
-        <p>see more countries</p>
+        <% }) %>
       </div>
     </div>
+    <% } else { %>
+
+    <p class="w-100 text-center text-monospace border-right-0 p-4">
+      There is no country available
+    </p>
+
+    <% } %>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
+      crossorigin="anonymous"
+    ></script>
   </body>
 </html>

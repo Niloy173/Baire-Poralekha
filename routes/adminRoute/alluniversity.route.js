@@ -31,8 +31,16 @@ const {
 } = require("../../middlewares/university/countryImage");
 
 const {
-  prospectus_attachmentUpload,
+  prospectus_attachmentUpload_undergrad,
+  prospectus_attachmentUpload_grad,
 } = require("../../middlewares/university/propspectusPdf");
+
+const {
+  Delete_particular_prospectus_grad,
+  Delete_particular_prospectus_undergrad,
+} = require("../../controller/adminController/prospectusDelete-admin");
+
+const { CountryModel } = require("../../model/CountrySchma");
 
 const router = express.Router();
 
@@ -55,9 +63,9 @@ router.get(
   decorateHtmlResponse("Update University"),
   AuthCheck,
   async (req, res, next) => {
-    const currentUniversityId = req.originalUrl.split("/").reverse()[1];
-    const data = await UniversityModel.findOne({
-      _id: mongoose.Types.ObjectId(currentUniversityId),
+    const countryId = req.originalUrl.split("/").reverse()[1];
+    const data = await CountryModel.findOne({
+      _id: mongoose.Types.ObjectId(countryId),
     });
 
     res.render("Forms/countrySelection", {
@@ -76,21 +84,14 @@ router.get(
       _id: mongoose.Types.ObjectId(currentUniversityId),
     });
 
-    const gradProgram = data.GradProgram.toString().split(",").join("\n");
-    const undergradProgram = data.UnderGradProgram.toString()
-      .split(",")
-      .join("\n");
-
     res.render("Forms/universityForm", {
       data,
-      gradProgram,
-      undergradProgram,
     });
   }
 );
 
 router.get(
-  "/all-university-dashboard/:id/prospectus-update",
+  "/all-university-dashboard/:id/undergraduation-prospectus-update",
   decorateHtmlResponse("Update University"),
   AuthCheck,
   async (req, res, next) => {
@@ -99,7 +100,23 @@ router.get(
       _id: mongoose.Types.ObjectId(currentUniversityId),
     });
 
-    res.render("Forms/prospectusInfo", {
+    res.render("Forms/undergraduateProspectus", {
+      data,
+    });
+  }
+);
+
+router.get(
+  "/all-university-dashboard/:id/graduation-prospectus-update",
+  decorateHtmlResponse("Update University"),
+  AuthCheck,
+  async (req, res, next) => {
+    const currentUniversityId = req.originalUrl.split("/").reverse()[1];
+    const data = await UniversityModel.findOne({
+      _id: mongoose.Types.ObjectId(currentUniversityId),
+    });
+
+    res.render("Forms/graduateProspectus", {
       data,
     });
   }
@@ -121,15 +138,30 @@ router.post(
 );
 
 router.post(
-  "/all-university-dashboard/:id/prospectus-update",
+  "/all-university-dashboard/:id/undergraduation-prospectus-update",
   decorateHtmlResponse("Update University"),
   AuthCheck,
-  prospectus_attachmentUpload,
-  (req, res, next) => {
-    res.redirect("/admin/dashboard");
-  }
+  prospectus_attachmentUpload_undergrad
 );
 
+router.post(
+  "/all-university-dashboard/:id/graduation-prospectus-update",
+  decorateHtmlResponse("Update University"),
+  AuthCheck,
+  prospectus_attachmentUpload_grad
+);
+
+router.delete(
+  "/all-university-dashboard/:id/undergraduation-prospectus-update/:update_dept_id",
+  AuthCheck,
+  Delete_particular_prospectus_undergrad
+);
+
+router.delete(
+  "/all-university-dashboard/:id/graduation-prospectus-update/:update_dept_id",
+  AuthCheck,
+  Delete_particular_prospectus_grad
+);
 module.exports = {
   router,
 };

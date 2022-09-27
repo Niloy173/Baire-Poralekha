@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/css/admin/createuniversity.css" />
+    <link rel="stylesheet" href="/css/toastify.css" />
+
+    <script src="/js/toastify.js"></script>
+    <script src="/js/moment.js"></script>
+  </head>
+  <body>
+    <% if(typeof message != 'undefined') { %>
+
+    <label>
+      <span
+        id="msg"
+        style="
+          color: rgb(238, 0, 0);
+          margin: 1em 0;
+          padding: 0px 10px 25px 30px;
+          font-weight: bold;
+        "
+        ><%= message %></span
+      >
+      <br />
+      <br />
+    </label>
+
+    <% } %> <% if(typeof data != 'undefined'){ %>
+
+    <div class="prospectus_info middle">
+      <p style="text-transform: uppercase">
+        Upload the New Prospectus (<b>Graduate</b>)
+      </p>
+
+      <form id="prospectus_data" enctype="multipart/form-data" method="post">
+        <div class="prospectus_view">
+          <input
+            type="text"
+            placeholder="write the program name"
+            name="department"
+            id="department"
+          />
+          <br />
+          <!-- <canvas id="pdf_viewer"></canvas> <br /> -->
+
+          <input type="file" id="file" name="avatar" accept=".pdf" /> <br />
+          <button id="submitBtn" disabled type="submit">ADD</button>
+        </div>
+      </form>
+
+      <button class="next"><a href="/admin/dashboard">DONE</a></button>
+      <div class="parent-program" id="grad_programs">
+        <div class="dept_child_update">
+          <% data.Graduation.forEach((dept) => { %>
+
+          <input
+            type="text"
+            class="dept_name"
+            value="<%= dept.deptname %>"
+            readonly
+          />
+          <a class="dept_delete" onclick="DeleteProspectus('<%= dept._id %>')"
+            >X</a
+          >
+
+          <% }) %>
+        </div>
+      </div>
+    </div>
+
+    <script type="text/javascript">
+      const input_files_clone = document.querySelector("#file");
+      const deptname_clone = document.querySelector("#department");
+      const submit_clone = document.querySelector("#submitBtn");
+      const grad_programs_clone = document.querySelector("#grad_programs");
+
+      const currentUniversityId = window.location.href.split("/").reverse()[1];
+
+      const checkEnableButton_clone = () => {
+        submit_clone.disabled = !(
+          deptname_clone.value && input_files_clone.files[0]
+        );
+      };
+
+      input_files_clone.addEventListener("change", checkEnableButton_clone);
+      deptname_clone.addEventListener("change", checkEnableButton_clone);
+
+      // form submission handling
+      const formUpdate = document.querySelector("#prospectus_data");
+
+      const FailureToast_clone = Toastify({
+        text: "Failed to upload data",
+        duration: 1000,
+      });
+
+      formUpdate.onsubmit = async function (e) {
+        e.preventDefault();
+
+        const formData = new FormData(formUpdate);
+
+        const fetchOption_clone = {
+          method: "POST",
+          body: formData,
+        };
+
+        const response = await fetch(
+          `/admin/all-university-dashboard/${currentUniversityId}/graduation-prospectus-update`,
+          fetchOption_clone
+        );
+
+        if (response.status === 200) {
+          window.location.reload();
+        } else {
+          FailureToast_clone.showToast();
+        }
+      };
+
+      async function DeleteProspectus(id) {
+        const response = await fetch(
+          `/admin/all-university-dashboard/${currentUniversityId}/graduation-prospectus-update/${id}`,
+          {
+            method: "DELETE",
+          }
+        );
+
+        if (response.status === 200) {
+          window.location.reload();
+        } else {
+          FailureToast_clone.showToast();
+        }
+      }
+    </script>
+
+    <% } else{ %>
+
+    <div class="prospectus_info middle">
+      <p style="text-transform: uppercase">
+        Upload the Required Prospectus (<b>Graduate</b>)
+      </p>
+
+      <!-- <div class="line"></div>
+    <div class="category">
+      <button>previous</button>
+      <div class="vertical-line"></div>
+      <button>next</button>
+      <span id="pagecount"
+        >pages of <span id="count"></span>
+        <span style="margin: 0 5px">/</span>
+        <span id="totalpage"></span
+      ></span>
+    </div> -->
+
+      <form id="prospectus_data" enctype="multipart/form-data" method="post">
+        <div class="prospectus_view">
+          <input
+            type="text"
+            placeholder="write the program name"
+            name="department"
+            id="department"
+          />
+          <br />
+          <!-- <canvas id="pdf_viewer"></canvas> <br /> -->
+
+          <input type="file" id="file" name="avatar" accept=".pdf" /> <br />
+          <button id="submitBtn" disabled type="submit">ADD</button>
+        </div>
+      </form>
+
+      <button class="next"><a href="/admin/create-university">NEXT</a></button>
+      <div class="parent-program" id="grad_programs"></div>
+    </div>
+
+    <script type="text/javascript">
+      // const canvas = document.querySelector("#pdf_viewer");
+      const input_files = document.querySelector("#file");
+      const deptname = document.querySelector("#department");
+      const submit = document.querySelector("#submitBtn");
+      const grad_programs = document.querySelector("#grad_programs");
+
+      const checkEnableButton = () => {
+        submit.disabled = !(deptname.value && input_files.files[0]);
+      };
+
+      input_files.addEventListener("change", checkEnableButton);
+      deptname.addEventListener("change", checkEnableButton);
+
+      // form submission handling
+      const form = document.querySelector("#prospectus_data");
+
+      const SuccessFulToast = Toastify({
+        text: "Successfully Updated",
+        duration: 1000,
+      });
+
+      const FailureToast = Toastify({
+        text: "Failed to update data",
+        duration: 1000,
+      });
+
+      form.onsubmit = async function (e) {
+        e.preventDefault();
+
+        // preparing for request
+        const formData = new FormData(form);
+
+        // const placeFormData = Object.fromEntries(formData.entries());
+        // const JsonData = JSON.stringify(placeFormData);
+
+        const fetchOption = {
+          method: "POST",
+          // headers: {
+          //   "content-type": "application/json",
+          //   Accept: "application/json",
+          // },
+          body: formData,
+        };
+
+        const response = await fetch("/admin/graduate-prospectus", fetchOption);
+
+        const result = await response.json();
+
+        if (result.errors) {
+          FailureToast.showToast();
+        } else {
+          SuccessFulToast.showToast();
+
+          // undergrad_programs.innerHTML = "";
+
+          const { Graduation } = result.data;
+
+          const FindProgramName = Graduation.map((item) => item.deptname);
+          const FindIds = Graduation.map((item) => item._id);
+
+          const creatediv = document.createElement("div");
+          creatediv.className = "dept_child";
+
+          const inputField = document.createElement("input");
+          inputField.className = "dept_name";
+          inputField.value = FindProgramName[FindProgramName.length - 1];
+          inputField.readOnly = true;
+
+          const anchorTag = document.createElement("a");
+          anchorTag.className = "dept_delete";
+          anchorTag.innerHTML = "X";
+          anchorTag.addEventListener("click", async function () {
+            const response = await fetch(
+              `/admin/graduate-prospectus/${FindIds[FindIds.length - 1]}`,
+              {
+                method: "POST",
+              }
+            );
+
+            const statuscode = response.status;
+
+            if (statuscode === 200) {
+              this.parentNode.remove();
+              SuccessFulToast.showToast();
+            } else {
+              FailureToast.showToast();
+            }
+          });
+
+          creatediv.appendChild(inputField);
+          creatediv.appendChild(anchorTag);
+
+          grad_programs.insertAdjacentElement("beforeend", creatediv);
+
+          form.reset();
+        }
+      };
+    </script>
+
+    <% } %>
+  </body>
+</html>
