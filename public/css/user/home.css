@@ -1,0 +1,29 @@
+.carousel-item img {
+  height: 100vh;
+  object-fit: cover;
+}
+
+.subtitle {
+  margin-top: 20px;
+  font-size: 12px;
+  color: #565656;
+}
+
+.card {
+  padding: 20px;
+  justify-content: space-between;
+  height: 250px;
+  width: 250px;
+}
+
+.notice_title {
+  height: 80%;
+  border-bottom: 1px solid gray;
+  line-height: 26px;
+}
+
+.notice_date {
+  height: 20%;
+  color: #565656;
+  font-size: 12px;
+}

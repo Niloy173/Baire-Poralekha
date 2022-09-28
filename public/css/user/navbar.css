@@ -1,5 +1,5 @@
 header {
-  background: transparent;
+  transition: all 0.5s ease;
   height: 107px;
   position: absolute;
   top: 0;
@@ -10,8 +10,11 @@ header {
 }
 
 header a {
+  margin: auto;
+  color: white;
   text-decoration: none;
 }
+
 article {
   position: relative;
   max-width: 1800px;
@@ -38,6 +41,8 @@ nav {
 .login {
   position: absolute;
   right: 0;
+  height: 100%;
+  width: 5%;
 }
 
 .nav_list {
@@ -46,4 +51,46 @@ nav {
   display: flex;
   align-items: center;
   justify-content: space-around;
+}
+
+.nav_item {
+  transition: opacity 0.25s ease-in-out;
+  margin-bottom: 2px;
+  display: flex;
+  height: 100%;
+  width: 25%;
+}
+
+li:hover {
+  cursor: pointer;
+  border-bottom: 2px solid teal;
+}
+li:hover a {
+  opacity: 1;
+  text-decoration: none;
+  cursor: pointer;
+  color: teal;
+}
+
+.logo a:hover {
+  color: white;
+  text-decoration: none;
+  opacity: 0.5;
+}
+.login a:hover {
+  color: black;
+  text-decoration: none;
+}
+.login:hover {
+  background-color: teal;
+  cursor: pointer;
+}
+
+.carousel-indicators .active {
+  background-color: teal;
+}
+
+header:hover {
+  background-color: black;
+  opacity: 0.8;
 }
