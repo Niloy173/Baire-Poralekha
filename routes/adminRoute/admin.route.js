@@ -4,6 +4,7 @@ const fs = require("fs");
 const path = require("path");
 
 /* internal package */
+
 const {
   decorateHtmlResponse,
 } = require("../../middlewares/common/decorateHtmlResponse");

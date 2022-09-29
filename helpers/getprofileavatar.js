@@ -7,7 +7,7 @@ const GetProfileAvatar = async (req, res, next) => {
       const CurrentUser = await UserModel.findOne({ _id: req.user.userid });
 
       res.locals.profileImage = CurrentUser.profileImage;
-      res.locals.username = CurrentUser.fullname;
+     res.locals.username = CurrentUser.fullname;
 
       next();
     } else {
