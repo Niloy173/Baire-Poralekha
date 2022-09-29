@@ -78,7 +78,7 @@ li:hover a {
   opacity: 0.5;
 }
 .login a:hover {
-  color: black;
+  color: white;
   text-decoration: none;
 }
 .login:hover {
