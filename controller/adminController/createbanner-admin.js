@@ -1,25 +1,23 @@
-const { ArticleModel } = require("../../model/CreateArticleSchema");
-
 const path = require("path");
 const fs = require("fs");
 const mongoose = require("mongoose");
 
-async function PostArticle(req, res, next) {
-  try {
-    const articleInfo = {};
+const { BannerModel } = require("../../model/BannerSchema");
 
-    const path_of_articleImage = path.join(
-      __dirname + "/../" + "/../public/articleimage/"
+async function PostBanner(req, res, next) {
+  try {
+    const BannerInfo = {};
+
+    const path_of_bannerImage = path.join(
+      __dirname + "/../" + "/../public/banner/"
     );
 
-    if (req.originalUrl.split("/").reverse()[0] != "create-article") {
-      const updateInformation = await ArticleModel.updateOne(
+    if (req.originalUrl.split("/").reverse()[0] != "create-banner") {
+      const updateInformation = await BannerModel.updateOne(
         { _id: mongoose.Types.ObjectId(req.params.id) },
         {
           $set: {
-            category: req.body.category,
-            title: req.body.title,
-            content: req.body.content,
+            description: req.body.description,
             link: req.body.link ? req.body.link : " ",
           },
         },
@@ -28,7 +26,7 @@ async function PostArticle(req, res, next) {
           if (!err) {
             if (req.file) {
               fs.unlink(
-                path.join(path_of_articleImage, req.file.filename),
+                path.join(path_of_bannerImage, req.file.filename),
                 (err) => {
                   if (!err) {
                     // nothing to do here
@@ -43,29 +41,29 @@ async function PostArticle(req, res, next) {
         }
       ).clone();
     } else {
-      articleInfo.articleImage = {
+      BannerInfo.banner = {
         data: fs.readFileSync(
-          path.join(path_of_articleImage, req.file.filename)
+          path.join(path_of_bannerImage, req.file.filename)
         ),
         contentType: path.extname(req.file.filename).replace(".", ""),
         filename: req.file.filename,
       };
 
-      articleInfo.date = new Date().toLocaleDateString();
-      articleInfo.category = req.body.category;
-      articleInfo.title = req.body.title;
-      articleInfo.content = req.body.content;
-      articleInfo.link = req.body.link ? req.body.link : " ";
+      BannerInfo.description = req.body.description;
 
-      const Article = new ArticleModel().CreateArticle(articleInfo);
+      BannerInfo.link = req.body.link ? req.body.link : " ";
 
-      fs.unlink(path.join(path_of_articleImage, req.file.filename), (err) => {
+      BannerInfo.date = new Date().toLocaleDateString();
+
+      const Banner = new BannerModel().CreateBanner(BannerInfo);
+
+      fs.unlink(path.join(path_of_bannerImage, req.file.filename), (err) => {
         if (err) {
           console.log(err);
         }
       });
 
-      Article.save();
+      Banner.save();
 
       res.redirect("/admin/dashboard");
     }
@@ -76,5 +74,5 @@ async function PostArticle(req, res, next) {
 }
 
 module.exports = {
-  PostArticle,
+  PostBanner,
 };

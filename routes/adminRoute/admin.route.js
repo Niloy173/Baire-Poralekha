@@ -45,6 +45,12 @@ const {
   Delete_particular_prospectus_grad,
 } = require("../../controller/adminController/prospectusDelete-admin");
 
+const { bannerUpload } = require("../../middlewares/banner/bannerImage");
+
+const {
+  PostBanner,
+} = require("../../controller/adminController/createbanner-admin");
+
 const { UniversityModel } = require("../../model/UniversitySchema");
 const { UserModel } = require("../../model/UserSchema");
 const { ArticleModel } = require("../../model/CreateArticleSchema");
@@ -52,6 +58,8 @@ const { CountryModel } = require("../../model/CountrySchma");
 const {
   universityVerificationModel,
 } = require("../../model/universityVerificationSchema");
+
+const { BannerModel } = require("../../model/BannerSchema");
 
 /*---------------------*/
 
@@ -67,15 +75,17 @@ router.get(
     const university = await UniversityModel.find({});
     const Article = await ArticleModel.find({});
     const country = await CountryModel.find({});
-    const numofCountries = country
-      .map((item) => item.countryName)
-      .filter((value, position, array) => array.indexOf(value) === position);
+    const banner = await BannerModel.find({});
+    // const numofCountries = country
+    //   .map((item) => item.countryName)
+    //   .filter((value, position, array) => array.indexOf(value) === position);
 
     res.render("admin/adminPannel", {
       usercount: user.length,
       universitycount: university.length,
       articlecount: Article.length,
-      countries: numofCountries.length,
+      countries: country.length,
+      banner: banner.length,
     });
   }
 );
@@ -89,6 +99,42 @@ router.get(
     const countryData = await CountryModel.find({});
     res.render("admin/countrySection", {
       countryData,
+    });
+  }
+);
+
+// routing for banner
+router.get(
+  "/banners",
+  decorateHtmlResponse("Banner"),
+  AuthCheck,
+  async (req, res, next) => {
+    const bannerData = await BannerModel.find({});
+    res.render("admin/allbanner", {
+      bannerData,
+    });
+  }
+);
+
+router.get(
+  "/banner/create-banner",
+  decorateHtmlResponse("Banner Creation"),
+  AuthCheck,
+  (req, res, next) => {
+    res.render("Forms/bannerSelection");
+  }
+);
+
+router.get(
+  "/banner/:id/preview-banner",
+  decorateHtmlResponse("Preview Banner"),
+  AuthCheck,
+  async (req, res, next) => {
+    const data = await BannerModel.findOne({
+      _id: mongoose.Types.ObjectId(req.params.id),
+    });
+    res.render("Forms/bannerSelection", {
+      data,
     });
   }
 );
@@ -222,6 +268,22 @@ router.post(
 );
 
 router.post("/create-university", AuthCheck, CreateUniversity);
+
+router.post(
+  "/banner/create-banner",
+  decorateHtmlResponse("Banner"),
+  AuthCheck,
+  bannerUpload,
+  PostBanner
+);
+
+router.post(
+  "/banner/:id/preview-banner",
+  decorateHtmlResponse("Preview Banner"),
+  AuthCheck,
+  bannerUpload,
+  PostBanner
+);
 
 router.delete("/dashboard", (req, res, next) => {
   res.clearCookie(process.env.COOKIE_NAME);

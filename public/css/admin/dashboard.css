@@ -10,6 +10,7 @@ button {
 a {
   text-decoration: none;
   color: black;
+  cursor: pointer;
 }
 
 .topnav {
@@ -57,21 +58,23 @@ a {
   border-style: ridge;
   width: 30%;
   text-align: center;
+  text-decoration: none;
+  border: 0.5px dashed #333;
+  border-style: ridge;
 }
 
 .btn button {
   padding: 20px 12px;
   width: 100%;
   font-weight: normal;
+  font-size: 1.133rem;
 }
 
 .btn button:hover {
   border: 1px solid #333;
   box-shadow: 0.8;
   box-shadow: 0px 15px 10px -15px #111;
-}
-.btn button a {
-  font-size: 1.133rem;
+  cursor: pointer;
 }
 
 .creation span {

@@ -2,6 +2,9 @@ const mongoose = require("mongoose");
 
 const ArticleSchema = mongoose.Schema(
   {
+    date: {
+      type: Date,
+    },
     articleImage: {
       data: Buffer,
       contentType: String,

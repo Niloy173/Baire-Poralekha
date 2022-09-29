@@ -17,6 +17,10 @@ const {
   PostArticle,
 } = require("../../controller/adminController/createarticle-admin");
 
+const {
+  Delete_article,
+} = require("../../controller/adminController/delete_particular_articles");
+
 const { ArticleModel } = require("../../model/CreateArticleSchema");
 
 const router = express.Router();
@@ -72,6 +76,8 @@ router.post(
   articleImageUpload,
   PostArticle
 );
+
+router.delete("/articles/:id/delete-article", AuthCheck, Delete_article);
 module.exports = {
   router,
 };

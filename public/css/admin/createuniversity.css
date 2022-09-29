@@ -31,24 +31,24 @@ input[type="submit"] {
   margin: 10px 0;
   font-size: 22px;
 }
-.countries .all-countries {
-  display: flex;
-  justify-content: center;
-  width: 60%;
-  gap: 20px;
-  position: relative;
-  overflow: hidden;
-  resize: none;
+.all-countries {
+  overflow: auto;
   white-space: nowrap;
   background-color: #fff;
+  text-align: center;
 }
 
-.all-countries button {
+.all-countries a {
+  display: inline-block;
   text-align: center;
   background: none;
   border: 0.75px dotted rgb(114, 114, 114);
   padding: 6px 12px;
   font-size: 18px;
+  text-decoration: none;
+  background: none;
+  margin: 0 5px;
+  cursor: pointer;
 }
 
 .countries i {

@@ -19,40 +19,50 @@
     </div>
 
     <div class="parent-btn">
-      <div class="create-country-btn btn">
+      <a href="/admin/countries" class="create-country-btn btn">
         <button class="creation">
-          <a href="/admin/countries">Countries</a>
+          Countries
           <span> <%= countries %></span>
         </button>
-      </div>
+      </a>
 
-      <div class="create-country-btn btn">
+      <a href="#" class="create-user-btn btn">
         <button class="creation">
-          <a href="#">Users</a>
+          Users
           <span> <%= usercount %></span>
         </button>
-      </div>
+      </a>
 
-      <div class="create-country-btn btn">
+      <a href="/admin/articles" class="create-article-btn btn">
         <button class="creation">
-          <a href="/admin/articles">Articles</a>
+          Articles
           <span> <%= articlecount %></span>
         </button>
-      </div>
+      </a>
 
-      <div class="create-country-btn btn">
+      <a
+        href="/admin/all-university-dashboard"
+        class="create-university-btn btn"
+      >
         <button class="creation">
-          <a href="/admin/all-university-dashboard">University</a>
+          University
           <span> <%= universitycount %></span>
         </button>
-      </div>
+      </a>
 
-      <div class="create-record-btn btn">
+      <a href="#" class="create-record-btn btn">
         <button class="creation">
-          <a href="#">Record</a>
+          Record
           <span> 0</span>
         </button>
-      </div>
+      </a>
+
+      <a href="/admin/banners" class="create-record-btn btn">
+        <button class="creation">
+          Banner
+          <span> <%= banner %></span>
+        </button>
+      </a>
     </div>
 
     <script>

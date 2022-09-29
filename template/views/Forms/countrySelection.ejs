@@ -22,21 +22,19 @@
     <% if(typeof country != 'undefined' && country.length !=0){ %>
 
     <p class="head-countries">Countries</p>
-    <div class="countries">
-      <i id="left-panel" class="ph-caret-double-left"></i>
+    <!-- <div class="countries"> -->
+    <!-- <i id="left-panel" class="ph-caret-double-left"></i> -->
 
-      <div id="countries-container" class="all-countries">
-        <% country.forEach(element => { %>
+    <div id="countries-container" class="all-countries">
+      <% country.forEach(element => { %>
 
-        <button onclick="saveCountryInformation(this)" type="button">
-          <%= element %>
-        </button>
+      <a onclick="saveCountryInformation(this)"> <%= element %> </a>
 
-        <% }); %>
-      </div>
-
-      <i id="right-panel" class="ph-caret-double-right"></i>
+      <% }); %>
     </div>
+
+    <!-- <i id="right-panel" class="ph-caret-double-right"></i> -->
+    <!-- </div> -->
 
     <% } %>
     <!-- <div class="countries">
@@ -248,8 +246,8 @@
       </script>
 
       <script>
-        let right_side = document.querySelector("#right-panel");
-        let left_side = document.querySelector("#left-panel");
+        // let right_side = document.querySelector("#right-panel");
+        // let left_side = document.querySelector("#left-panel");
         const countryDiv = document.querySelector(".all-countries");
 
         const FailureToast = Toastify({
@@ -264,15 +262,15 @@
 
         const scrollWidth = countryDiv.scrollWidth;
 
-        right_side.addEventListener("click", function () {
-          countryDiv.scrollBy(30, 0);
-          console.log(countryDiv.scrollLeft);
-        });
+        // right_side.addEventListener("click", function () {
+        //   countryDiv.scrollBy(30, 0);
+        //   console.log(countryDiv.scrollLeft);
+        // });
 
-        left_side.addEventListener("click", function () {
-          countryDiv.scrollBy(countryDiv.scrollLeft + 20, 0);
-          console.log(countryDiv.scrollLeft);
-        });
+        // left_side.addEventListener("click", function () {
+        //   countryDiv.scrollBy(countryDiv.scrollLeft + 20, 0);
+        //   console.log(countryDiv.scrollLeft);
+        // });
 
         async function saveCountryInformation(e) {
           const response = await fetch(

@@ -31,14 +31,18 @@ async function CreateUniversity(req, res, next) {
     const countryFileName = CurrentUniversityData.countryImage.filename;
     const universityFilename = CurrentUniversityData.universityCover.filename;
     const prospectusFilename_Grad =
-      CurrentUniversityData.Graduation[
-        CurrentUniversityData.Graduation.length - 1
-      ].pdf.filename;
+      CurrentUniversityData.Graduation.length != 0
+        ? CurrentUniversityData.Graduation[
+            CurrentUniversityData.Graduation.length - 1
+          ].pdf.filename
+        : "no-pdf-found";
 
     const prospectusFilename_underGrad =
-      CurrentUniversityData.UnderGraduation[
-        CurrentUniversityData.UnderGraduation.length - 1
-      ].pdf.filename;
+      CurrentUniversityData.UnderGraduation.length != 0
+        ? CurrentUniversityData.UnderGraduation[
+            CurrentUniversityData.UnderGraduation.length - 1
+          ].pdf.filename
+        : "no-pdf-found";
 
     // check out if this country already avaliable in country table
     const findCountry = await CountryModel.findOne({
@@ -65,8 +69,14 @@ async function CreateUniversity(req, res, next) {
     universityInfo.type = CurrentUniversityData.type;
     universityInfo.location = CurrentUniversityData.location;
     universityInfo.introduction = CurrentUniversityData.introduction;
-    universityInfo.UnderGraduation = CurrentUniversityData.UnderGraduation;
-    universityInfo.Graduation = CurrentUniversityData.Graduation;
+    universityInfo.UnderGraduation =
+      CurrentUniversityData.UnderGraduation.length != 0
+        ? CurrentUniversityData.UnderGraduation
+        : [];
+    universityInfo.Graduation =
+      CurrentUniversityData.Graduation.length != 0
+        ? CurrentUniversityData.Graduation
+        : [];
 
     const newUniversityData = new UniversityModel().InsertUniversity(
       universityInfo
@@ -159,7 +169,7 @@ async function CreateUniversity(req, res, next) {
       }
     );
   } catch (error) {
-    // console.log(error);
+    console.log(error);
     res.status(500).send("Failure");
   }
 }
