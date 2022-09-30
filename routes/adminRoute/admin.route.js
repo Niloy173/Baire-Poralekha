@@ -52,6 +52,10 @@ const {
   PostBanner,
 } = require("../../controller/adminController/createbanner-admin");
 
+const {
+  DeleteBanner,
+} = require("../../controller/adminController/delete_particular_banner");
+
 const { UniversityModel } = require("../../model/UniversitySchema");
 const { UserModel } = require("../../model/UserSchema");
 const { ArticleModel } = require("../../model/CreateArticleSchema");
@@ -285,6 +289,8 @@ router.post(
   bannerUpload,
   PostBanner
 );
+
+router.delete("/banner/:id/delete-banner", AuthCheck, DeleteBanner);
 
 router.delete("/dashboard", (req, res, next) => {
   res.clearCookie(process.env.COOKIE_NAME);

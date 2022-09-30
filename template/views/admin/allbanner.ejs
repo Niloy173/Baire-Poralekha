@@ -38,7 +38,15 @@
       </div>
 
       <div class="content-description">
+        <% if(bannerData[index].description != " "){ %>
+
         <p><%= bannerData[index].description %></p>
+
+        <% } else { %>
+
+        <p>No description found</p>
+
+        <% } %>
       </div>
 
       <div class="live-link">

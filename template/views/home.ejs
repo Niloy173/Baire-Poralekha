@@ -6,14 +6,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title><%= title %></title>
 
+<<<<<<< HEAD
+=======
+    <!-- <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    /> -->
+
+>>>>>>> fcca75e6b14521a34ac2c0ede2f9576859ece3e7
     <link rel="stylesheet" href="/css/user/navbar.css" />
     <link rel="stylesheet" href="/css/user/home.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
+    <link rel="stylesheet" href="/css/user/country.css" />
+    <!-- <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin /> -->
+    <!-- <link
       href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@700&display=swap"
       rel="stylesheet"
-    />
+    /> -->
 
     <link
       rel="stylesheet"
@@ -26,6 +35,7 @@
       rel="stylesheet"
       type="text/css"
       href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"
+      crossorigin="anonymous"
     />
     <link
       rel="stylesheet"
@@ -36,7 +46,7 @@
     />
     <link rel="stylesheet" href="/css/common.css " />
 
-    <script src="https://unpkg.com/phosphor-icons"></script>
+    <!-- <script src="https://unpkg.com/phosphor-icons"></script> -->
   </head>
   <body>
     <%- include("../parttial/navbar.ejs") %>
@@ -57,27 +67,29 @@
       </ol>
       <div class="carousel-inner">
         <div class="carousel-item active">
-          <a href="https://en.sejong.ac.kr/eng/index.do">
+          <a href="#">
             <img
               class="d-block w-100"
-              src="https://img.freepik.com/free-vector/college-building-educational-institution-banner_1441-3616.jpg?w=2000"
-              alt="First slide"
+              src="data:image/<%=banner[0].banner.contentType%>;base64,
+              <%=banner[0].banner.data.toString('base64')%>"
+              alt="<%= banner[0].banner.filename %>"
           /></a>
         </div>
+
+        <% for (let index = 1; index < banner.length; index++) { %>
+
         <div class="carousel-item">
-          <img
-            class="d-block w-100"
-            src="https://static.vecteezy.com/system/resources/previews/002/920/996/original/college-building-academic-building-university-in-traditional-english-style-with-trees-and-a-green-lawn-and-playground-illustration-on-white-background-free-vector.jpg"
-            alt="Second slide"
-          />
+          <a href="#">
+            <img
+              class="d-block w-100"
+              src="data:image/<%=banner[index].banner.contentType%>;base64,
+          <%=banner[index].banner.data.toString('base64')%>"
+              alt="<%= banner[index].banner.filename %>"
+            />
+          </a>
         </div>
-        <div class="carousel-item">
-          <img
-            class="d-block w-100"
-            src="https://imageio.forbes.com/specials-images/imageserve//62b9fdf1fc2626887cb0235a/0x0.jpg?format=jpg&width=1200"
-            alt="Third slide"
-          />
-        </div>
+
+        <% } %>
       </div>
       <a
         class="carousel-control-prev"
@@ -98,7 +110,7 @@
         <span class="sr-only">Next</span>
       </a>
     </div>
-    <section class="container">
+    <!-- <section class="container">
       <h2 class="title">Notice</h2>
       <div class="lower_title flex justify_between">
         <p class="subtitle">FREE INFORMATION! BEST DEALS & OFFERS!</p>
@@ -162,6 +174,34 @@
           </div>
         </div>
       </div>
+    </section> -->
+
+    <!-- for notice -->
+    <section class="container">
+      <h2 class="title">Notice</h2>
+      <div class="lower_title flex justify_between">
+        <p class="subtitle">FREE INFORMATION! BEST DEALS & OFFERS!</p>
+        <span class="more">MORE</span>
+      </div>
+
+      <div class="notice">
+        <% if(Object.keys(notice).length != 0){ %> <% notice.forEach(element =>
+        { %>
+
+        <a href="#" style="text-decoration: none; color: #000">
+          <div class="notice_card_list">
+            <div class="card">
+              <p class="notice_title"><%= element.title %></p>
+              <span class="notice_date">
+                <i class="ph-clock-bold"></i>
+                <%= element.date.toString().substr(0,15) %></span
+              >
+            </div>
+          </div>
+        </a>
+
+        <% }); %> <% } else { %> <% } %>
+      </div>
     </section>
 
     <div class="marquee">
@@ -178,6 +218,8 @@
         <span class="more">MORE</span>
       </div>
     </section>
+
+    <%- include("../parttial/counrty.ejs") %>
 
     <script>
       //for the navbar

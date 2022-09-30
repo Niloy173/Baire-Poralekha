@@ -17,7 +17,7 @@ async function PostBanner(req, res, next) {
         { _id: mongoose.Types.ObjectId(req.params.id) },
         {
           $set: {
-            description: req.body.description,
+            description: req.body.description ? req.body.description : " ",
             link: req.body.link ? req.body.link : " ",
           },
         },
@@ -49,7 +49,9 @@ async function PostBanner(req, res, next) {
         filename: req.file.filename,
       };
 
-      BannerInfo.description = req.body.description;
+      BannerInfo.description = req.body.description
+        ? req.body.description
+        : " ";
 
       BannerInfo.link = req.body.link ? req.body.link : " ";
 

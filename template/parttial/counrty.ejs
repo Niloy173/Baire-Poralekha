@@ -1,0 +1,39 @@
+<% if(Object.keys( countries).length != 0){ %>
+
+<section class="country">
+  <!-- <h2 class="title">Countries</h2>
+  <div class="lower_title flex justify_between">
+    <p class="subtitle">FREE INFORMATION! BEST DEALS & OFFERS!</p>
+  </div> -->
+
+  <div class="country-container">
+    <div class="nation">
+      <% countries.forEach(element => { %>
+
+      <div class="each-country">
+        <div class="images">
+          <img
+            src="data:image/<%=element.countryImage.contentType%>;base64,
+          <%=element.countryImage.data.toString('base64')%>"
+            alt=""
+            srcset=""
+          />
+        </div>
+
+        <a href="#">
+          <div class="content">
+            <div>
+              <h2><%= element.countryName %></h2>
+
+              <p><%= element.countryDetails.substr(0,50) %></p>
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <% }); %>
+    </div>
+  </div>
+</section>
+
+<% } else { %> <% } %>
