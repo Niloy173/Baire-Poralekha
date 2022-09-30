@@ -8,12 +8,15 @@
 
     <link rel="stylesheet" href="/css/user/navbar.css" />
     <link rel="stylesheet" href="/css/user/home.css" />
+    <<<<<<< HEAD
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@700&display=swap"
       rel="stylesheet"
     />
+
+    <link rel="stylesheet" href="/css/user/country.css" />
 
     <link
       rel="stylesheet"
@@ -98,6 +101,8 @@
         <span class="sr-only">Next</span>
       </a>
     </div>
+
+    <% if(Object.keys(notice).length != 0){ %>
     <section class="container">
       <h2 class="title">Notice</h2>
       <div class="lower_title flex justify_between">
@@ -106,63 +111,25 @@
       </div>
 
       <div class="notice">
-        <div class="notice_card_list">
-          <div class="card">
-            <p class="notice_title">
-              COVID-19 Booster Shot Guideline for Foreign Nationals / 국내 체류
-              외국인 코로나-19 백신 3차접종(부스터) 안내
-            </p>
-            <span class="notice_date">
-              <i class="ph-clock-bold"></i> 2022.01.26</span
-            >
+        <% notice.forEach(element => { %>
+
+        <a href="#" style="text-decoration: none; color: #000">
+          <div class="notice_card_list">
+            <div class="card">
+              <p class="notice_title"><%= element.title %></p>
+
+              <span class="notice_date">
+                <i class="ph-clock-bold"></i>
+                <%= element.date.toString().substr(0,15) %></span
+              >
+            </div>
           </div>
-        </div>
-        <div class="notice_card_list">
-          <div class="card">
-            <p class="notice_title">
-              COVID-19 Booster Shot Guideline for Foreign Nationals / 국내 체류
-              외국인 코로나-19 백신 3차접종(부스터) 안내
-            </p>
-            <span class="notice_date">
-              <i class="ph-clock-bold"></i> 2022.01.26</span
-            >
-          </div>
-        </div>
-        <div class="notice_card_list">
-          <div class="card">
-            <p class="notice_title">
-              COVID-19 Booster Shot Guideline for Foreign Nationals / 국내 체류
-              외국인 코로나-19 백신 3차접종(부스터) 안내
-            </p>
-            <span class="notice_date">
-              <i class="ph-clock-bold"></i> 2022.01.26</span
-            >
-          </div>
-        </div>
-        <div class="notice_card_list">
-          <div class="card">
-            <p class="notice_title">
-              COVID-19 Booster Shot Guideline for Foreign Nationals / 국내 체류
-              외국인 코로나-19 백신 3차접종(부스터) 안내
-            </p>
-            <span class="notice_date">
-              <i class="ph-clock-bold"></i> 2022.01.26</span
-            >
-          </div>
-        </div>
-        <div class="notice_card">
-          <div class="card">
-            <p class="notice_title">
-              COVID-19 Booster Shot Guideline for Foreign Nationals / 국내 체류
-              외국인 코로나-19 백신 3차접종(부스터) 안내
-            </p>
-            <span class="notice_date">
-              <i class="ph-clock-bold"></i> 2022.01.26</span
-            >
-          </div>
-        </div>
+        </a>
+
+        <% }); %>
       </div>
     </section>
+    <% } else { %> <% } %>
 
     <div class="marquee">
       <h2 class="moving_text">
