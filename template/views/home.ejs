@@ -35,7 +35,8 @@
     <!-- <script src="https://unpkg.com/phosphor-icons"></script> -->
   </head>
   <body>
-    <%- include("../parttial/navbar.ejs") %>
+    <%- include("../parttial/navbar.ejs") %> <% if(Object.keys(banner).length
+    !=0){ %>
 
     <div
       id="carouselExampleIndicators"
@@ -51,13 +52,14 @@
         <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
         <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
       </ol>
+
       <div class="carousel-inner">
         <div class="carousel-item active">
           <a href="#">
             <img
               class="d-block w-100"
               src="data:image/<%=banner[0].banner.contentType%>;base64,
-              <%=banner[0].banner.data.toString('base64')%>"
+                <%=banner[0].banner.data.toString('base64')%>"
               alt="<%= banner[0].banner.filename %>"
           /></a>
         </div>
@@ -69,7 +71,7 @@
             <img
               class="d-block w-100"
               src="data:image/<%=banner[index].banner.contentType%>;base64,
-          <%=banner[index].banner.data.toString('base64')%>"
+            <%=banner[index].banner.data.toString('base64')%>"
               alt="<%= banner[index].banner.filename %>"
             />
           </a>
@@ -96,74 +98,9 @@
         <span class="sr-only">Next</span>
       </a>
     </div>
-    <!-- <section class="container">
-      <h2 class="title">Notice</h2>
-      <div class="lower_title flex justify_between">
-        <p class="subtitle">FREE INFORMATION! BEST DEALS & OFFERS!</p>
-        <span class="more">MORE</span>
-      </div>
 
-      <div class="notice">
-        <div class="notice_card_list">
-          <div class="card">
-            <p class="notice_title">
-              COVID-19 Booster Shot Guideline for Foreign Nationals / 국내 체류
-              외국인 코로나-19 백신 3차접종(부스터) 안내
-            </p>
-            <span class="notice_date">
-              <i class="ph-clock-bold"></i> 2022.01.26</span
-            >
-          </div>
-        </div>
-        <div class="notice_card_list">
-          <div class="card">
-            <p class="notice_title">
-              COVID-19 Booster Shot Guideline for Foreign Nationals / 국내 체류
-              외국인 코로나-19 백신 3차접종(부스터) 안내
-            </p>
-            <span class="notice_date">
-              <i class="ph-clock-bold"></i> 2022.01.26</span
-            >
-          </div>
-        </div>
-        <div class="notice_card_list">
-          <div class="card">
-            <p class="notice_title">
-              COVID-19 Booster Shot Guideline for Foreign Nationals / 국내 체류
-              외국인 코로나-19 백신 3차접종(부스터) 안내
-            </p>
-            <span class="notice_date">
-              <i class="ph-clock-bold"></i> 2022.01.26</span
-            >
-          </div>
-        </div>
-        <div class="notice_card_list">
-          <div class="card">
-            <p class="notice_title">
-              COVID-19 Booster Shot Guideline for Foreign Nationals / 국내 체류
-              외국인 코로나-19 백신 3차접종(부스터) 안내
-            </p>
-            <span class="notice_date">
-              <i class="ph-clock-bold"></i> 2022.01.26</span
-            >
-          </div>
-        </div>
-        <div class="notice_card">
-          <div class="card">
-            <p class="notice_title">
-              COVID-19 Booster Shot Guideline for Foreign Nationals / 국내 체류
-              외국인 코로나-19 백신 3차접종(부스터) 안내
-            </p>
-            <span class="notice_date">
-              <i class="ph-clock-bold"></i> 2022.01.26</span
-            >
-          </div>
-        </div>
-      </div>
-    </section> -->
-
-    <!-- for notice -->
-    <% if(Object.keys(notice).length != 0){ %>
+    <% }else{ %> // nothing to write here <% } %> <%
+    if(Object.keys(notice).length != 0){ %>
     <section class="container">
       <h2 class="title">Notice</h2>
       <div class="lower_title flex justify_between">
