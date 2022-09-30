@@ -43,13 +43,21 @@ async function PostArticle(req, res, next) {
         }
       ).clone();
     } else {
-      articleInfo.articleImage = {
-        data: fs.readFileSync(
-          path.join(path_of_articleImage, req.file.filename)
-        ),
-        contentType: path.extname(req.file.filename).replace(".", ""),
-        filename: req.file.filename,
-      };
+      if (req.file) {
+        articleInfo.articleImage = {
+          data: fs.readFileSync(
+            path.join(path_of_articleImage, req.file.filename)
+          ),
+          contentType: path.extname(req.file.filename).replace(".", ""),
+          filename: req.file.filename,
+        };
+
+        fs.unlink(path.join(path_of_articleImage, req.file.filename), (err) => {
+          if (err) {
+            console.log(err);
+          }
+        });
+      }
 
       articleInfo.date = new Date().toLocaleDateString();
       articleInfo.category = req.body.category;
@@ -58,12 +66,6 @@ async function PostArticle(req, res, next) {
       articleInfo.link = req.body.link ? req.body.link : " ";
 
       const Article = new ArticleModel().CreateArticle(articleInfo);
-
-      fs.unlink(path.join(path_of_articleImage, req.file.filename), (err) => {
-        if (err) {
-          console.log(err);
-        }
-      });
 
       Article.save();
 
