@@ -55,7 +55,11 @@ async function PostBanner(req, res, next) {
 
       BannerInfo.link = req.body.link ? req.body.link : " ";
 
-      BannerInfo.date = new Date().toLocaleDateString();
+      BannerInfo.date =
+        String(new Date().getDate()).padStart(2, "0") +
+        "/" +
+        String(new Date().getMonth() + 1).padStart(2, "0") +
+        String(new Date().getFullYear());
 
       const Banner = new BannerModel().CreateBanner(BannerInfo);
 
