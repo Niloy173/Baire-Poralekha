@@ -2,6 +2,7 @@ const express = require("express");
 
 const {
   Get_me_specific_range_notice,
+  Get_particular_notice_with_filter,
 } = require("../../controller/userController/Get_notice");
 
 const {
@@ -22,10 +23,14 @@ router.get("/all-notice-list/:id", (req, res, next) => {
 
 router.post("/all-notice-list/:pagenumber", Get_me_specific_range_notice);
 
-router.post("/all-notice-list/search/:searchKey", (req, res, next) => {
-  console.log(req.params.searchKey);
+router.post("/all-notice-list/search/:newly_notice_id", (req, res, next) => {
   res.send("success");
 });
+
+router.post(
+  "/all-notice-list/filter/:filter_value/:searchKey",
+  Get_particular_notice_with_filter
+);
 
 module.exports = {
   router,

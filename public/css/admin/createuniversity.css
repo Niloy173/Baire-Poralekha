@@ -364,12 +364,18 @@ select {
 
 .button_container button {
   width: 60%;
-  background-color: rgb(0, 188, 188);
   margin: 20px 0;
   padding: 10px 0;
   border: none;
   border-radius: 8px;
   cursor: default;
+}
+.button_container button:nth-child(2) {
+  background-color: rgb(0, 188, 188);
+}
+.button_container button:nth-child(3) {
+  background: #ddd;
+  color: #000;
 }
 
 /* for the DOM Creation element in prospectus page */

@@ -40,6 +40,10 @@ const {
   Delete_particular_prospectus_undergrad,
 } = require("../../controller/adminController/prospectusDelete-admin");
 
+const {
+  Delete_university,
+} = require("../../controller//adminController/delete_particular_university");
+
 const { CountryModel } = require("../../model/CountrySchma");
 
 const router = express.Router();
@@ -161,6 +165,12 @@ router.delete(
   "/all-university-dashboard/:id/graduation-prospectus-update/:update_dept_id",
   AuthCheck,
   Delete_particular_prospectus_grad
+);
+
+router.delete(
+  "/all-university-dashboard/:id/delete-university",
+  AuthCheck,
+  Delete_university
 );
 module.exports = {
   router,

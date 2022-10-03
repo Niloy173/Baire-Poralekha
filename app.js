@@ -36,6 +36,7 @@ const loginRoute = require("./routes/login.route");
 const resetpasswordRoute = require("./routes/resetpassword.route");
 const registerRoute = require("./routes/register.route");
 const noticeRouter = require("./routes//userRoute/notice-list.route");
+const articleRouter = require("./routes/userRoute/article-list.route");
 const adminRoute = require("./routes/adminRoute/admin.route");
 const alluniversity_under_adminRoute = require("./routes/adminRoute/alluniversity.route");
 const articles_under_adminRoute = require("./routes/adminRoute/article.route");
@@ -62,7 +63,7 @@ app.use("/login", loginRoute.router);
 app.use("/register", registerRoute.router);
 app.use("/reset", resetpasswordRoute.router);
 app.use("/notice", noticeRouter.router);
-
+app.use("/article", articleRouter.router);
 /* admin route goes here */
 app.use("/admin", adminRoute.router); // dashboard
 app.use("/admin", alluniversity_under_adminRoute.router); // universities

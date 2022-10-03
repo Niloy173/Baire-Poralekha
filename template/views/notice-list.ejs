@@ -17,7 +17,8 @@
     <link rel="stylesheet" href="/css/common.css " />
     <link rel="stylesheet" href="/css/user/navbar.css" />
     <link rel="stylesheet" href="/css/user/notice-list.css" />
-    <script type="module" src="https://unpkg.com/phosphor-icons"></script>
+    <link rel="stylesheet" href="/css/user/search.css" />
+    <script src="https://unpkg.com/phosphor-icons"></script>
     <script src="/js/toastify.js"></script>
     <script src="/js/moment.js"></script>
   </head>
@@ -25,41 +26,39 @@
     <%- include("../parttial/navbar.ejs") %>
 
     <div class="noitce-container">
-      <img
-        src="https://images.unsplash.com/photo-1423592707957-3b212afa6733?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1932&q=80"
-        width="100%"
-      />
+      <img src="/img/notice-back.avif" width="100%" />
+
+      <% if(typeof data != 'undefined'){ %>
+
       <div class="left_div">
         <div class="head">
-          <p>New Notice</p>
+          <p><%= data[0].title %></p>
         </div>
 
         <div class="child">
-          <p>
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-            Consequuntur doloribus quod tempora illum nihil ab iure dignissimos
-            itaque debitis inventore.
-          </p>
+          <p><%= data[0].content.substr(0,177) %></p>
         </div>
 
-        <br />
-
         <button>
-          <a href="#"> Check out </a>
+          <a href="/notice/all-notice-list/search/<%= data[0]._id %>">
+            Check out
+          </a>
           <i
             style="margin-top: 10px; color: #f2f2f2; margin-left: 5px"
             class="fas fa-arrow-right"
           ></i>
         </button>
       </div>
+
+      <% } else { %> <% } %>
     </div>
 
     <div class="notice-list">
       <div class="notice-list-view">
         <div class="search-options">
-          <select>
-            <option selected>Title</option>
-            <option>Date</option>
+          <select id="selector">
+            <option value="title" selected>Title</option>
+            <option value="date">Date</option>
           </select>
 
           <input
@@ -74,10 +73,10 @@
           <i onclick="Clear()" class="ph-arrow-clockwise-bold refresh-icon"></i>
         </div>
 
-        <p
+        <!-- <p
           style="text-align: center; margin: 5px 0 10px 0; display: none"
           class="error-text-for-search"
-        ></p>
+        ></p> -->
 
         <div class="line"></div>
 
@@ -115,30 +114,38 @@
 
         <div class="end-line"></div>
 
-        <div class="pagination">
-          <span id="prev-btn" class="icon" href="#">&laquo;</span>
+        <!-- dynamic page creation -->
+        <div id="pagination" class="pagination">
+          <div class="left">
+            <button id="left">&laquo;</button>
+          </div>
 
-          <% for(index = 1; index <= totalPage; index++){ %> <% if(index ===
-          default_number) { %>
-          <span
-            onclick="GetNotices('<%= index %>')"
-            href="#"
-            class="active page"
-            id="<%= index %>"
-            ><%= index %></span
-          >
-          <% } else { %>
+          <div class="center" id="content">
+            <% for(index = 1; index <= totalPage; index++){ %> <% if(index ===
+            default_number) { %>
 
-          <span
-            class="page"
-            onclick="GetNotices('<%= index %>')"
-            href="#"
-            id="<%= index %>"
-            ><%= index %></span
-          >
-          <% } %> <% } %>
+            <span
+              onclick="GetNotices('<%= index %>')"
+              href="#"
+              class="internal active"
+              id="<%= index %>"
+              ><%= index %></span
+            >
+            <% } else { %>
 
-          <span id="next-btn" class="icon" href="#">&raquo;</span>
+            <span
+              class="internal"
+              onclick="GetNotices('<%= index %>')"
+              href="#"
+              id="<%= index %>"
+              ><%= index %></span
+            >
+            <% } %> <% } %>
+          </div>
+
+          <div class="right">
+            <button id="right">&raquo;</button>
+          </div>
         </div>
       </div>
 
@@ -152,11 +159,12 @@
       const tablebody = maintable.getElementsByTagName("tbody");
 
       const FailureToast = Toastify({
-        text: "Sorry! Try Again Later",
+        text: "Sorry! No notice found",
         duration: 2000,
       });
 
       async function GetNotices(pagenumber) {
+        // based on page number fetch all notice
         const response = await fetch(`/notice/all-notice-list/${pagenumber}`, {
           method: "POST",
         });
@@ -172,7 +180,7 @@
 
           const noticeInformation = [];
 
-          const all_page = document.querySelectorAll(".page");
+          const all_page = document.querySelectorAll(".internal");
 
           for (let index = 0; index < all_page.length; index++) {
             all_page[index].classList.remove("active");
@@ -208,6 +216,9 @@
               .getElementsByTagName("tr")[0]
               .getElementsByTagName("td")[2].children[0].href = url;
 
+            tablebody[counter].getElementsByTagName("tr")[0].style.background =
+              "none";
+
             counter++;
             counter2++;
           }
@@ -216,51 +227,102 @@
         }
       }
 
-      document
-        .getElementById("prev-btn")
-        .addEventListener("click", function (e) {
-          document.querySelector(".pagination").scrollLeft -= 300;
-          e.preventDefault();
-        });
-
-      document
-        .getElementById("next-btn")
-        .addEventListener("click", function (e) {
-          document.querySelector(".pagination").scrollLeft += 300;
-          e.preventDefault();
-        });
-
       // search related functionality
-
       function Clear() {
         document.getElementById("search_text").value = "";
-
-        console.log(maintable.children[1].children[0].remove());
       }
 
+      // search functionality for date & title
       async function Search() {
         const search_text = document.getElementById("search_text").value;
+        let searchValue = "";
+        let count = 0;
+
+        if (search_text.includes("/")) {
+          searchValue = search_text.split("/").join("-");
+        } else {
+          searchValue = search_text;
+        }
+
+        const selector = document.getElementById("selector");
+        const filter_value = selector.options[selector.selectedIndex].value;
 
         if (search_text) {
           // create a request
           const response = await fetch(
-            `/notice/all-notice-list/search/${search_text}`,
+            `/notice/all-notice-list/filter/${filter_value}/${searchValue}`,
             {
               method: "POST",
             }
           );
 
           if (response.status === 200) {
-            console.log("All Fine!");
+            const result = await response.json();
 
-            Clear();
+            // clear background for new request
+            for (let index = 1; index < maintable.children.length; index++) {
+              maintable.children[index].getElementsByTagName(
+                "tr"
+              )[0].style.background = "none";
+            }
+
+            // update the data get from request
+            for (let index = 1; index <= result.data.length; index++) {
+              // create a table row
+              const new_row = `
+            
+            <tbody>
+              <tr>
+
+                <th scope="row"> ${index}  </th>
+                <td> ${result.data[index - 1].title} </td>
+                <td> ${result.data[index - 1].date}</td>
+                <td>
+                  <a style="text-decoration: none;" href="/notice/all-notice-list/${
+                    result.data[index - 1]._id
+                  }"> view </a>
+                </td>
+
+              </tr>
+            </tbody>
+            
+            `;
+
+              if (index > tablebody.length) {
+                // Because we have found data more then
+                // the table row
+                break;
+              } else {
+                maintable.children[index].getElementsByTagName(
+                  "tr"
+                )[0].innerHTML = new_row;
+
+                maintable.children[index].getElementsByTagName(
+                  "tr"
+                )[0].style.background = "#e1eefc";
+              }
+            }
           } else {
             FailureToast.showToast();
+            Clear();
           }
         } else {
           alert("please write some text to search");
         }
       }
+
+      // for the pagination part
+      const rightbtn = document.getElementById("right");
+      const main_content = document.getElementById("content");
+      const leftbtn = document.getElementById("left");
+
+      rightbtn.addEventListener("click", function (e) {
+        main_content.scrollLeft += 100;
+      });
+
+      leftbtn.addEventListener("click", function (e) {
+        main_content.scrollLeft -= 100;
+      });
     </script>
   </body>
 </html>

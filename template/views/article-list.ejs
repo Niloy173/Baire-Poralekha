@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <link rel="stylesheet" href="/css/toastify.css" />
+
+    <link rel="stylesheet" href="/css/common.css" />
+    <link rel="stylesheet" href="/css/user/navbar.css" />
+    <link rel="stylesheet" href="/css/user/article-list.css" />
+    <link rel="stylesheet" href="/css/user/search.css" />
+    <script src="https://unpkg.com/phosphor-icons"></script>
+    <script src="/js/toastify.js"></script>
+    <script src="/js/moment.js"></script>
+  </head>
+  <body>
+    <%- include("../parttial/navbar.ejs") %>
+
+    <div class="noitce-container">
+      <img src="/img/notice-back.avif" width="100%" />
+
+      <div class="left_div">
+        <div class="head">
+          <p>New Article</p>
+        </div>
+
+        <div class="child">
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis
+            suscipit dolorum quos. Eum, exercitationem. Quaerat non totam
+            eligendi quae ex! Esse nostrum nulla quis sapiente.
+          </p>
+        </div>
+
+        <button>
+          <a href="#"> Check out </a>
+          <i
+            style="margin-top: 10px; color: #f2f2f2; margin-left: 5px"
+            class="fas fa-arrow-right"
+          ></i>
+        </button>
+      </div>
+    </div>
+
+    <div class="article-list">
+      <div class="article-list-view">
+        <div class="search-options">
+          <select id="selector">
+            <option value="title" selected>Title</option>
+            <option value="date">Date</option>
+          </select>
+
+          <input
+            id="search_text"
+            type="text"
+            placeholder="search by title or date"
+          />
+          <i
+            onclick="Search()"
+            class="ph-magnifying-glass-bold search-icon"
+          ></i>
+          <i onclick="Clear()" class="ph-arrow-clockwise-bold refresh-icon"></i>
+        </div>
+
+        <div class="b-line line"></div>
+
+        <div class="card-container">
+          <div class="card">
+            <div class="card-header">
+              <img
+                src="https://images.unsplash.com/reserve/91JuTaUSKaMh2yjB1C4A_IMG_9284.jpg?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
+                alt="track"
+              />
+            </div>
+            <div class="card-details">
+              <h4 class="title">
+                Life is short So Live Big Dream Big. Don't hesitate to make
+                mistake.
+              </h4>
+
+              <p class="description">
+                orem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
+                commodo ligula eget dolor.
+              </p>
+
+              <div class="time">
+                <p>21 hours ago</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-header">
+              <img
+                src="https://images.unsplash.com/photo-1516585427167-9f4af9627e6c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=580&q=80"
+                alt="track"
+              />
+            </div>
+            <div class="card-details">
+              <h4 class="title">
+                If we can laugh, fine. And if we’ve got to cry, we’ve got to
+                cry.
+              </h4>
+
+              <p class="description">
+                Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
+                commodo.
+              </p>
+
+              <div class="time">
+                <p>3 days ago</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-header">
+              <img
+                src="https://images.unsplash.com/photo-1509660933844-6910e12765a0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NDZ8fGhvbWV8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60"
+                alt="track"
+              />
+            </div>
+            <div class="card-details">
+              <h4 class="title">
+                Laugh and the world laughs with you, snore and you sleep alone.
+              </h4>
+
+              <p class="description">
+                Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
+                commodo adipiscing
+              </p>
+
+              <div class="time">
+                <p>3 days ago</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-header">
+              <img
+                src="https://images.unsplash.com/photo-1509660933844-6910e12765a0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NDZ8fGhvbWV8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60"
+                alt="track"
+              />
+            </div>
+            <div class="card-details">
+              <h4 class="title">
+                Laugh and the world laughs with you, snore and you sleep alone.
+              </h4>
+
+              <p class="description">
+                Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
+                commodo adipiscing
+              </p>
+
+              <div class="time">
+                <p>3 days ago</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="e-line line"></div>
+      </div>
+
+      <div class="content-section"></div>
+    </div>
+  </body>
+</html>
