@@ -59,17 +59,16 @@ nav {
   display: flex;
   height: 100%;
   width: 25%;
+  background: transparent;
+  transition: width 0.5s ease, background-color 0.5s ease;
 }
 
-li:hover {
-  cursor: pointer;
-  border-bottom: 2px solid teal;
-}
-li:hover a {
+.nav_item:hover {
+  width: 100%;
+  border-bottom: 1px solid teal;
   opacity: 1;
   text-decoration: none;
   cursor: pointer;
-  color: teal;
 }
 
 .logo a:hover {

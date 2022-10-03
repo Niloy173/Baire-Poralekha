@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const BannerSchema = mongoose.Schema(
   {
     date: {
-      type: Date,
+      type: String,
     },
 
     description: {

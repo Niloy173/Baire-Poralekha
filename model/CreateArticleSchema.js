@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const ArticleSchema = mongoose.Schema(
   {
     date: {
-      type: Date,
+      type: String,
     },
     articleImage: {
       data: Buffer,

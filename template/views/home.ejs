@@ -16,6 +16,8 @@
       rel="stylesheet"
     />
 
+    <link rel="stylesheet" href="/css/user/article.css" />
+
     <link rel="stylesheet" href="/css/user/country.css" />
     <link rel="stylesheet" href="/css/user/article.css" />
 
@@ -40,13 +42,13 @@
       referrerpolicy="no-referrer"
     />
     <link rel="stylesheet" href="/css/common.css " />
+    <link rel="stylesheet" href="/css/article.css" />
 
     <!-- <script src="https://unpkg.com/phosphor-icons"></script> -->
   </head>
   <body>
     <%- include("../parttial/navbar.ejs") %> <% if(Object.keys(banner).length
     !=0){ %>
-
     <div
       id="carouselExampleIndicators"
       class="carousel slide"
@@ -60,7 +62,6 @@
         ></li>
         <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
       </ol>
-
       <div class="carousel-inner">
         <div class="carousel-item active">
           <a href="#">
@@ -71,9 +72,7 @@
               alt="<%= banner[0].banner.filename %>"
           /></a>
         </div>
-
         <% for (let index = 1; index < banner.length; index++) { %>
-
         <div class="carousel-item">
           <a href="#">
             <img
@@ -84,7 +83,6 @@
             />
           </a>
         </div>
-
         <% } %>
       </div>
       <a
@@ -106,37 +104,33 @@
         <span class="sr-only">Next</span>
       </a>
     </div>
+    <% }else{ %> // nothing to write here
+    <p>There is no banner</p>
 
-    <% }else{ %> // nothing to write here <% } %> <%
-    if(Object.keys(notice).length != 0){ %>
+    <% } %> <% if(Object.keys(notice).length != 0){ %>
     <section class="container">
       <h2 class="title">Notice</h2>
       <div class="lower_title flex justify_between">
         <p class="subtitle">FREE INFORMATION! BEST DEALS & OFFERS!</p>
-        <span class="more">MORE</span>
+        <span class="more"><a href="/notice/all-notice-list">More</a></span>
       </div>
-
       <div class="notice">
         <% notice.forEach(element => { %>
-
         <a href="#" style="text-decoration: none; color: #000">
           <div class="notice_card_list">
             <div class="card">
               <p class="notice_title"><%= element.title %></p>
-
               <span class="notice_date">
                 <i class="ph-clock-bold"></i>
-                <%= element.date.toString().substr(0,15) %></span
+                <%= element.date %></span
               >
             </div>
           </div>
         </a>
-
         <% }); %>
       </div>
     </section>
     <% } else { %> <% } %>
-
     <div class="marquee">
       <h2 class="moving_text">
         শতভাগ VISA SUCCESS এর একমাত্র অনলাইন ভিত্তিক Study Abroad Consultancy
@@ -144,56 +138,8 @@
       </h2>
     </div>
 
-    <section class="container">
-      <h2 class="title">Article</h2>
-      <div class="lower_title flex justify_between">
-        <p class="subtitle">FREE INFORMATION! BEST DEALS & OFFERS!</p>
-        <span class="more">MORE</span>
-      </div>
-    </section>
-
-    <%- include("../parttial/counrty.ejs") %>
-
-    <section class="container">
-      <div class="article-box flex">
-        <div>
-          <img
-            src="https://en.sejong.ac.kr/_res/sejong/eng/img/SejongStory_img_03.jpg"
-            alt=""
-          />
-        </div>
-        <div>
-          <div>
-            <p>title</p>
-            <p>sub title</p>
-            <div>
-              <a href="#">Read More</a>
-            </div>
-          </div>
-          <div>
-            <p>title</p>
-            <p>sub title</p>
-            <div>
-              <a href="#">Read More</a>
-            </div>
-          </div>
-          <div>
-            <p>title</p>
-            <p>sub title</p>
-            <div>
-              <a href="#">Read More</a>
-            </div>
-          </div>
-          <div>
-            <p>title</p>
-            <p>sub title</p>
-            <div>
-              <a href="#">Read More</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+    <%- include("../parttial/article.ejs") %> <%-
+    include("../parttial/counrty.ejs") %>
 
     <script>
       //for the navbar
@@ -209,14 +155,12 @@
       //     }
       //     console.log(timecount);
       //   });
-
       //closing the nav
       function closeNav() {
         document.getElementById("nav_menu_item").style.right = "-100%";
         timecount = 2;
       }
     </script>
-
     <script
       src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
       integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
@@ -232,12 +176,10 @@
       integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
       crossorigin="anonymous"
     ></script>
-
     <script
       type="text/javascript"
       src="//code.jquery.com/jquery-1.11.0.min.js"
     ></script>
-
     <script
       type="text/javascript"
       src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"

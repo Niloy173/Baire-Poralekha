@@ -59,7 +59,11 @@ async function PostArticle(req, res, next) {
         });
       }
 
-      articleInfo.date = new Date().toLocaleDateString();
+      articleInfo.date =
+        String(new Date().getDate()).padStart(2, "0") +
+        "/" +
+        String(new Date().getMonth() + 1).padStart(2, "0") +
+        String(new Date().getFullYear());
       articleInfo.category = req.body.category;
       articleInfo.title = req.body.title;
       articleInfo.content = req.body.content;
