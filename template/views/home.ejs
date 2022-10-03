@@ -8,6 +8,7 @@
 
     <link rel="stylesheet" href="/css/user/navbar.css" />
     <link rel="stylesheet" href="/css/user/home.css" />
+    <link rel="stylesheet" href="/css/user/article.css">
     <link rel="stylesheet" href="/css/user/country.css" />
 
     <link
@@ -31,6 +32,7 @@
       referrerpolicy="no-referrer"
     />
     <link rel="stylesheet" href="/css/common.css " />
+    <link rel="stylesheet" href="/css/article.css">
 
     <!-- <script src="https://unpkg.com/phosphor-icons"></script> -->
   </head>
@@ -126,13 +128,8 @@
         হলো Bahire Poralekha – বাহিরে পড়ালেখা!
       </h2>
     </div>
-    <section class="container">
-      <h2 class="title">Article</h2>
-      <div class="lower_title flex justify_between">
-        <p class="subtitle">FREE INFORMATION! BEST DEALS & OFFERS!</p>
-        <span class="more">MORE</span>
-      </div>
-    </section>
+    
+    <%- include("../parttial/article.ejs") %>
     <%- include("../parttial/counrty.ejs") %>
     <script>
       //for the navbar
