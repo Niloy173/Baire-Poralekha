@@ -8,7 +8,6 @@
 
     <link rel="stylesheet" href="/css/user/navbar.css" />
     <link rel="stylesheet" href="/css/user/home.css" />
-<<<<<<< HEAD
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -17,11 +16,6 @@
       rel="stylesheet"
     />
 
-    <link rel="stylesheet" href="/css/user/article.css" />
-
-=======
-    <link rel="stylesheet" href="/css/user/article.css" />
->>>>>>> 8f44b2d5b88ef15536835470d4662fe36d79f1bd
     <link rel="stylesheet" href="/css/user/country.css" />
     <link rel="stylesheet" href="/css/user/article.css" />
 
@@ -46,7 +40,6 @@
       referrerpolicy="no-referrer"
     />
     <link rel="stylesheet" href="/css/common.css " />
-    <link rel="stylesheet" href="/css/article.css" />
 
     <!-- <script src="https://unpkg.com/phosphor-icons"></script> -->
   </head>
@@ -64,8 +57,14 @@
           data-slide-to="0"
           class="active"
         ></li>
-        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+        <% for (let index = 1; index < banner.length; index++) { %>
+        <li
+          data-target="#carouselExampleIndicators"
+          data-slide-to="<%= index %>"
+        ></li>
+        <% } %>
       </ol>
+
       <div class="carousel-inner">
         <div class="carousel-item active">
           <a href="#">
@@ -143,11 +142,7 @@
     </div>
 
     <%- include("../parttial/article.ejs") %> <%-
-    include("../parttial/counrty.ejs") %>
-<<<<<<< HEAD
-
-=======
->>>>>>> 8f44b2d5b88ef15536835470d4662fe36d79f1bd
+    include("../parttial/counrty.ejs") %> d
     <script>
       //for the navbar
       // var timecount = 0;

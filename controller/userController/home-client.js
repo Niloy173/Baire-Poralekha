@@ -9,7 +9,7 @@ async function Get_me_all_data(req, res, next) {
   const countries = await CountryModel.find({}).limit(8);
 
   // get the banner
-  const banner = await BannerModel.find({}).limit(3).sort("-createdAt");
+  const banner = await BannerModel.find({}).limit(4).sort("-createdAt");
 
   // notice function
   const notice = await ArticleModel.find(
@@ -19,11 +19,19 @@ async function Get_me_all_data(req, res, next) {
     .limit(5)
     .sort("-createdAt");
 
+  // article function
+  const articles = await ArticleModel.find({
+    category: "Article",
+  })
+    .limit(4)
+    .sort("-createdAt");
+
   // render the home page
   res.render("home", {
     notice,
     banner,
     countries,
+    articles,
   });
 }
 
