@@ -30,6 +30,9 @@
 
   margin: 0;
   padding: 10px 0;
+}
+
+.article-title {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -51,7 +54,15 @@
   white-space: initial;
 } */
 
-.active_article {
+.sub_article {
+  display: none;
+}
+
+/* .article-title:hover + .sub_article {
+  white-space: initial;
+  display: block;
+} */
+.active-article {
   white-space: initial;
   display: block;
 }

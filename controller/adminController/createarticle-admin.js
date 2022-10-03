@@ -63,6 +63,7 @@ async function PostArticle(req, res, next) {
         String(new Date().getDate()).padStart(2, "0") +
         "/" +
         String(new Date().getMonth() + 1).padStart(2, "0") +
+        "/" +
         String(new Date().getFullYear());
       articleInfo.category = req.body.category;
       articleInfo.title = req.body.title;

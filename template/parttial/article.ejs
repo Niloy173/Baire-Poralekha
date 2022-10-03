@@ -14,10 +14,11 @@
     <div class="title-box">
       <ul>
         <li class="article-li">
-          <p class="article-title active_article">
+          <p class="article-title active-article">
             Sejong University Marks 41st in 2022 THE Asia University Rankings
           </p>
-          <div class="sub_article active_article">
+
+          <div class="sub_article active-article">
             <p>
               The un iversity placed 41st in Asia, making top 50 in the
               continent, according to THE Asia University Rankings released on
@@ -81,19 +82,21 @@
   </div>
 </section>
 
-<!-- <li class="article-li">
-    <p class="article-title">Title 01</p>
-    <p >sub title</p>
-    <div>
-      <p>Read more</p>
-    </div>
-    
-   
-  </li> -->
+<script defer>
+  const all_article = document.querySelectorAll(".article-title");
+  const all_parent = document.querySelectorAll(".article-li");
 
-<script>
-  function change(x) {
-    document.getElementById("title").className += "active_article";
-    document.getElementById("sub-title").className += "active_article";
+  for (let index = 0; index < all_parent.length; index++) {
+    all_parent[index].addEventListener("mouseover", function (e) {
+      all_parent[index].children[0].classList.add("active-article");
+      all_parent[index].children[1].classList.add("active-article");
+
+      for (let index2 = 0; index2 < all_parent.length; index2++) {
+        if (index != index2) {
+          all_parent[index2].children[0].classList.remove("active-article");
+          all_parent[index2].children[1].classList.remove("active-article");
+        }
+      }
+    });
   }
 </script>

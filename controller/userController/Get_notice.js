@@ -39,6 +39,46 @@ async function Get_me_specific_range_notice(req, res, next) {
       });
     }
   } catch (error) {
+    // console.log(error);
+    res.status(500).send(error);
+  }
+}
+
+async function Get_particular_notice_with_filter(req, res, next) {
+  try {
+    const filter_value = req.params.filter_value.trim();
+    const search_value = req.params.searchKey;
+    let regexExpo = "";
+
+    if (search_value.includes("-")) {
+      regexExpo = new RegExp(search_value.split("-").join("/"));
+    } else {
+      regexExpo = new RegExp(search_value);
+    }
+
+    const data = [];
+
+    ArticleModel.find({}, { articleImage: 0 }, function (err, info) {
+      for (let index = 0; index < info.length; index++) {
+        const { date, title, _id } = info[index];
+
+        if (date.match(regexExpo) != null || title.match(regexExpo) != null) {
+          data.push({
+            date,
+            title,
+            _id,
+          });
+        }
+      }
+      if (data.length > 0) {
+        res.status(200).json({
+          data,
+        });
+      } else {
+        res.status(500).send("no data found");
+      }
+    });
+  } catch (error) {
     console.log(error);
     res.status(500).send(error);
   }
@@ -46,4 +86,5 @@ async function Get_me_specific_range_notice(req, res, next) {
 
 module.exports = {
   Get_me_specific_range_notice,
+  Get_particular_notice_with_filter,
 };

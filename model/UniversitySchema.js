@@ -49,7 +49,7 @@ UniversitySchema.methods = {
   },
 
   ShowAllUniversity: function (cb) {
-    return mongoose.model("University").find({}, cb);
+    return mongoose.model("University").find({}, cb).populate("country");
   },
 };
 

@@ -1,0 +1,52 @@
+.search-options {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  margin: 30px 0 20px 0;
+}
+
+.search-options select {
+  width: 15%;
+  padding: 16px 10px;
+  border: 1px dotted #ccc;
+  border-style: ridge;
+}
+
+select option {
+  padding: 12px;
+  margin: 10px 0;
+}
+.search-options input {
+  width: 45%;
+  padding: 16px 12px;
+  border: 1px dotted #ccc;
+  border-style: ridge;
+}
+
+.search-options input:focus {
+  outline: none;
+}
+.icon {
+  font-size: 22px;
+}
+.search-icon {
+  position: relative;
+  margin-left: -50px;
+  padding: 20px 12px;
+  cursor: pointer;
+}
+.refresh-icon {
+  padding: 20px;
+  border: 1px solid;
+  margin-left: -10px;
+  background: black;
+  color: #fff;
+}
+
+.refresh-icon:hover {
+  opacity: 0.6;
+  font-weight: bold;
+  transition: all 0.5s;
+  cursor: pointer;
+}

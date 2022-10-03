@@ -30,7 +30,7 @@
 
           <div class="university_profile">
             <h3><%= element.universityName %></h3>
-            <p id="country_name"><%= element.countryName %></p>
+            <p id="country_name"><%= element.country.countryName %></p>
           </div>
 
           <div class="university_data">
@@ -54,24 +54,33 @@
           </div>
         </div>
 
-        <% }); %> <% } %>
+        <% }); %> <% } else { %>
 
         <div
-          style="
-            display: block;
-            width: 100%;
-            border-bottom: 0.5px dotted black;
-            opacity: 0.5;
-            margin: 20px 0;
-          "
-          class="single-line"
-        ></div>
-
-        <div class="create-university-btn">
-          <a href="/admin/countryselection" class="creation">
-            <button>Create a new University</button>
-          </a>
+          style="padding-block: min(20vh, 10rem); text-align: center"
+          class="message"
+        >
+          <h3>There is no university here</h3>
         </div>
+
+        <% } %>
+      </div>
+
+      <div
+        style="
+          display: block;
+          width: 100%;
+          border-bottom: 0.5px dotted black;
+          opacity: 0.5;
+          margin: 20px 0;
+        "
+        class="single-line"
+      ></div>
+
+      <div class="create-university-btn">
+        <a href="/admin/countryselection" class="creation">
+          <button>Create a new University</button>
+        </a>
       </div>
     </div>
 
