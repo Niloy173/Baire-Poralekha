@@ -2,100 +2,102 @@
   <h2 class="title">Article</h2>
   <div class="lower_title flex justify_between">
     <p class="subtitle">FREE INFORMATION! BEST DEALS & OFFERS!</p>
-    <span class="more">MORE</span>
+    <span class="more"><a href="/article/article-list">MORE</a></span>
   </div>
   <div class="article-box flex">
-    <div class="image-box">
+    <div id="image-box" class="image-box">
+      <% if(Object.keys(articles).length != 0){ %>
       <img
-        src="http://en.sejong.ac.kr/_res/sejong/eng/img/SejongStory_img_02.jpg"
-        alt=""
+        src="data:image/<%= articles[0].articleImage.contentType %>;base64,
+      <%= articles[0].articleImage.data.toString('base64') %>"
+        alt="article-cover"
       />
+      <% } else { %>
+
+      <p>There is no image</p>
+
+      <% } %>
     </div>
     <div class="title-box">
       <ul>
+        <% if(Object.keys(articles).length != 0){ %> <% for(let index=0; index <
+        articles.length; index++) { %> <% if(index == 0) { %>
+
         <li class="article-li">
           <p class="article-title active-article">
-            Sejong University Marks 41st in 2022 THE Asia University Rankings
+            <%= articles[index].title %>
           </p>
 
           <div class="sub_article active-article">
-            <p>
-              The un iversity placed 41st in Asia, making top 50 in the
-              continent, according to THE Asia University Rankings released on
-              June 1st, 2022 by the Times Higher Education.
-            </p>
+            <p><%= articles[index].content.substr(0,194) %></p>
             <div>
-              <p>Read more</p>
+              <p><a href="#">Read more</a></p>
             </div>
           </div>
         </li>
+
+        <% } else { %>
+
         <li class="article-li">
-          <p class="article-title">
-            Sejong University Marks 41st in 2022 THE Asia University Rankings
-          </p>
+          <p class="article-title"><%= articles[index].title %></p>
 
           <div class="sub_article">
-            <p>
-              The un iversity placed 41st in Asia, making top 50 in the
-              continent, according to THE Asia University Rankings released on
-              June 1st, 2022 by the Times Higher Education.
-            </p>
+            <p><%= articles[index].content.substr(0,194) %></p>
             <div>
-              <p>Read more</p>
+              <p><a href="#">Read more</a></p>
             </div>
           </div>
         </li>
-        <li class="article-li">
-          <p class="article-title">
-            Sejong University Marks 41st in 2022 THE Asia University Rankings
-          </p>
 
-          <div class="sub_article">
-            <p>
-              The un iversity placed 41st in Asia, making top 50 in the
-              continent, according to THE Asia University Rankings released on
-              June 1st, 2022 by the Times Higher Education.
-            </p>
-            <div>
-              <p>Read more</p>
-            </div>
-          </div>
-        </li>
-        <li class="article-li">
-          <p class="article-title">
-            Sejong University Marks 41st in 2022 THE Asia University Rankings
-          </p>
+        <% } %> <% } %> <% } else { %>
 
-          <div class="sub_article">
-            <p>
-              The un iversity placed 41st in Asia, making top 50 in the
-              continent, according to THE Asia University Rankings released on
-              June 1st, 2022 by the Times Higher Education.
-            </p>
-            <div>
-              <p>Read more</p>
-            </div>
-          </div>
-        </li>
+        <p>There is no article</p>
+
+        <% } %>
       </ul>
     </div>
   </div>
 </section>
 
 <script defer>
-  const all_article = document.querySelectorAll(".article-title");
   const all_parent = document.querySelectorAll(".article-li");
 
   for (let index = 0; index < all_parent.length; index++) {
-    all_parent[index].addEventListener("mouseover", function (e) {
-      all_parent[index].children[0].classList.add("active-article");
-      all_parent[index].children[1].classList.add("active-article");
-
+    all_parent[index].addEventListener("mouseover", async function (e) {
       for (let index2 = 0; index2 < all_parent.length; index2++) {
         if (index != index2) {
           all_parent[index2].children[0].classList.remove("active-article");
           all_parent[index2].children[1].classList.remove("active-article");
         }
+      }
+
+      all_parent[index].children[0].classList.add("active-article");
+      all_parent[index].children[1].classList.add("active-article");
+
+      const response = await fetch(
+        `/article/${all_parent[index].children[0].textContent}/fetchImage`,
+        {
+          method: "GET",
+        }
+      );
+
+      if (response.status === 200) {
+        const result = await response.json();
+        const { articleImage } = result.singleImage;
+
+        let binary = "";
+        let bytes = new Uint8Array(articleImage.data["data"]);
+
+        for (let i = 0; i < bytes.length; i++) {
+          binary += String.fromCharCode(bytes[i]);
+        }
+
+        const src = `data:image/${articleImage.contentType};base64,
+        ${btoa(binary)}`;
+
+        document.querySelector(".image-box").children[0].src = src;
+      } else {
+        // something is wrong
       }
     });
   }
