@@ -10,11 +10,12 @@ async function Get_me_specific_range_notice(req, res, next) {
     ).sort("-createdAt");
 
     // want to show five page number per load
-    const startingIndex = pagenum * 5 - 5;
-    const endingIndex = pagenum * 5 >= data.length ? data.length : pagenum * 5;
+    const startingIndex = pagenum * 10 - 10;
+    const endingIndex =
+      pagenum * 10 >= data.length ? data.length : pagenum * 10;
 
     // how many pages needed
-    const totalPage = Math.ceil(data.length / 5);
+    const totalPage = Math.ceil(data.length / 10);
 
     // page to highlight
     const default_number = pagenum === 1 ? 1 : pagenum;
@@ -47,7 +48,7 @@ async function Get_me_specific_range_notice(req, res, next) {
 async function Get_particular_notice_with_filter(req, res, next) {
   try {
     const filter_value = req.params.filter_value.trim();
-    const search_value = req.params.searchKey;
+    const search_value = req.params.searchKey.trim();
     let regexExpo = "";
 
     if (search_value.includes("-")) {
