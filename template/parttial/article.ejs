@@ -6,13 +6,27 @@
   </div>
   <div class="article-box flex">
     <div id="image-box" class="image-box">
-      <% if(Object.keys(articles).length != 0){ %>
+      <% if(Object.keys(articles).length != 0){ %> <% for(let index=0;index<
+      articles.length; index++){%> <% if(index === 0){%>
       <img
-        src="data:image/<%= articles[0].articleImage.contentType %>;base64,
-      <%= articles[0].articleImage.data.toString('base64') %>"
+        class="active-image"
+        id="<%= articles[index].articleImage.filename %>"
+        src="data:image/<%= articles[index].articleImage.contentType %>;base64,
+        <%= articles[index].articleImage.data.toString('base64') %>"
         alt="article-cover"
       />
-      <% } else { %>
+
+      <%}else{%>
+
+      <img
+        class="inactive-image"
+        id="<%= articles[index].articleImage.filename %>"
+        src="data:image/<%= articles[index].articleImage.contentType %>;base64,
+        <%= articles[index].articleImage.data.toString('base64') %>"
+        alt="article-cover"
+      />
+
+      <% } %> <% }; %> <% } else { %>
 
       <p>There is no image</p>
 
@@ -61,6 +75,7 @@
 
 <script defer>
   const all_parent = document.querySelectorAll(".article-li");
+  const image_box = document.querySelectorAll(".image-box img");
 
   for (let index = 0; index < all_parent.length; index++) {
     all_parent[index].addEventListener("mouseover", async function (e) {
@@ -72,7 +87,6 @@
         }
       }
       all_parent[index].classList.add("active-li");
-
       all_parent[index].children[0].classList.add("active-article");
       all_parent[index].children[1].classList.add("active-article");
 
@@ -87,19 +101,59 @@
         const result = await response.json();
         const { articleImage } = result.singleImage;
 
-        let binary = "";
-        let bytes = new Uint8Array(articleImage.data["data"]);
+        // first approach
+        //-------------------------
 
-        for (let i = 0; i < bytes.length; i++) {
-          binary += String.fromCharCode(bytes[i]);
+        // we have defined 4 images coming from db
+        // latest one is by default visible expect the other three
+        // we have named them accroding to the filename in (id) attribute as unique perspective
+        // now coming from the request we've the filename its easy to match through below loop
+        // keeping mind "Selected Image should be visible and others should be invisible that time"\
+        //----------------------------------------------------------------------------------------
+
+        const filename = articleImage.filename; // the filename which's to render
+
+        for (let index = 0; index < image_box.length; index++) {
+          if (image_box[index].id != filename) {
+            if (!image_box[index].classList.contains("inactive-image")) {
+              // remove the class with already havinfg "active-images"
+              // add the "inactive-image" class
+              image_box[index].classList.remove("active-image");
+              image_box[index].classList.add("inactive-image");
+            }
+          } else {
+            //  found the file
+            // if its inactive then make it active
+            if (!image_box[index].classList.contains("active-image")) {
+              image_box[index].classList.add("active-image");
+              image_box[index].classList.remove("inactive-image");
+            }
+          }
         }
 
-        const src = `data:image/${articleImage.contentType};base64,
-        ${btoa(binary)}`;
+        // second approach
+        //--------------------------
 
-        document.querySelector(".image-box").children[0].src = src;
+        // we have the articleImage from the request
+        // now convert the binary image to base64 image conversion or string conversion
+        // then display in the image section
+        // based on the image size it might take some time to convert the image
+        //-------------------------------------------------------------------------
+
+        // let binary = "";
+        // let bytes = new Uint8Array(articleImage.data["data"]);
+
+        // for (let i = 0; i < bytes.length; i++) {
+        //   binary += String.fromCharCode(bytes[i]);
+        // }
+
+        // const src = `data:image/${articleImage.contentType};base64,
+        // ${btoa(binary)}`;
+
+        // document.querySelector(".image-box").children[0].src = src;
       } else {
         // something is wrong
+        // problem having render image
       }
     });
   }
