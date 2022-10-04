@@ -25,6 +25,14 @@
   border-bottom: 1px solid gray;
 }
 
+.active-li{
+    border-bottom: 1px solid teal;
+}
+
+.article-li:hover{
+    border-bottom:  2px solid teal;
+}
+
 .article-title {
   transition: opacity 1s ease-in-out;
 
@@ -33,6 +41,7 @@
 }
 
 .article-title {
+    opacity: 0.4;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -41,28 +50,25 @@
 }
 
 .sub_article {
-  transition: opacity 1s ease-in-out;
+ 
+  
 
   display: none;
 }
 
-/* .article-title:hover + .sub_article {
-  white-space: initial;
-  display: block;
-} */
-/* .article-title:hover {
-  white-space: initial;
-} */
 
-.sub_article {
-  display: none;
-}
 
-/* .article-title:hover + .sub_article {
-  white-space: initial;
-  display: block;
-} */
+
+
 .active-article {
-  white-space: initial;
-  display: block;
+  
+transition: all 1s linear;
+display: block;
+opacity: 1;
+width: 100%;
+height: 100%;
+margin: 30px auto;
+
+ white-space: initial;
+ 
 }
