@@ -66,10 +66,12 @@
     all_parent[index].addEventListener("mouseover", async function (e) {
       for (let index2 = 0; index2 < all_parent.length; index2++) {
         if (index != index2) {
+          all_parent[index2].classList.remove("active-li");
           all_parent[index2].children[0].classList.remove("active-article");
           all_parent[index2].children[1].classList.remove("active-article");
         }
       }
+      all_parent[index].classList.add("active-li");
 
       all_parent[index].children[0].classList.add("active-article");
       all_parent[index].children[1].classList.add("active-article");
