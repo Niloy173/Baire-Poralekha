@@ -31,7 +31,7 @@ async function Get_me_specific_range_article(req, res, next) {
 async function Get_particular_article_with_filter(req, res, next) {
   try {
     const filter_value = req.params.filter_value.trim();
-    const search_value = req.params.searchKey;
+    const search_value = req.params.searchKey.trim();
 
     let regexExpo = "";
 
@@ -41,20 +41,32 @@ async function Get_particular_article_with_filter(req, res, next) {
       regexExpo = new RegExp(search_value);
     }
 
-    const data = [];
+    const articleData = [];
 
     ArticleModel.find({ category: "Article" }, function (err, info) {
       for (let index = 0; index < info.length; index++) {
-        const { date, title, content, _id } = info[index];
+        const { date, articleImage, title, content, _id } = info[index];
 
         if (date.match(regexExpo) != null || title.match(regexExpo) != null) {
-          data.push({
+          articleData.push({
             date,
+            articleImage,
             title,
             content,
             _id,
           });
         }
+      }
+
+      // console.log(articleData.length);
+      if (articleData.length > 0) {
+        res.status(200).json({
+          data: articleData,
+        });
+      } else {
+        res.status(500).json({
+          error: "no data found",
+        });
       }
     });
   } catch (error) {
@@ -64,4 +76,5 @@ async function Get_particular_article_with_filter(req, res, next) {
 
 module.exports = {
   Get_me_specific_range_article,
+  Get_particular_article_with_filter,
 };
