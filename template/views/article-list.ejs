@@ -69,28 +69,64 @@
         <div class="b-line line"></div>
 
         <div class="card-container">
-          <% data.forEach(element => { %>
+          <% for(let element = startingIndex; element < endingIndex; element++)
+          { %>
 
           <div class="card">
             <div class="card-header">
               <img
-                src="data:image/<%=element.articleImage.contentType%>;base64,
-                <%=element.articleImage.data.toString('base64')%>"
+                src="data:image/<%=data[element].articleImage.contentType%>;base64,
+                <%=data[element].articleImage.data.toString('base64')%>"
                 alt="article-cover"
               />
             </div>
             <div class="card-details">
-              <h4 class="title"><%= element.title %></h4>
+              <h4 class="title"><%= data[element].title %></h4>
 
-              <p class="description"><%= element.content.substr(0,80) %></p>
+              <p class="description">
+                <%= data[element].content.substr(0,80) %>
+              </p>
 
               <div class="time">
-                <p><%= element.date.split("/").join("-") %></p>
+                <p><%= data[element].date.split("/").join("-") %></p>
               </div>
             </div>
           </div>
 
-          <% }); %>
+          <% }; %>
+        </div>
+
+        <div class="e-line line"></div>
+
+        <div id="pagination" class="pagination">
+          <div class="left">
+            <button id="left">&laquo;</button>
+          </div>
+
+          <div class="center" id="content">
+            <% for(index = 1; index <= totalPage; index++){ %> <% if(index ===
+            default_number) { %>
+
+            <a
+              href="/article/article-list/<%= index %>"
+              class="internal active"
+              id="<%= index %>"
+              ><%= index %></a
+            >
+            <% } else { %>
+
+            <a
+              href="/article/article-list/<%= index %>"
+              class="internal"
+              id="<%= index %>"
+              ><%= index %></a
+            >
+            <% } %> <% } %>
+          </div>
+
+          <div class="right">
+            <button id="right">&raquo;</button>
+          </div>
         </div>
         <%} else { %>
 
@@ -99,11 +135,45 @@
         </div>
 
         <% } %>
-
-        <div class="e-line line"></div>
       </div>
 
       <div class="content-section"></div>
     </div>
+
+    <script type="text/javascript" defer>
+      // search related functionality
+      function Clear() {
+        document.getElementById("search_text").value = "";
+      }
+
+      // search functionality for date & title
+      function Search() {
+        const search_text = document.getElementById("search_text").value;
+
+        const selector = document.getElementById("selector");
+        const filter_value = selector.options[selector.selectedIndex].value;
+
+        if (search_text) {
+          fetch(`/article/article-list/${filter_value}/${search_text}`, {
+            method: "GET",
+          });
+        } else {
+          alert("please write some text to search");
+        }
+      }
+
+      // for the pagination part
+      const rightbtn = document.getElementById("right");
+      const main_content = document.getElementById("content");
+      const leftbtn = document.getElementById("left");
+
+      rightbtn.addEventListener("click", function (e) {
+        main_content.scrollLeft += 100;
+      });
+
+      leftbtn.addEventListener("click", function (e) {
+        main_content.scrollLeft -= 100;
+      });
+    </script>
   </body>
 </html>

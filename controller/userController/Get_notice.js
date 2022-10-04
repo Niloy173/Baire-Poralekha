@@ -58,26 +58,30 @@ async function Get_particular_notice_with_filter(req, res, next) {
 
     const data = [];
 
-    ArticleModel.find({}, { articleImage: 0 }, function (err, info) {
-      for (let index = 0; index < info.length; index++) {
-        const { date, title, _id } = info[index];
+    ArticleModel.find(
+      { category: "Notice" },
+      { articleImage: 0 },
+      function (err, info) {
+        for (let index = 0; index < info.length; index++) {
+          const { date, title, _id } = info[index];
 
-        if (date.match(regexExpo) != null || title.match(regexExpo) != null) {
-          data.push({
-            date,
-            title,
-            _id,
+          if (date.match(regexExpo) != null || title.match(regexExpo) != null) {
+            data.push({
+              date,
+              title,
+              _id,
+            });
+          }
+        }
+        if (data.length > 0) {
+          res.status(200).json({
+            data,
           });
+        } else {
+          res.status(500).send("no data found");
         }
       }
-      if (data.length > 0) {
-        res.status(200).json({
-          data,
-        });
-      } else {
-        res.status(500).send("no data found");
-      }
-    });
+    );
   } catch (error) {
     console.log(error);
     res.status(500).send(error);
