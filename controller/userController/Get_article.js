@@ -115,7 +115,9 @@ async function Get_me_single_article(req, res, next) {
       previous_index,
       next_index,
       fixedArticleToRender: all_article.length > 4 ? 4 : all_article.length,
-      creationDate: new Date(singleArticle.date).toDateString().substring(4),
+      creationDate: new Date(singleArticle.createdAt)
+        .toDateString()
+        .substring(4),
     });
   } catch (error) {
     console.log(error);
