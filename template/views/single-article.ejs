@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/css/user/single-article.css" />
+
+    <script src="https://unpkg.com/phosphor-icons"></script>
+  </head>
+  <body>
+    <div class="basic_info">
+      <div class="all_articles">
+        | <a href="/">Home</a> | <a href="/article/article-list">Articles</a> |
+      </div>
+
+      <div class="article_title">
+        <h1><%= singleArticle.title %></h1>
+      </div>
+      <div class="article_image">
+        <img
+          src="data:image/<%=singleArticle.articleImage.contentType%>;base64,
+            <%=singleArticle.articleImage.data.toString('base64')%>"
+          alt="article_cover"
+        />
+      </div>
+
+      <div class="article_content">
+        <textarea readonly class="content">
+<%= singleArticle.content.trim() %></textarea
+        >
+
+        <div class="single_border">
+          <span class="line-border-sky"></span>
+        </div>
+
+        <div class="created-date">
+          <p>Created <%= creationDate %></p>
+          <% if(singleArticle.link != " "){ %>
+          <a href="<%= singleArticle.link %>">Click Here to Learn more</a>
+          <% } %>
+        </div>
+      </div>
+
+      <div class="pages">
+        <a
+          href="/article/<%= all_article[previous_index]._id %>"
+          class="previous"
+        >
+          <div class="btn">
+            <i class="ph-arrow-left-light"></i>
+            <span>Previous</span>
+          </div>
+          <p class="title"><%= all_article[previous_index].title %></p>
+        </a>
+        <a href="/article/<%= all_article[next_index]._id %>" class="next">
+          <div class="btn">
+            <span>Next</span>
+            <i class="ph-arrow-right-light"></i>
+          </div>
+          <p class="title"><%= all_article[next_index].title %></p>
+        </a>
+      </div>
+
+      <div class="related_articles">
+        <div class="heading">
+          <h1>Related Article</h1>
+        </div>
+
+        <div class="random-articles">
+          <% for(let index = 0; index < fixedArticleToRender; index++){ %> <%
+          if(all_article[index].title != singleArticle.title) { %>
+
+          <a href="/article/<%= all_article[index]._id %>" class="card">
+            <div class="card-header">
+              <img
+                src="data:image/<%=all_article[index].articleImage.contentType%>;base64,
+                    <%=all_article[index].articleImage.data.toString('base64')%>"
+                alt="track"
+              />
+            </div>
+            <div class="card-details">
+              <h4 class="title"><%= all_article[index].title %></h4>
+
+              <p class="description">
+                <%= all_article[index].content.substr(0,105) %>
+              </p>
+            </div>
+          </a>
+
+          <% } %> <% } %>
+        </div>
+      </div>
+    </div>
+
+    <script defer>
+      window.setTimeout(function () {
+        document.querySelector(".content").style.height =
+          document.querySelector(".content").scrollHeight + "px";
+      });
+    </script>
+  </body>
+</html>

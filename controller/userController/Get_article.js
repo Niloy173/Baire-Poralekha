@@ -1,4 +1,5 @@
 const { ArticleModel } = require("../../model/CreateArticleSchema");
+const mongoose = require("mongoose");
 
 async function Get_me_specific_range_article(req, res, next) {
   try {
@@ -74,7 +75,54 @@ async function Get_particular_article_with_filter(req, res, next) {
   }
 }
 
+async function Get_me_single_article(req, res, next) {
+  try {
+    const articleId = req.params.article_id;
+
+    // find the specific article
+    const singleArticle = await ArticleModel.findOne({
+      _id: mongoose.Types.ObjectId(articleId),
+    });
+
+    // fetch all data
+    const all_article = await ArticleModel.find({ category: "Article" });
+
+    // find the current article position in the array
+    let position = 0,
+      previous_index = 0,
+      next_index = 0;
+    for (let index = 0; index < all_article.length; index++) {
+      if (singleArticle.title === all_article[index].title) {
+        position = index;
+        break;
+      }
+    }
+
+    if (position === 0) {
+      previous_index = all_article.length - 1;
+      next_index = position + 1;
+    } else if (position === all_article.length - 1) {
+      previous_index = position - 1;
+      next_index = 0;
+    } else {
+      previous_index = position - 1;
+      next_index = position + 1;
+    }
+
+    res.render("single-article", {
+      all_article,
+      singleArticle,
+      previous_index,
+      next_index,
+      fixedArticleToRender: all_article.length > 4 ? 4 : all_article.length,
+      creationDate: new Date(singleArticle.date).toDateString().substring(4),
+    });
+  } catch (error) {
+    console.log(error);
+  }
+}
 module.exports = {
   Get_me_specific_range_article,
   Get_particular_article_with_filter,
+  Get_me_single_article,
 };
