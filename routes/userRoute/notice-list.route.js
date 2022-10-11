@@ -17,15 +17,16 @@ router.get(
   Get_me_specific_range_notice
 );
 
-router.get("/all-notice-list/:id", (req, res, next) => {
-  res.send("success");
+// single notice render
+router.get("/:id", decorateHtmlResponse("Notice"), (req, res, next) => {
+  res.render("single-notice");
 });
 
 router.post("/all-notice-list/:pagenumber", Get_me_specific_range_notice);
 
-router.post("/all-notice-list/search/:newly_notice_id", (req, res, next) => {
-  res.send("success");
-});
+// router.post("/all-notice-list/search/:newly_notice_id", (req, res, next) => {
+//   res.send("success");
+// });
 
 router.post(
   "/all-notice-list/filter/:filter_value/:searchKey",

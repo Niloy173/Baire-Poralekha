@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= title %></title>
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="/css/common.css " />
+    <link rel="stylesheet" href="/css/user/navbar.css" />
+    <link rel="stylesheet" href="/css/user/single-notice.css" />
+
+    <script src="https://unpkg.com/phosphor-icons"></script>
+  </head>
+  <body>
+    <%- include("../parttial/navbar.ejs") %>
+
+    <div class="noitce-container">
+      <img
+        src="https://images.unsplash.com/photo-1512314889357-e157c22f938d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80"
+        width="100%"
+      />
+
+      <div class="left_div">
+        <div class="head">
+          <p>Notice</p>
+        </div>
+
+        <div class="child">
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis
+            suscipit dolorum quos. Eum, exercitationem. Quaerat non totam
+            eligendi quae ex! Esse nostrum nulla quis sapiente.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="single-notice-view">
+      <div class="single-notice">
+        <div class="heading">
+          <h1>
+            Mandatory Online Education on “Prevention of Sexual Violence” and
+            “Understanding of Korean laws”
+          </h1>
+
+          <div class="notice_date">
+            <i class="ph-calendar-check-light"></i>
+            <p>13-09-2022</p>
+          </div>
+        </div>
+
+        <div class="single-line-border"></div>
+
+        <div class="main_notice">
+          <textarea readonly class="contents">
+Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc,
+          </textarea>
+
+          <div class="link-to-share">
+            <div class="solid-green"></div>
+            <a href="#">Click here to learn more</a>
+          </div>
+        </div>
+
+        <div class="next-prev">
+          <a href="#" class="next-section section">
+            <div class="btn-common">
+              <p class="page">Next</p>
+              <i class="ph-arrow-right-bold"></i>
+            </div>
+            <p class="title">This is the next title</p>
+          </a>
+
+          <div class="single-divider"></div>
+
+          <a href="#" class="prev-section section">
+            <div class="btn-common">
+              <i class="ph-arrow-left-bold"></i>
+              <p class="page">Previous</p>
+            </div>
+            <p class="title">This is the previous title</p>
+          </a>
+        </div>
+      </div>
+
+      <div class="single-line-border-bold"></div>
+
+      <div class="notice-list-render">
+        <a href="/notice/all-notice-list" class="notice-list-btn">
+          <p>List</p>
+          <i class="ph-arrow-right-bold arrow-right"></i>
+        </a>
+      </div>
+    </div>
+
+    <script defer>
+      window.setTimeout(function () {
+        document.querySelector(".contents").style.height =
+          document.querySelector(".contents").scrollHeight + "px";
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,268 @@
+:root {
+  --common-margin: 2rem;
+  --common-block: min(2vh, 10rem);
+}
+
+.noitce-container {
+  position: relative;
+  width: 100%;
+  background: black;
+}
+.noitce-container img {
+  background-repeat: no-repeat;
+  width: 100%;
+  height: auto; /* need study */
+  object-fit: cover;
+  opacity: 0.4;
+}
+
+.noitce-container .left_div {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 0px 0px 0px 100px;
+  position: absolute;
+  top: 35%;
+  left: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+.head p {
+  font-size: 2.3333rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #f2f2f2;
+}
+
+.child p {
+  font-size: 1.2555rem;
+  text-align: justify;
+  color: #f2f2f2;
+  font-weight: bold;
+  line-height: 1.444;
+}
+
+@media screen and (max-width: 900px) {
+  .noitce-container .left_div {
+    width: 90%;
+  }
+}
+
+@media screen and (max-width: 869px) {
+  .head p {
+    font-size: 1.3333rem;
+  }
+  .child p {
+    font-size: 1rem;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .noitce-container .left_div {
+    padding: 10px 5px;
+  }
+
+  .noitce-container img {
+    height: 350px;
+  }
+
+  .left_div a {
+    font-size: 1rem;
+    font-weight: normal;
+  }
+}
+
+/* for this ui we're explicitly modifiying nav logo */
+.logo {
+  font-size: 2.5rem;
+  line-height: 1.2;
+}
+
+.head p::after {
+  content: " ";
+  border-bottom: 2px solid #f2f2f2;
+  opacity: 0.25;
+  display: block;
+  width: 170px;
+}
+
+.single-notice-view {
+  padding-block: min(5vh, 10rem);
+}
+.single-notice {
+  display: flex;
+  flex-direction: column;
+}
+.single-notice .heading {
+  margin: var(--common-margin) auto;
+  width: 80%;
+}
+.heading h1 {
+  font-weight: 600;
+  text-align: center;
+  line-height: 1.333;
+}
+.notice_date {
+  display: flex;
+  justify-content: flex-end;
+  gap: 2px;
+}
+.notice_date p {
+  font-weight: 600;
+}
+.notice_date i {
+  font-size: 19px;
+  /* margin-top: 2px; */
+}
+
+.single-line-border::after {
+  content: " ";
+  display: block;
+  width: 100%;
+  border-bottom: 1px dotted black;
+  opacity: 0.5;
+}
+
+.single-line-border-bold::after {
+  content: " ";
+  display: block;
+  width: 70%;
+  margin: 0 auto;
+  border-bottom: 1px solid black;
+}
+.main_notice {
+  display: block;
+  width: 70%;
+  margin: 0 auto;
+  padding-block: min(5vh, 10rem);
+}
+
+.main_notice .contents {
+  width: 100%;
+  text-align: justify;
+  overflow: hidden;
+  line-height: 1.5;
+  font-size: 19px;
+  outline: none;
+  border: none;
+  resize: none;
+  font-family: none;
+}
+.main_notice::after {
+  content: " ";
+  display: block;
+  width: 100%;
+  border-bottom: 0.5px dotted black;
+  opacity: 0.25;
+}
+.link-to-share {
+  padding-block: var(--common-block);
+}
+.solid-green {
+  content: " ";
+  width: 10%;
+  display: block;
+  border-bottom: 1px solid teal;
+  border-width: 5px;
+  margin: 10px 0 20px 0;
+}
+.link-to-share a {
+  text-decoration: none;
+  color: teal;
+  font-weight: 600;
+  padding-bottom: 20px;
+}
+.link-to-share a:hover {
+  color: #47bcd4;
+}
+
+.next-prev {
+  display: flex;
+  width: 70%;
+  flex-direction: column;
+  margin: 0 auto;
+}
+
+.next-prev a {
+  text-decoration: none;
+}
+.next-prev .section {
+  flex: 50%;
+  padding: 20px 0;
+  text-align: center;
+}
+.section:hover {
+  background: #f2f2f2;
+  cursor: pointer;
+}
+.section .btn-common {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
+
+.btn-common i {
+  font-size: 18px;
+}
+.page {
+  font-size: 20px;
+  font-weight: bold;
+  padding: 5px 0;
+}
+.title {
+  font-size: 18px;
+  color: teal;
+  padding: 5px 0;
+}
+.single-divider {
+  display: block;
+  width: 100%;
+  border-bottom: 1px dotted black;
+  opacity: 0.5;
+}
+/* 
+.section:hover .title {
+  color: #47bcd4;
+} */
+.notice-list-render {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding-block: min(5vh, 10rem);
+}
+.notice-list-btn {
+  width: 220px;
+  display: flex;
+  text-align: center;
+  border: 1px solid #47bcd4;
+  background: teal;
+  color: #f2f2f2;
+  text-decoration: none;
+  /* transition: 0.3s all ease-in; */
+}
+.notice-list-btn p {
+  width: 160px;
+  padding: 15px 20px;
+  font-size: 28px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+.notice-list-btn:hover {
+  background: none;
+  color: teal;
+  /* transform: scale(1.2); */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+}
+.notice-list-btn:hover .arrow-right {
+  color: teal;
+}
+
+.arrow-right {
+  width: 60px;
+  align-items: center;
+  font-size: 20px;
+  color: #f2f2f2;
+}
