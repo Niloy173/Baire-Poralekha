@@ -5,6 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title><%= title %></title>
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="/css/common.css" />
     <link rel="stylesheet" href="/css/user/single-article.css" />
 
     <script src="https://unpkg.com/phosphor-icons"></script>
@@ -49,7 +56,7 @@
           class="previous"
         >
           <div class="btn">
-            <i class="ph-arrow-left-light"></i>
+            <i class="ph-arrow-left-bold"></i>
             <span>Previous</span>
           </div>
           <p class="title"><%= all_article[previous_index].title %></p>
@@ -57,7 +64,7 @@
         <a href="/article/<%= all_article[next_index]._id %>" class="next">
           <div class="btn">
             <span>Next</span>
-            <i class="ph-arrow-right-light"></i>
+            <i class="ph-arrow-right-bold"></i>
           </div>
           <p class="title"><%= all_article[next_index].title %></p>
         </a>

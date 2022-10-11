@@ -1,10 +1,3 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  scroll-behavior: smooth;
-}
-
 .basic_info {
   width: 100%;
   background: #f7f7f5;
@@ -112,6 +105,7 @@
   color: teal;
   font-size: 18px;
   font-weight: bold;
+  font-family: "Times New Roman", Times, serif;
 }
 
 .next span {
@@ -172,7 +166,7 @@
   width: 250px;
   margin: 10px 0;
   cursor: pointer;
-  border-bottom: 5px solid teal;
+  border-bottom: 5px solid #47bcd4;
 }
 .card:hover {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
@@ -198,11 +192,13 @@
   display: block;
   width: 100%;
   text-align: center;
+  font-family: "Times New Roman", Times, serif;
 }
 
 .card-details .description {
   font-size: 15px;
   text-align: center;
+  font-family: "Times New Roman", Times, serif;
 }
 
 .single-border {
@@ -223,10 +219,15 @@
 .created-date p {
   padding-bottom: 10px;
   font-size: 18px;
+  font-family: "Times New Roman", Times, serif;
 }
 .created-date a {
   text-decoration: none;
   color: teal;
   font-size: 18px;
   font-weight: 600;
+  font-family: "Times New Roman", Times, serif;
+}
+.created-date a:hover {
+  color: #47bcd4;
 }
