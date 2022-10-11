@@ -45,7 +45,9 @@
           <div class="sub_article active-article">
             <p><%= articles[index].content.substr(0,194) %></p>
             <div>
-              <p><a href="#">Read more</a></p>
+              <p>
+                <a href="/article/<%= articles[index]._id %>">Read more</a>
+              </p>
             </div>
           </div>
         </li>
@@ -58,7 +60,9 @@
           <div class="sub_article">
             <p><%= articles[index].content.substr(0,194) %></p>
             <div>
-              <p><a href="#">Read more</a></p>
+              <p>
+                <a href="/article/<%= articles[index]._id %>">Read more</a>
+              </p>
             </div>
           </div>
         </li>
