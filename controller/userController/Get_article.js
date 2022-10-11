@@ -100,10 +100,14 @@ async function Get_me_single_article(req, res, next) {
 
     if (position === 0) {
       previous_index = all_article.length - 1;
-      next_index = position + 1;
+      next_index = all_article[position + 1] ? position + 1 : 0;
+      // if there are only one article
+      // current & next should be same
     } else if (position === all_article.length - 1) {
       previous_index = position - 1;
-      next_index = 0;
+      next_index = all_article.length > 2 ? 0 : position;
+      // if there are only two articles next should be
+      // current one
     } else {
       previous_index = position - 1;
       next_index = position + 1;
@@ -120,7 +124,8 @@ async function Get_me_single_article(req, res, next) {
         .substring(4),
     });
   } catch (error) {
-    console.log(error);
+    // console.log(error);
+    res.status(500).send(error);
   }
 }
 module.exports = {
