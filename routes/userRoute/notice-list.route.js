@@ -3,6 +3,7 @@ const express = require("express");
 const {
   Get_me_specific_range_notice,
   Get_particular_notice_with_filter,
+  Get_me_single_notice,
 } = require("../../controller/userController/Get_notice");
 
 const {
@@ -18,9 +19,7 @@ router.get(
 );
 
 // single notice render
-router.get("/:id", decorateHtmlResponse("Notice"), (req, res, next) => {
-  res.render("single-notice");
-});
+router.get("/:id", decorateHtmlResponse("Notice"), Get_me_single_notice);
 
 router.post("/all-notice-list/:pagenumber", Get_me_specific_range_notice);
 
