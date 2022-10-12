@@ -1,3 +1,7 @@
+* {
+  scroll-behavior: smooth;
+}
+
 .basic_info {
   width: 100%;
   background: #f7f7f5;
@@ -230,4 +234,30 @@
 }
 .created-date a:hover {
   color: #47bcd4;
+}
+.single-top-icon {
+  position: fixed;
+  bottom: 25px;
+  right: 35px;
+  z-index: 99;
+  font-size: 18px;
+  border: none;
+  outline: none;
+  background-color: red;
+  /* border-radius: 50%; */
+  cursor: pointer;
+  padding: 15px;
+  border-radius: 4px;
+}
+
+.single-top-icon i {
+  color: white;
+  font-size: 22px;
+}
+.single-top-icon:hover {
+  background: none;
+  border: 2px solid red;
+}
+.single-top-icon:hover i {
+  color: red;
 }
