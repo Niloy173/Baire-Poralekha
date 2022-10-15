@@ -39,20 +39,19 @@
 
       <div class="left_div">
         <div class="head">
-          <p><%= data[0].title %></p>
+          <p id="title"><%= data[0].title %></p>
         </div>
 
-        <div class="child">
+        <div id="child" class="child fadedown">
           <p><%= data[0].content.substring(0,202) %></p>
+          <a href="/article/<%= data[0]._id %>">
+            <button>Check out</button>
+            <i
+              style="margin-top: 10px; color: #f2f2f2; margin-left: 5px"
+              class="fas fa-arrow-right"
+            ></i>
+          </a>
         </div>
-
-        <a href="/article/<%= data[0]._id %>">
-          <button>Check out</button>
-          <i
-            style="margin-top: 10px; color: #f2f2f2; margin-left: 5px"
-            class="fas fa-arrow-right"
-          ></i>
-        </a>
       </div>
     </div>
 

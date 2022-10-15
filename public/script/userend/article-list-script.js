@@ -1,5 +1,5 @@
 const FailureToast = Toastify({
-  text: "Sorry! No notice found",
+  text: "Sorry! No Article found",
   duration: 2000,
 });
 
@@ -81,3 +81,29 @@ async function Search() {
     alert("please write some text to search");
   }
 }
+
+// automatic type writing
+document.addEventListener("DOMContentLoaded", function (e) {
+  const text_to_type = document.getElementById("title").textContent;
+
+  function typeWriter(text, index) {
+    if (index < text.length) {
+      document.querySelector("#title").innerHTML =
+        text.substring(0, index + 1) +
+        '<span class="character" aria-hidden="true"></span>';
+
+      // delay for 200ms for every character
+      setTimeout(() => {
+        typeWriter(text_to_type, index + 1);
+      }, 200);
+    } else {
+      // remove the fadedown
+      document.querySelector("#child").classList.remove("fadedown");
+      // add the fade up
+      document.querySelector("#child").classList.add("fadeup");
+    }
+  }
+
+  // start typewritiing
+  typeWriter(text_to_type, 0);
+});
